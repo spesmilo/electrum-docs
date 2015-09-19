@@ -33,8 +33,8 @@ Checksum and version number
 
 The following hash is used:
 
-<pre>s = hmac_sha_512("Seed version", normalized_seedphrase)
-</pre>
+s = hmac_sha_512("Seed version", normalized_seedphrase)
+
 
 The first bits of s (prefix) must be in a list of accepted
 prefixes.
@@ -42,7 +42,7 @@ prefixes.
 The length of the prefix is given by the first 4 bits of
 the prefix:
 
-<pre>length = 8 + 4*n</pre>
+length = 8 + 4*n
 
 List of reserved prefixes
 -------------------------
