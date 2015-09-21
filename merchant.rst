@@ -134,7 +134,7 @@ configuration variable, url_rewrite:
 
 .. code-block:: bash
 
-   electrum setconfig url_rewrite "['file:///var/www/','<a class="external free" href="https://electrum.org/%27" rel="nofollow">https://electrum.org/'</a>]"
+   electrum setconfig url_rewrite "['file:///var/www/','https://electrum.org/']"
 
 
 With this setting, we can list requests again
