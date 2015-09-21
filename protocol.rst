@@ -8,9 +8,11 @@ mainly by bitcoin client Electrum and miners.
 Format
 ------
 
-Stratum protocol is based on <a class="external text" href="http://www.jsonrpc.org/specification" rel="nofollow">JSON-RPC 2.0</a> (although it doesn't
+Stratum protocol is based on `JSON-RPC 2.0`_ (although it doesn't
 include "jsonrpc" information in every message). Each
 message has to end with a line end character (\n).
+
+.. _JSON-RPC 2.0: http://www.jsonrpc.org/specification
 
 Request
 ```````

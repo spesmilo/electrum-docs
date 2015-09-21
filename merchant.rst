@@ -47,7 +47,7 @@ Create a file that contains only the private key:
 
 Set the path to your the private key file with setconfig:
 
-.. code-block:: none
+.. code-block:: bash
 
    electrum setconfig ssl_privkey /path/to/ssl.key
 
