@@ -62,10 +62,10 @@ to dump the private keys of all adresses that have unspent outputs:
    }
 
 Note that dumpprivkey will ask for your password if your
-wallet is encrypted. <br/>
+wallet is encrypted.
 The GUI methods can be accessed through the gui variable.
 For example, you can display a QR code from a string
-using gui.show_qrcode. Example:</p>
+using gui.show_qrcode. Example:
 
 .. code-block:: python
 
