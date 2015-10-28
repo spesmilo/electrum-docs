@@ -29,7 +29,7 @@ Magic words
 -----------
 
 
-The arguments passed to commands may be one of the following magic words: !, ? and -.
+The arguments passed to commands may be one of the following magic words: ! ? : and -.
 
 - The exclamation mark ! is a shortcut that means 'the maximum amount
   available'.
@@ -40,19 +40,28 @@ The arguments passed to commands may be one of the following magic words: !, ? a
 
      electrum payto 1JuiT4dM65d8vBt8qUYamnDmAMJ4MjjxRE !
 
-
   Note that the transaction fee will be computed and deducted from the
   amount.
 
-- A question mark ? means that you want the parameter to be prompted,
-  so that you don't have to type it in clear text.
+
+- A question mark ? means that you want the parameter to be prompted.
+
+  Example:
 
   .. code-block:: bash
 
-     electrum importprivkey ?
+     electrum signmessage 1JuiT4dM65d8vBt8qUYamnDmAMJ4MjjxRE ?
+
+- Use a colon : if you want the prompted parameter to be hidden (not
+  echoed in your terminal).
+
+  .. code-block:: bash
+
+     electrum importprivkey :
 
   Note that you will be prompted twice in this example, first for the
   private key, then for your wallet password.
+
 
 - A parameter replaced by a dash - will be read from standard input
   (in a pipe)
@@ -124,8 +133,7 @@ Incoming transactions have a positive 'value' field
 
 .. code-block:: bash
 
-   electrum history | jq '.[] | select(.value&gt;0)'
-          
+   electrum history | jq '.[] | select(.value>0)'
 
 Filter transactions by date
 ```````````````````````````
@@ -137,7 +145,7 @@ timestamped after a given date:
 
    after=$(date -d '07/01/2015' +"%s")
 
-   electrum history | jq --arg after $after '.[] | select(.timestamp&gt;($after|tonumber))'
+   electrum history | jq --arg after $after '.[] | select(.timestamp>($after|tonumber))'
           
 
 Similarly, we may export transactions for a given time
