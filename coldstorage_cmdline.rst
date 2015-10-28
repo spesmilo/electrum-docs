@@ -22,7 +22,7 @@ You may view it using:
 
 .. code-block:: bash
 
-   cat unsigned.txn | jq -r '.hex' | electrum deserialize - 
+   cat unsigned.txn | electrum deserialize -
 
 Sign the transaction
 --------------------
@@ -36,7 +36,7 @@ the offline wallet:
 
 .. code-block:: bash
 
-   cat unsigned.txn | jq -r '.hex' | electrum signtransaction - > signed.txn
+   cat unsigned.txn | electrum signtransaction - > signed.txn
 
 The command will ask for your password, and save the
 signed transaction in 'signed.txn'</p>
@@ -48,7 +48,7 @@ Send your transaction to the Bitcoin network, using broadcast:
 
 .. code-block:: bash
 
-   cat signed.txn | jq -r '.hex' | electrum broadcast -
+   cat signed.txn | electrum broadcast -
 
 If successful, the command will return the ID of the
 transaction.
