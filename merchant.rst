@@ -1,8 +1,8 @@
 How to accept Bitcoin on a website using Electrum
 =================================================
 
-This tutorial will show you how to accept Bitcoin on a
-website with SSL signed payment requests.
+This tutorial will show you how to accept Bitcoin on a website with
+SSL signed payment requests. It is updated for Electrum 2.6.
 
 
 Requirements
@@ -10,7 +10,7 @@ Requirements
 
 - A webserver serving static HTML
 - A SSL certificate (signed by a CA)
-- Electrum 2.4
+- Electrum version >= 2.6
 
 Create a wallet
 ---------------
@@ -85,6 +85,13 @@ This directory must be served by your webserver (eg Apache)
 
    electrum setconfig requests_dir /var/www/r/
 
+By default, electrum will display local URLs, starting with 'file://'
+In order to display public URLs, we need to set another configuration
+variable, url_rewrite. For example:
+
+.. code-block:: bash
+
+   electrum setconfig url_rewrite "['file:///var/www/','https://electrum.org/']"
 
 Create a signed payment request
 -------------------------------
@@ -92,73 +99,31 @@ Create a signed payment request
 .. code-block:: bash
 
    electrum addrequest 3.14 -m "this is a test"
-
    {
-   "address": "15KX6Fty5zQNKfNHvcg6kmpX5Kpfdm5yCD", 
-   "amount": "3.14 BTC", 
-   "exp": 3600, 
-   "id": "8c85589985", 
-   "memo": "this is a test", 
-   "status": "Unknown", 
-   "time": 1437765812
+      "URI": "bitcoin:1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4?amount=3.14&r=https://electrum.org/r/7c2888541a", 
+      "address": "1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4", 
+      "amount": 314000000, 
+      "amount (BTC)": "3.14", 
+      "exp": 3600, 
+      "id": "7c2888541a", 
+      "index_url": "https://electrum.org/r/index.html?id=7c2888541a", 
+      "memo": "this is a test", 
+      "request_url": "https://electrum.org/r/7c2888541a", 
+      "status": "Pending", 
+      "time": 1450175741
    }
 
-With the listrequests command, we can see our list of requests:
+This command returns a json object with two URLs:
 
-.. code-block:: bash
+ - request_url is the URL of the signed BIP70 request.
+ - index_url is the URL of a webpage displaying the request.
 
-   electrum listrequests
+Note that request_url and index_url use the domain name we defined in
+url_rewrite.
 
-   [
-    {
-        "URI": "bitcoin:15KX6Fty5zQNKfNHvcg6kmpX5Kpfdm5yCD?amount=1.&amp;r=file:///var/www/r/d898360e19", 
-        "address": "15KX6Fty5zQNKfNHvcg6kmpX5Kpfdm5yCD", 
-        "amount": "3.14 BTC", 
-        "exp": 3600, 
-        "id": "d898360e19", 
-        "index_url": "file:///var/www/r/index.html?id=d898360e19", 
-        "memo": "this is a test", 
-        "request_url": "file:///var/www/r/d898360e19", 
-        "status": "Pending", 
-        "time": 1437765725
-    }
-   ]
+You can view the current list of requests using the 'listrequests'
+command.
 
-
-Note that listrequests shows the status of the request (pending). It
-also displays request_url: this is the path to a signed BIP70 request.
-
-For the moment request_url is a local URL. We need to instruct
-electrum to create a public url. This is achieved by setting another
-configuration variable, url_rewrite:
-
-.. code-block:: bash
-
-   electrum setconfig url_rewrite "['file:///var/www/','https://electrum.org/']"
-
-
-With this setting, we can list requests again
-
-.. code-block:: bash
-
-   electrum listrequests
-
-   [
-    {
-        "URI": "bitcoin:15KX6Fty5zQNKfNHvcg6kmpX5Kpfdm5yCD?amount=1.&amp;r=https://electrum.org/r/8c85589985", 
-        "address": "15KX6Fty5zQNKfNHvcg6kmpX5Kpfdm5yCD", 
-        "amount": "3.14 BTC", 
-        "exp": 3600, 
-        "id": "8c85589985", 
-        "index_url": "https://electrum.org/r/index.html?id=8c85589985", 
-        "memo": "this is a test", 
-        "request_url": "https://electrum.org/r/8c85589985", 
-        "status": "Pending", 
-        "time": 1437765812
-    }
-   ]
-
-Now request_url and index_url are a public URLs.
 
 Open the payment request page in your browser
 ---------------------------------------------
@@ -207,27 +172,21 @@ And restart the daemon:
 Now, the page is fully interactive: it will update itself
 when the payment is received.
 
-Customize
----------
-
-If you decide to modify index.html, please note that it
-will be overwritten everytime you restart the electrum
-daemon; you need to modify the source file.
-
-If you want to access electrum commands by PHP, instead of
-the command line, you may want to use the jsonrpc interface
-to Electrum.
-
 JSONRPC interface
 -----------------
 
-Start the jsonrpc interface:
+Commands to the Electrum daemon can be sent using JSONRPC. This is
+useful if you want to use electrum in a PHP script.
+
+Note that the daemon uses a random port number by default. In order to
+use a stable port number, you need to set the 'rpcport' configuration
+variable (and to restart the daemon):
 
 .. code-block:: bash
 
-   electrum -g jsonrpc
+   electrum setconfig rpcport 7777
 
-Example query:
+With this setting, we can perform queries using curl or PHP. Example:
 
 .. code-block:: bash
 
@@ -238,3 +197,11 @@ Query with named parameters:
 .. code-block:: bash
 
    curl --data-binary '{"id":"curltext","method":"listaddresses","params":{"funded":true}}' http://127.0.0.1:7777
+
+Create a payment request:
+
+.. code-block:: bash
+
+   curl --data-binary '{"id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://127.0.0.1:7777
+
+
