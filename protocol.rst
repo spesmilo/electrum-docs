@@ -17,7 +17,7 @@ message has to end with a line end character (\n).
 Request
 ```````
 
-Typical request looks like this: 
+Typical request looks like this:
 
 .. code-block:: json
 
@@ -32,7 +32,7 @@ Response
 Responses are similar:
 
 .. code-block:: json
-   
+
    { "id": 0, "result": "616be06545e5dd7daec52338858b6674d29ee6234ff1d50120f060f79630543c"}
 
 - id is copied from the request message (this way client can pair each
@@ -75,7 +75,7 @@ usually compatible).
 
    { "id": 0, "method": "server.version", "params": [ "1.9.5", "0.6" ] }
 
-*response:* 
+*response:*
 
 .. code-block:: json
 
@@ -131,6 +131,29 @@ yet.
 
 blockchain.numblocks.subscribe
 ``````````````````````````````
+A request to send to the client notifications about new
+blocks height. Responds with the current block height.
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 5, "method":
+   "blockchain.numblocks.subscribe", "params": [] }
+
+
+*response:*
+
+.. code-block:: json
+
+   { "id": 5, "result": 316024 }
+
+*message:*
+
+.. code-block:: json
+
+   { "id": null, "method":
+   "blockchain.numblocks.subscribe", "params": 316024 }
 
 blockchain.headers.subscribe
 ````````````````````````````
@@ -206,14 +229,19 @@ blockchain.address.get_history
 .. code-block:: json
 
    {"id": 1, "method":
-   "blockchain.address.get", "params":
-   ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }<br/>
-   <b>response&nbsp;:</b> {"id": 1, "result": [{"tx_hash":
+   "blockchain.address.get_history", "params":
+   ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": [{"tx_hash":
    "ac9cd2f02ac3423b022e86708b66aa456a7c863b9730f7ce5bc24066031fdced",
    "height": 340235}, {"tx_hash":
    "c4a86b1324f0a1217c80829e9209900bc1862beb23e618f1be4404145baa5ef3",
-   "height": 340237}]}<br/>
-          
+   "height": 340237}]}
+
 
 blockchain.address.get_mempool
 ``````````````````````````````
@@ -226,7 +254,7 @@ blockchain.address.get_balance
 .. code-block:: json
 
    { "id": 1, "method":"blockchain.address.get_balance", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
-   
+
 *response:*
 
 .. code-block:: json
@@ -267,9 +295,24 @@ blockchain.block.get_header
 blockchain.block.get_chunk
 ``````````````````````````
 
-
 blockchain.transaction.broadcast
 ````````````````````````````````
+
+Submits raw transaction (serialized, hex-encoded) to the network. Returns transaction id, or an error if the transaction is invalid for any reason.
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 1, "method":
+   "blockchain.transaction.broadcast", "params":
+   "0100000002f327e86da3e66bd20e1129b1fb36d07056f0b9a117199e759396526b8f3a20780000000000fffffffff0ede03d75050f20801d50358829ae02c058e8677d2cc74df51f738285013c260000000000ffffffff02f028d6dc010000001976a914ffb035781c3c69e076d48b60c3d38592e7ce06a788ac00ca9a3b000000001976a914fa5139067622fd7e1e722a05c17c2bb7d5fd6df088ac00000000" }<br/>
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": "561534ec392fa8eebf5779b233232f7f7df5fd5179c3c640d84378ee6274686b"}
 
 blockchain.transaction.get_merkle
 `````````````````````````````````
@@ -302,6 +345,28 @@ returned.
 .. code-block:: json
 
    { "id": 17, "error": "{ u'message': u'No information available about transaction', u'code': -5 }" }
+
+
+blockchain.estimatefee
+``````````````````````
+
+Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks.
+Parameter: How many blocks the transaction may wait before being included
+
+If the node doesn’t have enough information to make an estimate, the value -1 will be returned
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 17, "method":"blockchain.estimatefee", "params": 6 }
+
+*response:*
+
+.. code-block:: json
+
+   { "id": 17, "result": 0.00026809}
+
 
 External links
 --------------
