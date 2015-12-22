@@ -17,7 +17,7 @@ message has to end with a line end character (\n).
 Request
 ```````
 
-Typical request looks like this: 
+Typical request looks like this:
 
 .. code-block:: json
 
@@ -32,7 +32,7 @@ Response
 Responses are similar:
 
 .. code-block:: json
-   
+
    { "id": 0, "result": "616be06545e5dd7daec52338858b6674d29ee6234ff1d50120f060f79630543c"}
 
 - id is copied from the request message (this way client can pair each
@@ -75,7 +75,7 @@ usually compatible).
 
    { "id": 0, "method": "server.version", "params": [ "1.9.5", "0.6" ] }
 
-*response:* 
+*response:*
 
 .. code-block:: json
 
@@ -131,6 +131,29 @@ yet.
 
 blockchain.numblocks.subscribe
 ``````````````````````````````
+A request to send to the client notifications about new
+blocks height. Responds with the current block height.
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 5, "method":
+   "blockchain.numblocks.subscribe", "params": [] }
+
+
+*response:*
+
+.. code-block:: json
+
+   { "id": 5, "result": 316024 }
+
+*message:*
+
+.. code-block:: json
+
+   { "id": null, "method":
+   "blockchain.numblocks.subscribe", "params": 316024 }
 
 blockchain.headers.subscribe
 ````````````````````````````
@@ -213,7 +236,7 @@ blockchain.address.get_history
    "height": 340235}, {"tx_hash":
    "c4a86b1324f0a1217c80829e9209900bc1862beb23e618f1be4404145baa5ef3",
    "height": 340237}]}<br/>
-          
+
 
 blockchain.address.get_mempool
 ``````````````````````````````
@@ -226,7 +249,7 @@ blockchain.address.get_balance
 .. code-block:: json
 
    { "id": 1, "method":"blockchain.address.get_balance", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
-   
+
 *response:*
 
 .. code-block:: json
