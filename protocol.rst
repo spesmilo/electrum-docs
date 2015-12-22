@@ -295,9 +295,24 @@ blockchain.block.get_header
 blockchain.block.get_chunk
 ``````````````````````````
 
-
 blockchain.transaction.broadcast
 ````````````````````````````````
+
+Submits raw transaction (serialized, hex-encoded) to the network. Returns transaction id, or an error if the transaction is invalid for any reason.
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 1, "method":
+   "blockchain.transaction.broadcast", "params":
+   "0100000002f327e86da3e66bd20e1129b1fb36d07056f0b9a117199e759396526b8f3a20780000000000fffffffff0ede03d75050f20801d50358829ae02c058e8677d2cc74df51f738285013c260000000000ffffffff02f028d6dc010000001976a914ffb035781c3c69e076d48b60c3d38592e7ce06a788ac00ca9a3b000000001976a914fa5139067622fd7e1e722a05c17c2bb7d5fd6df088ac00000000" }<br/>
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": "561534ec392fa8eebf5779b233232f7f7df5fd5179c3c640d84378ee6274686b"}
 
 blockchain.transaction.get_merkle
 `````````````````````````````````
