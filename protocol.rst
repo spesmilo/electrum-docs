@@ -229,13 +229,18 @@ blockchain.address.get_history
 .. code-block:: json
 
    {"id": 1, "method":
-   "blockchain.address.get", "params":
-   ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }<br/>
-   <b>response&nbsp;:</b> {"id": 1, "result": [{"tx_hash":
+   "blockchain.address.get_history", "params":
+   ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": [{"tx_hash":
    "ac9cd2f02ac3423b022e86708b66aa456a7c863b9730f7ce5bc24066031fdced",
    "height": 340235}, {"tx_hash":
    "c4a86b1324f0a1217c80829e9209900bc1862beb23e618f1be4404145baa5ef3",
-   "height": 340237}]}<br/>
+   "height": 340237}]}
 
 
 blockchain.address.get_mempool
