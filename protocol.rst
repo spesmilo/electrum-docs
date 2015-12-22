@@ -346,6 +346,28 @@ returned.
 
    { "id": 17, "error": "{ u'message': u'No information available about transaction', u'code': -5 }" }
 
+
+blockchain.estimatefee
+``````````````````````
+
+Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks.
+Parameter: How many blocks the transaction may wait before being included
+
+If the node doesn’t have enough information to make an estimate, the value -1 will be returned
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 17, "method":"blockchain.estimatefee", "params": 6 }
+
+*response:*
+
+.. code-block:: json
+
+   { "id": 17, "result": 0.00026809}
+
+
 External links
 --------------
 
