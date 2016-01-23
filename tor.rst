@@ -1,7 +1,7 @@
 Using Electrum Through Tor
 ==========================================================
 
-Please note that when using electrum through tor there is two main ways.
+Please note that when using electrum through tor there are two main ways.
 The first way has the most Privacy but also requires the most trust in the server you are connecting too. This is because normally
 Electrum connects to a few different servers and downloads block headers and checks that they match. This prevents / makes it more difficult for 
 Rogue servers to send you bad information. However this can also present a privacy issue because you could be connecting to none .onion servers for these headers.
@@ -45,7 +45,7 @@ tar -xvzf Electrum-2.*.*.tar.gz
 
 Go into the extracted electrum folder and then run;
 
-electrum -1 -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+./electrum -1 -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
 
 Quick explanation,
 
@@ -68,7 +68,7 @@ Option 2: Multiple servers but Tor Main
 ---------------------------------------
 Same as above until the command to launch electrum, Remove the -1 making it
 
-electrum -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+./electrum -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
 
 For this one you can also just launch electrum and click on the Green or Red icon on the bottom right to bring up server information
 
