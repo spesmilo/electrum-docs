@@ -45,7 +45,7 @@ tar -xvzf Electrum-2.*.*.tar.gz
 
 Go into the extracted electrum folder and then run;
 
-./electrum -1 -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+./electrum -1 -s electrums3lojbuj.onion:50001:t -p socks5:localhost:9050
 
 Quick explanation,
 
@@ -68,13 +68,13 @@ Option 2: Multiple servers but Tor Main
 ---------------------------------------
 Same as above until the command to launch electrum, Remove the -1 making it
 
-./electrum -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+./electrum -s electrums3lojbuj.onion:50001:t -p socks5:localhost:9050
 
 For this one you can also just launch electrum and click on the Green or Red icon on the bottom right to bring up server information
 
 Untick the box for Auto and enter;
 
-electrumaay7a3lc.onion
+electrums3lojbuj.onion
 
 50001
 
@@ -108,7 +108,7 @@ It should already say something similar to what’s in between the speech bubble
 
 What we want to do is add on the bit after the last speech bubble. Make a space and then enter / copy and paste.
 
-"C:\Program Files (x86)\Electrum\electrum.exe" -1 -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+"C:\Program Files (x86)\Electrum\electrum.exe" -1 -s electrums3lojbuj.onion:50001:t -p socks5:localhost:9050
 
 Apply and Ok the change... You can go back to the General Tab if you want and Where it says "electrum.exe - Shortcut" you could change that to Electrum - Tor or something
 
@@ -145,7 +145,7 @@ It should already say something similar to what’s in between the speech bubble
 What we want to do is add on the bit after the last speech bubble. Make a space and then enter / copy and paste.
 
 
-"C:\Program Files (x86)\Electrum\electrum.exe" -s electrumaay7a3lc.onion:50001:t -p socks5:localhost:9050
+"C:\Program Files (x86)\Electrum\electrum.exe" -s electrums3lojbuj.onion:50001:t -p socks5:localhost:9050
 
 Apply and Ok the change... You can go back to the General Tab if you want and Where it says "electrum.exe - Shortcut" you could change that to Electrum - Tor or something
 
@@ -165,7 +165,7 @@ General Tor (Installed): 9050
 For this one you can also just launch electrum and click on the Green or Red icon on the bottom right to bring up server information
 Untick the box for Auto and enter;
 
-electrumaay7a3lc.onion
+electrums3lojbuj.onion
 
 50001
 
