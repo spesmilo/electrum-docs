@@ -8,7 +8,7 @@ Create an unsigned transaction
 ------------------------------
 
 With your online (watching-only) wallet, create an
-unsigned transaction:</p>
+unsigned transaction:
 
 .. code-block:: bash
 
@@ -29,7 +29,7 @@ Sign the transaction
 
 The serialization format of Electrum contains the master
 public key needed and key derivation, used by the offline
-wallet to sign the transaction.</p>
+wallet to sign the transaction.
 
 Thus we only need to pass the serialized transaction to
 the offline wallet:
@@ -39,7 +39,7 @@ the offline wallet:
    cat unsigned.txn | electrum signtransaction - > signed.txn
 
 The command will ask for your password, and save the
-signed transaction in 'signed.txn'</p>
+signed transaction in 'signed.txn'
 
 Broadcast the transaction
 -------------------------
@@ -52,4 +52,3 @@ Send your transaction to the Bitcoin network, using broadcast:
 
 If successful, the command will return the ID of the
 transaction.
-        
