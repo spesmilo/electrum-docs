@@ -139,7 +139,7 @@ you first run the application and located under the /wallets folder.
 On Windows:
 
  - Show hidden files
- - Go to \Users\YourUserName\AppData\Roaming\Local\Electrum
+ - Go to %APPDATA%\\Electrum
 
 On Mac:
 
