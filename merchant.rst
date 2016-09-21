@@ -154,11 +154,13 @@ Get SimpleWebSocketServer from here:
    git clone https://github.com/ecdsa/simple-websocket-server.git
 
 
-Set websocket_server in your config:
+Set ``websocket_server`` and ``websocket_port`` in your config:
 
 .. code-block:: bash
 
-   electrum setconfig websocket_server <FQDN of your server>
+    electrum setconfig websocket_server <FQDN of your server>
+
+    electrum setconfig websocket_port 9999
 
 
 And restart the daemon:
@@ -170,7 +172,10 @@ And restart the daemon:
    electrum daemon start
    
 Now, the page is fully interactive: it will update itself
-when the payment is received.
+when the payment is received. Please notice that higher ports might 
+be blocked on some client's firewalls, so it is more safe for 
+example to reverse proxy websockets transmission using standard 
+``443`` port on an additional subdomain.
 
 JSONRPC interface
 -----------------
