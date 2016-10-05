@@ -14,11 +14,9 @@ entropy. This type of encoding requires a fixed wordlist. This means
 that future versions of Electrum must ship with the exact same
 wordlist, in order to be able to read old seed phrases.
 
-BIP39 was introduced two years after Electrum, in a way that broke
-compatibility with existing Electrum seeds, because nothing was done
-to prevent collisions. BIP39 seeds include a checksum, in order to
-help users figure out typing errors. However, BIP39 suffers the same
-shortcomings as early Electrum seed phrases:
+BIP39 was introduced two years after Electrum. BIP39 seeds include a
+checksum, in order to help users figure out typing errors. However,
+BIP39 suffers the same shortcomings as early Electrum seed phrases:
 
  - A fixed wordlist is still required. Following our recommendation,
    BIP39 authors accepted to derive keys and addresses in a way that
