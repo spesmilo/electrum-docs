@@ -97,7 +97,7 @@ between asian CJK characters.
 List of reserved numbers
 ------------------------
 
-The following seed types are used in Electrum.
+The following version numbers are used in Electrum.
 
 ======== ========= =====================================
 Number   Type      Description
