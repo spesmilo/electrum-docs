@@ -19,7 +19,7 @@ checksum, in order to help users figure out typing errors. However,
 BIP39 suffers the same shortcomings as early Electrum seed phrases:
 
  - A fixed wordlist is still required. Following our recommendation,
-   BIP39 authors accepted to derive keys and addresses in a way that
+   BIP39 authors decided to derive keys and addresses in a way that
    does not depend on the wordlist. However, BIP39 still requires the
    wordlist in order to compute its checksum, which is plainly
    inconsistent, and defeats the purpose of our recommendation. This
@@ -30,8 +30,8 @@ BIP39 suffers the same shortcomings as early Electrum seed phrases:
  - BIP39 seed phrases do not include a version number. This means that
    software should always know how to generate keys and
    addresses. BIP43 suggests that wallet software will try various
-   existing derivation schemes, within the BIP32 framework. This is
-   vastly inefficient, and it rests on the assumption that future
+   existing derivation schemes within the BIP32 framework. This is
+   extremely inefficient and rests on the assumption that future
    wallets will support all previously accepted derivation
    methods. If, in the future, a wallet developer decides not to
    implement a particular derivation method because it is deprecated,
@@ -48,16 +48,16 @@ Description
 -----------
 
 Electrum 2.0 derives keys and addresses from a hash of the UTF8
-normalized seed phrase, in a way that does not depend on the
-wordlist. This means that the wordlist can be updated without breaking
-existing seeds, and that future wallet implementations will not need
-to carry today's wordlists in order to be able to decode the seeds
-created today. This minimizes the cost of forward compatibility.
+normalized seed phrase with no dependency on a fixed wordlist.
+This means that the wordlist can differ between wallets while the seed remains
+portable, and that future wallet implementations will not need
+today's wordlists in order to be able to decode the seeds
+created today. This reduces the cost of forward compatibility.
 
 In addition, Electrum 2.0 seed phrases include a version number. The
 purpose of the version number is to indicate how addresses and keys
 are derived from the seed. Similar to keys derivation, the version
-number is obtained by a hash of the UTF8 normalized seed phrase.
+number is also obtained by a hash of the UTF8 normalized seed phrase.
 
 The version number is also used to check seed integrity; in order to
 be correct, a seed phrase must produce a registered version number.
@@ -90,7 +90,7 @@ is computed as follows:
 
 The normalization function (prepare_seed) removes all but one space
 between words. It also removes diacritics, and it removes spaces
-between asian CJK characters.
+between Asian CJK characters.
 
 
 
@@ -111,11 +111,11 @@ Number   Type      Description
 Seed generation
 ---------------
 
-Seed generation requires to find a seed phrase with a hash that has
-the desired prefix. This can only be achieved by enumeration. Thus,
-the existence of that constraint does not decrease the security of the
-seed (up to the cost of key stretching, that might be required to
-generate the private keys).
+When the seed phrase is hashed during seed generation, the resulting hash must
+begin with the correct version number prefix. This is achieved by enumerating a
+nonce and re-hashing the seed phrase until the desired version number is
+created. This requirement does not decrease the security of the seed (up to the
+cost of key stretching, that might be required to generate the private keys).
 
 
 Wordlist
