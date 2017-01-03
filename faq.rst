@@ -212,7 +212,7 @@ Electrum will generate new addresses as you use them,
 until it hits the `gap limit`_
 
 If you need to pre-generate more addresses, you can do so by typing
-wallet.create_new_address() in the console. This command will generate
+wallet.create_new_address(False) in the console. This command will generate
 one new address. Note that the address will be shown with a red
 background in the address tab, to indicate that it is beyond the gap
 limit. The red color will remain until the gap is filled.
@@ -230,7 +230,7 @@ do this:
 .. code-block:: python
 
    for x in range(0, 50):
-	print wallet.create_new_address()
+	print wallet.create_new_address(False)
 
 
 How to upgrade Electrum?
