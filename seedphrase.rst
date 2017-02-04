@@ -153,16 +153,20 @@ candidate seed is not a valid seed, because the attacker does not need
 to generate the key. This means that the imposed prefix reduces the
 strength of key stretching.
 
-Let n denote the number of bits of the seed, and m the number of bits
-added by key stretching: m = log2(stretching_iterations). Let k denote
-the length of the prefix, in bits.
+Let n denote the number of entropy bits of the seed, and m the number
+of bits of difficulty added by key stretching: m =
+log2(stretching_iterations). Let k denote the length of the prefix, in
+bits.
 
 On each iteration of the attack, the probability to obtain a valid seed is p = 2^-k
 
-The number of hashes required to test a candidate seed is: c = p * (1+2^m) + (1-p)*1 = 1 + 2^(m-k)
+The number of hashes required to test a candidate seed is: p * (1+2^m) + (1-p)*1 = 1 + 2^(m-k)
 
 Therefore, the cost of an attack is: 2^n * (1 + 2^(m-k))
 
-This can be approximated as 2^(n + m - k) if m>k and 2^n otherwise.
+This can be approximated as 2^(n + m - k) if m>k and as 2^n otherwise.
 
-With the standard values currently used in Electrum, we obtain: 2^(132 + 11 - 8) = 2^135
+With the standard values currently used in Electrum, we obtain:
+2^(132 + 11 - 8) = 2^135. This means that a standard Electrum seed
+is equivalent, in terms of hashes, to 135 bits of entropy.
+
