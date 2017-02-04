@@ -4,6 +4,28 @@ Electrum Seed Version System
 This document describes the Seed Version System used in Electrum
 (version 2.0 and higher).
 
+Description
+-----------
+
+Electrum derives its private keys and addresses from a seed phrase
+made of natural language words. Starting with version 2.0, Electrum
+seed phrases include a version number, whose purpose is to indicate
+which derivation should be followed in order to derive private keys
+and addresses.
+
+In order to eliminate the dependency on a fixed wordlist, the master
+private key and the version number are both obtained by hashes of the
+UTF8 normalized seed phrase. The version number is obtained by looking
+at the first bits of:
+
+.. code-block:: python
+
+    hmac_sha_512("Seed version", seed_phrase)
+
+The version number is also used to check seed integrity; in order to
+be correct, a seed phrase must produce a registered version number.
+
+
 Motivation
 ----------
 
@@ -43,10 +65,6 @@ For these reasons, Electrum does not generate BIP39 seeds. Starting
 with version 2.0, Electrum uses the following Seed Version System,
 which addresses these issues.
 
-
-Description
------------
-
 Electrum 2.0 derives keys and addresses from a hash of the UTF8
 normalized seed phrase with no dependency on a fixed wordlist.
 This means that the wordlist can differ between wallets while the seed remains
@@ -54,13 +72,6 @@ portable, and that future wallet implementations will not need
 today's wordlists in order to be able to decode the seeds
 created today. This reduces the cost of forward compatibility.
 
-In addition, Electrum 2.0 seed phrases include a version number. The
-purpose of the version number is to indicate how addresses and keys
-are derived from the seed. Similar to keys derivation, the version
-number is also obtained by a hash of the UTF8 normalized seed phrase.
-
-The version number is also used to check seed integrity; in order to
-be correct, a seed phrase must produce a registered version number.
 
 
 
@@ -118,9 +129,40 @@ created. This requirement does not decrease the security of the seed (up to the
 cost of key stretching, that might be required to generate the private keys).
 
 
-Wordlist
---------
+Security implications
+---------------------
 
-Electrum currently use the same wordlist as BIP39 (2048 words).
-A typical seed has 12 words and 132 bits of entropy.
+Electrum currently use the same wordlist as BIP39 (2048 words). A
+typical seed has 12 words, which results in 132 bits of entropy in the
+choice of the seed.
 
+Following BIP39, 2048 iterations of key stretching are added for the
+generation of the master private key. In terms of hashes, this is
+equivalent to adding an extra 11 bits of security to the seed
+(2048=2^11).
+
+From the point of view of an attacker, the constraint added by
+imposing a prefix to the seed version hash does not decrease the
+entropy of the seed, because there is no knowledge gained on the seed
+phrase. The attacker still needs to enumerate and test 2^n candidate
+seed phrases, where n is the number of bits of entropy used to
+generate the seed.
+
+However, the test made by the attacker will return faster if the
+candidate seed is not a valid seed, because the attacker does not need
+to generate the key. This means that the imposed prefix reduces the
+strength of key stretching.
+
+Let n denote the number of bits of the seed, and m the number of bits
+added by key stretching: m = log2(stretching_iterations). Let k denote
+the length of the prefix, in bits.
+
+On each iteration of the attack, the probability to obtain a valid seed is p = 2^-k
+
+The number of hashes required to test a candidate seed is: c = p * (1+2^m) + (1-p)*1 = 1 + 2^(m-k)
+
+Therefore, the cost of an attack is: 2^n * (1 + 2^(m-k))
+
+This can be approximated as 2^(n + m - k) if m>k and 2^n otherwise.
+
+With the standard values currently used in Electrum, we obtain: 2^(132 + 11 - 8) = 2^135
