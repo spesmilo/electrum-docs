@@ -41,23 +41,35 @@ Bitcoin private key (of length 256 bits). Indeed, an
 elliptic curve key of length n provides n/2 bits of
 security.
 
-How can I send the maximum available in my wallet?
---------------------------------------------------
 
-Type an exclamation mark (!) in the Amount field. The fee will be
-automatically adjusted for that amount.
+My transaction has been unconfirmed for a long time. What can I do?
+-------------------------------------------------------------------
 
-How can I send Bitcoins without paying a transaction fee?
----------------------------------------------------------
+Bitcoin transactions become 'confirmed' when miners accept to write
+them in the Bitcoin blockchain. In general, the speed of confirmation
+depends on the fee you attach to your transaction; miners prioritize
+transaction that pay the highest fees.
 
-You can create a transaction with zero fee in the GUI, by
-following these steps:
+Recent versions of Electrum use 'dynamic fees', in order to make sure
+that the fee you pay with your transaction is adequate. This feature
+is enabled by default in recent versions of Electrum.
 
-- Activate the option 'set fees manually'
-- Enter 0 in the fee field
-- Enter the amount in the amount field
+If you have made a transaction that is unconfirmed, you can:
 
-Note that transactions without fees might not be relayed by the Electrum server, or by the Bitcoin Network.
+ - Wait for a log time. Eventually, your transaction will either be
+   confirmed or cancelled. This might take several days.
+
+ - Increase the transaction fee. This is only possible for
+   'replaceable' transactions. To create this type of transaction, you
+   must have enabled 'Replace by Fee' in your preferences, before
+   sending the transaction.
+
+ - Create a 'child pays for parent' transaction, with a generous
+   fee. A CPFP is a new transaction, that compensates for the small
+   fee of the parent transaction. It can be done by the recipient of
+   the funds, or by the sender, if the transaction has a change
+   output.
+
 
 What does it mean to "Freeze" an address in Electrum?
 -----------------------------------------------------
@@ -187,11 +199,6 @@ If this happens, you should consolidate your transaction inputs, by
 sending smaller amounts of bitcoins to one of your wallet addresses;
 this would be the equivalent of exchanging a stack of nickels for a
 dollar bill.
-
-Is there a way to get a BTC/USD exchange ticker in Electrum?
-------------------------------------------------------------
-
-Yes, go to Tools->Plugins and enable 'exchange rates'
 
 .. _gap limit:
 
