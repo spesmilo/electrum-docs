@@ -56,7 +56,7 @@ is enabled by default in recent versions of Electrum.
 
 If you have made a transaction that is unconfirmed, you can:
 
- - Wait for a log time. Eventually, your transaction will either be
+ - Wait for a long time. Eventually, your transaction will either be
    confirmed or cancelled. This might take several days.
 
  - Increase the transaction fee. This is only possible for
