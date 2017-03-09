@@ -43,17 +43,6 @@ For developers
    transactions
    build
 
-External Links
---------------
-
-- GOLANG_ Stratum client library
-- Tutorial: How to create a plugin_
-- Tutorial for setting up a server_
-
-
-.. _GOLANG: https://github.com/devktor/gostratum
-.. _plugin: http://talkera.org/crypto/tutorial-creating-an-electrum-bitcoin-wallet-plugin/
-.. _server: https://www.sky-ip.org/configure-electrum-server-debian-ubuntu.html
 
 
 
