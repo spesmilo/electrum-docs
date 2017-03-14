@@ -20,8 +20,8 @@ reported by servers, using a technique called :ref:`Simple Payment Verification 
 What is the Seed?
 -----------------
 
-The seed is a random phrase that is used to generate your
-private keys.
+The seed is a random phrase that is used to generate your private
+keys.
 
 Example:
 
@@ -35,11 +35,20 @@ the "restore wallet" option in the startup.
 How secure is the seed?
 -----------------------
 
-The seed created by Electrum has 128 bits of entropy. This
-means that it provides the same level of security as a
-Bitcoin private key (of length 256 bits). Indeed, an
-elliptic curve key of length n provides n/2 bits of
-security.
+The seed phrase created by Electrum has 132 bits of entropy. This
+means that it provides the same level of security as a Bitcoin private
+key (of length 256 bits). Indeed, an elliptic curve key of length n
+provides n/2 bits of security.
+
+
+I have forgotten my password. What can I do?
+--------------------------------------------
+
+It is not possible to recover your password. However, you can restore
+restore your wallet from its seed phrase, and and choose a new
+password. If you lose both your password and your seed, there is not
+way to recover your money. This is why we ask you to save your seed
+phrase on paper.
 
 
 My transaction has been unconfirmed for a long time. What can I do?
@@ -64,11 +73,11 @@ If you have made a transaction that is unconfirmed, you can:
    must have enabled 'Replace by Fee' in your preferences, before
    sending the transaction.
 
- - Create a 'child pays for parent' transaction, with a generous
-   fee. A CPFP is a new transaction, that compensates for the small
-   fee of the parent transaction. It can be done by the recipient of
-   the funds, or by the sender, if the transaction has a change
-   output.
+ - Create a 'Child Pays For Parent' transaction. A CPFP is a new
+   transaction, that pays a high fee in order to compensate for the
+   small fee of its parent transaction. It can be done by the
+   recipient of the funds, or by the sender, if the transaction has a
+   change output.
 
 
 What does it mean to "Freeze" an address in Electrum?
@@ -79,28 +88,29 @@ for sending bitcoins. You can not send Bitcoins if you don't have
 enough funds in the non-frozen addresses.
           
 
-What encryption is used for wallets?
-------------------------------------
+How is the wallet encrypted?
+----------------------------
 
-Electrum uses AES-256-CBC to encrypt the seed and private keys in the
-wallet.
+Electrum uses to separate levels of encryption:
 
-I have forgotten my password but still have my seed. Is there any way I can recover my password?
-------------------------------------------------------------------------------------------------
+ - Your seed and private keys are encrypted using AES-256-CBC. The
+   private keys are decrypted only briefly, when you need to sign a
+   transaction; for this you need to enter your password. This is done
+   in order to minimize the amount of time during which sensitive
+   information is unencrypted in your computer's memory.
 
-No, you cannot recover your password. However, you can still recover
-your money: restore your wallet from its seed, and choose a new
-password.
+ - In addition, your wallet file may be encrypted on disk. Note that
+   the wallet information will remain unencrypted in the memory of
+   your computer for the duration of your session. If a wallet is
+   encrypted, then its password will be required in order to open
+   it. Note that the password will not be kept in memory; Electrum
+   does not need it in order to save the wallet on disk, because it
+   uses asymmetric encryption (ECIES).
 
-Why can I open the wallet without entering my password?
--------------------------------------------------------
+Wallet file encryption is activated by default since version 2.8. It
+is intended to protect your privacy, but also to prevent you from
+requesting bitcoins on a wallet that you do not control.
 
-Only the seed and private keys are encrypted, and not the entire
-wallet file. The private keys are decrypted only briefly, when you
-need to sign a transaction; for this you need to enter your
-password. This is done in order to minimize the amount of time during
-which sensitive information is unencrypted in your computer's
-memory.
 
 Does Electrum support cold wallets?
 -----------------------------------
