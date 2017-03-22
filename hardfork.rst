@@ -2,14 +2,14 @@ How to split your coins using Electrum in case of a BU Hard Fork
 ================================================================
 
 Notes:
+------
 
 1. I, Thomas Voegtlin, support Segregated Witness as a scaling
 solution for Bitcoin, and I am opposed to a hard fork initiated by
 miners running Bitcoin Unlimited. However, I also believe that
 Electrum users should be free to choose between Bitcoin Core and BU,
-and that I should not abuse my position of Electrum developer in order
-to favor one party. I have tried to keep this documentation as neutral
-as possible.
+and that I should not abuse my position in order to favor one party. I
+have tried to keep this documentation as neutral as possible.
 
 2. Despite the various announcements that have been made by both
 parties, I believe that the probability of a BU hard fork is fairly
@@ -48,18 +48,18 @@ it means that Electrum received a proof that the transaction is in the
 blockchain.
 
 By default, Electrum trusts the longest blockchain to be the valid
-Bitcoin blockchain. Electrum is not able to know if block headers
-correspond to blocks that follow the Bitcoin Core or BU rules; it only
-checks that blocks have been mined with a valid Proof of Work, and
-that transactions are included in these blocks.
+blockchain. Electrum is not able to know if block headers correspond
+to blocks that follow the Bitcoin Core or BU rules; it only checks
+that blocks have been mined with a valid Proof of Work, and that
+transactions are included in these blocks.
 
 Electrum has two different modes for fetching your wallet history:
 manual server selection and auto-connect. In auto-connect mode,
 Electrum will always request your wallet history from a node that has
 the longest blockchain. If auto-connect is disabled, your wallet
 history will be fetched from a server you choose. If there is a fork,
-you will want to select a server. This option is available in the GUI
-and from the command line.
+you will want to select your history server. This option is available
+in the GUI and from the command line.
 
 In addition, Electrum has two different modes for fetching the block
 headers used to verify your history: it can receive block headers from
@@ -77,9 +77,9 @@ Step 1: Use separate directories for BTC and BTU
 
 While it would be technically possible to use the same directory and
 wallet files for both BTC and BTU, doing so will force your client to
-discard and redownload transaction histories and headers everytime you
-switch between BTC and BTU. In order to prevent that, duplicate your
-entire Electrum directory; one will be used for BTC, one for BTU.
+discard and re-download transaction histories and headers everytime
+you switch between BTC and BTU. In order to prevent that, duplicate
+your entire Electrum directory; one will be used for BTC, one for BTU.
 
 With the command line, you can use the -D option to select the
 directory used by Electrum:
@@ -122,17 +122,19 @@ If you are running Electrum from the command line, you can use the
 
    electrum --oneserver
 
-This starts Electrum in 'one server' mode. When you open the Network
-dialog, you will see 'Getting block headers from 1 node'.
+This option starts Electrum in 'one server' mode. When you open the
+Network dialog, you will see 'Getting block headers from 1 node'. Now
+all your transactions will be verified using the headers sent by your
+history server.
 
 This option is only available through the command line; if you are
 running an Electrum binary, you will not be able to use it. In that
 case, Electrum will fail to verify transactions that are on the
 minority chain, and it will display them as 'unverified' once they are
 confirmed (this is different from 'unconfirmed', although the GUI icon
-is the same). To address this, you should check that your post-fork
-transactions are confirmed on the shortest chain using an independent
-source, such as a block explorer.
+is the same). To address this, if you are not using the command line
+you should check that your post-fork transactions are confirmed on the
+shortest chain using an independent source, such as a block explorer.
 
 
 Step 4: Split your coins
