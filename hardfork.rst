@@ -67,8 +67,8 @@ a single node (your history server), or from a group of randomly
 selected nodes. By default, it will listen to a group of random nodes,
 and it will consider that the longest blockchain is the valid
 blockchain. If the 'oneserver' option is activated, it will receive
-block headers from your history server. Unfortunately, the 'oneserver'
-option is only available from command line.
+block headers from your history server only. Unfortunately, the
+'oneserver' option is only available from command line.
 
 
 
