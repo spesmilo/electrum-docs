@@ -34,17 +34,18 @@ BTC and BTU here.
 If you own Bitcoins before the fork, a transaction that spends these
 coins after the fork will, in general, be valid on both chains. This
 means that you will be spending BTC and BTU simultaneously. This is
-called a 'replay attack'. To prevent this, you need to move send your
-coins using transactions that differ on both chains.
+called a 'replay attack'. To prevent this, you need to move your coins
+using transactions that differ on both chains.
 
 
 Electrum and SPV
 ----------------
 
 Electrum fetches block headers from the Bitcoin network in order to
-verify that your transactions are included in the Blockchain. When a
-transaction is displayed as 'verified' by the GUI, it means that
-Electrum received a proof that the transaction is in the blockchain.
+verify that your transactions are included in the Bitcoin
+blockchain. When a transaction is displayed as 'verified' by the GUI,
+it means that Electrum received a proof that the transaction is in the
+blockchain.
 
 By default, Electrum trusts the longest blockchain to be the valid
 Bitcoin blockchain. Electrum is not able to know if block headers
@@ -53,7 +54,7 @@ checks that blocks have been mined with a valid Proof of Work, and
 that transactions are included in these blocks.
 
 Electrum has two different modes for fetching your wallet history:
-Manual server selection and auto-connect. In auto-connect mode,
+manual server selection and auto-connect. In auto-connect mode,
 Electrum will always request your wallet history from a node that has
 the longest blockchain. If auto-connect is disabled, your wallet
 history will be fetched from a server you choose. If there is a fork,
