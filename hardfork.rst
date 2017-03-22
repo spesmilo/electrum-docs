@@ -172,7 +172,7 @@ implement RBF.
 
 Wait until your transactions are confirmed on both networks, and check
 that they have different transaction IDs. If you cannot use the
-command line with the --onechain option, check that transactions are
+command line with the --oneserver option, check that transactions are
 confirmed using a block explorer website.
 
 You will need to check that the transaction IDs are different on both
