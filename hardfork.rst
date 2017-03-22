@@ -58,12 +58,7 @@ Electrum will always request your wallet history from a node that has
 the longest blockchain. If auto-connect is disabled, your wallet
 history will be fetched from a server you choose. If there is a fork,
 you will want to select a server. This option is available in the GUI
-and from the command line:
-
-.. code-block:: bash
-
-   electrum --server <server>
-
+and from the command line.
 
 In addition, Electrum has two different modes for fetching the block
 headers used to verify your history: it can receive block headers from
@@ -75,8 +70,9 @@ block headers from your history server. Unfortunately, the 'oneserver'
 option is only available from command line.
 
 
-1. Use separate directories for BTC and BTU
--------------------------------------------
+
+Step 1: Use separate directories for BTC and BTU
+------------------------------------------------
 
 While it would be technically possible to use the same directory and
 wallet files for both BTC and BTU, doing so will force your client to
@@ -97,8 +93,8 @@ Electrum instead; it will use the 'electrum_data' directory located in
 the directory where the binary is located.
 
 
-2. Choose your wallet history server
-------------------------------------
+Step 2: Choose your wallet history server
+-----------------------------------------
 
 You can select your server from the GUI. Disable the 'auto-connect'
 checkbox in the network dialog, and choose a server that you trust to
@@ -115,8 +111,8 @@ Note that you can also select your server from the command line, with:
    electrum --server <server>
 
 
-3. Fetch block headers from the same node as your history.
-----------------------------------------------------------
+Step 3. Fetch block headers from the same node as your history.
+---------------------------------------------------------------
 
 If you are running Electrum from the command line, you can use the
 'onecoin' option as follows:
@@ -129,17 +125,17 @@ This starts Electrum in 'one server' mode. When you open the Network
 dialog, you will see 'Getting block headers from 1 node'.
 
 This option is only available through the command line; if you are
-running an Electrum binary, you will not be able to use it. This means
-that Electrum will fail to verify transactions that are on the
+running an Electrum binary, you will not be able to use it. In that
+case, Electrum will fail to verify transactions that are on the
 minority chain, and it will display them as 'unverified' once they are
 confirmed (this is different from 'unconfirmed', although the GUI icon
-is the same). To address this, you can check that your post-fork
-transactions are confirmed on the shortest chain using independent
-sources, such as a block explorer.
+is the same). To address this, you should check that your post-fork
+transactions are confirmed on the shortest chain using an independent
+source, such as a block explorer.
 
 
-4. Split your coins
--------------------
+Step 4: Split your coins
+------------------------
 
 Different solutions have been proposed to split your coins. The
 cleanest method is probably to mix your coins with coins that have
@@ -157,7 +153,7 @@ command line, you can combine all the options we explained above:
 .. code-block:: bash
 
    electrum --oneserver --server <electrum_btc_server> -D <electrum_btc_dir>
-   electrum --oneserver --server <electrum_btu_server> -D <electrum_btu_dir>
+   electrum --oneserver --server <electrum_bu_server> -D <electrum_bu_dir>
 
 Create a replaceable (RBF) transaction that sends your coins back to
 yourself, and broadcast it on both networks (it should actually be
@@ -178,5 +174,5 @@ If you cannot use the command line with the --onechain option, check
 using a block explorer website.
 
 Note: If the BTC chain is slower than the BU chain and requires higher
-fees, you may want to bump the fee only after the BU chain has
+fees, you may as well bump the fee only after the BU chain has
 confirmed the first transaction.
