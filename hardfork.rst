@@ -170,17 +170,18 @@ BTC version of Electrum. BU nodes might still receive the second
 transaction, but they will not propagate it because they do not
 implement RBF.
 
-Wait until the transactions are confirmed on both networks, and check
+Wait until your transactions are confirmed on both networks, and check
 that they have different transaction IDs. If you cannot use the
-command line with the --onechain option, check the ID using a block
-explorer website.
+command line with the --onechain option, check that transactions are
+confirmed using a block explorer website.
 
-You need to check that the transaction IDs are different, because this
-method is not guaranteed to work (although it should work most of the
-time). It will fail if your transaction is confirmed on the Core chain
-before you bump its fee, or if a malicious BU miner decide to confirm
-the second transaction, despite it not being normally accepted by BU
-nodes. If this method fails, you will only lose the mining fee, and a
-bit of time. If the BU chain is faster than the Core chain (or has
-lower fees), you may increase your chances by waiting until BU
-confirms your transaction before you bump its fee on Core.
+You will need to check that the transaction IDs are different on both
+chains, because this method is not guaranteed to work (although it
+should work most of the time). It will fail if your transaction is
+confirmed on the Core chain before you bump its fee, or if a malicious
+BU miner decide to confirm the second transaction, despite it not
+being normally accepted by BU nodes. If this method fails, you will
+only lose the mining fee, and a bit of time. If the BU chain is faster
+than the Core chain (or has lower fees), you may increase your chances
+by waiting until BU confirms your transaction before you bump its fee
+on Core.
