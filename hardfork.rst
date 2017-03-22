@@ -171,11 +171,16 @@ transaction, but they will not propagate it because they do not
 implement RBF.
 
 Wait until the transactions are confirmed on both networks, and check
-that they have different transaction IDs, because BU miners may still
-decide to mine the second transaction if they manage to hear about it.
-If you cannot use the command line with the --onechain option, check
-using a block explorer website.
+that they have different transaction IDs. If you cannot use the
+command line with the --onechain option, check the ID using a block
+explorer website.
 
-Note: If the BTC chain is slower than the BU chain and requires higher
-fees, you may as well bump the fee only after the BU chain has
-confirmed the first transaction.
+You need to check that the transaction IDs are different, because this
+method is not guaranteed to work (although it should work most of the
+time). It will fail if your transaction is confirmed on the Core chain
+before you bump its fee, or if a malicious BU miner decide to confirm
+the second transaction, despite it not being normally accepted by BU
+nodes. If this method fails, you will only lose the mining fee, and a
+bit of time. If the BU chain is faster than the Core chain (or has
+lower fees), you may increase your chances by waiting until BU
+confirms your transaction before you bump its fee on Core.
