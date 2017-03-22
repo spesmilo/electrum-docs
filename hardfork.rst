@@ -146,7 +146,7 @@ been mined after the fork. However, mixing your coins with newly
 minted outputs could be much slower, because you would need miners to
 send you new coins.
 
-Here we propose to use RBF transactions: it will works with the
+Here we propose to use RBF transactions: it will work with the
 existing software, and without the help of miners.
 
 Launch two instances of Electrum, from your your Core and BU
