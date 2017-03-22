@@ -91,7 +91,7 @@ enough funds in the non-frozen addresses.
 How is the wallet encrypted?
 ----------------------------
 
-Electrum uses to separate levels of encryption:
+Electrum uses two separate levels of encryption:
 
  - Your seed and private keys are encrypted using AES-256-CBC. The
    private keys are decrypted only briefly, when you need to sign a
