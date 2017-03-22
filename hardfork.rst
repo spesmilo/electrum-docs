@@ -1,5 +1,5 @@
-How to split your coins in the event of a BU Hard Fork
-======================================================
+How to split your coins using Electrum in case of a BU Hard Fork
+================================================================
 
 Notes:
 
