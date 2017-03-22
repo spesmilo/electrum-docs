@@ -116,7 +116,7 @@ Step 3. Fetch block headers from the same node as your history.
 ---------------------------------------------------------------
 
 If you are running Electrum from the command line, you can use the
-'onecoin' option as follows:
+'oneserver' option as follows:
 
 .. code-block:: bash
 
