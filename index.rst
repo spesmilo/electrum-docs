@@ -20,8 +20,8 @@ GUI and beginners
    multisig
    coldstorage
 
-Command line and merchants
---------------------------
+Advanced users
+--------------
 
 .. toctree::
    :maxdepth: 2
@@ -29,6 +29,7 @@ Command line and merchants
    cmdline
    coldstorage_cmdline
    merchant
+   hardfork
 
 For developers
 --------------
@@ -41,8 +42,3 @@ For developers
    seedphrase
    protocol
    transactions
-   build
-
-
-
-
