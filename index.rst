@@ -8,6 +8,17 @@ Welcome to the Electrum Documentation!
 
 Electrum is a lightweight Bitcoin wallet.
 
+Overview
+--------
+
+.. toctree::
+   :maxdepth: 2
+
+   basics
+   creation
+   receive
+   send
+
 GUI and beginners
 -----------------
 
