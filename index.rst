@@ -13,7 +13,8 @@ Overview
 
 .. toctree::
    :maxdepth: 2
-   basics
+
+   glossary
 
 GUI and beginners
 -----------------
