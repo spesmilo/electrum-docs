@@ -45,7 +45,7 @@ I have forgotten my password. What can I do?
 --------------------------------------------
 
 It is not possible to recover your password. However, you can restore
-your wallet from its seed phrase, and and choose a new password. 
+your wallet from its seed phrase, and choose a new password. 
 If you lose both your password and your seed, there is no way 
 to recover your money. This is why we ask you to save your seed
 phrase on paper.
