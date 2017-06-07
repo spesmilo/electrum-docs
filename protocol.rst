@@ -69,6 +69,9 @@ version of the protocol it supports. Server responds with its
 supported version of the protocol (higher number at server-side is
 usually compatible).
 
+The version of the protocol being explained in this documentation
+is: 0.10.
+
 *request:*
 
 .. code-block:: json
