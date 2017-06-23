@@ -353,22 +353,28 @@ returned.
 blockchain.estimatefee
 ``````````````````````
 
-Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks.
-Parameter: How many blocks the transaction may wait before being included
+Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks. If the node doesn’t have enough information to make an estimate, the value -1 will be returned.
 
-If the node doesn’t have enough information to make an estimate, the value -1 will be returned
+Parameter: How many blocks the transaction may wait before being included.
 
 *request:*
 
 .. code-block:: json
 
-   { "id": 17, "method":"blockchain.estimatefee", "params": [ 6 ] }
+   { "id": 17, "method": "blockchain.estimatefee", "params": [ 6 ] }
 
 *response:*
 
 .. code-block:: json
 
-   { "id": 17, "result": 0.00026809}
+   { "id": 17, "result": 0.00026809 }
+   { "id": 17, "result": 1.169e-05 }
+
+*error:*
+
+.. code-block:: json
+
+   { "id": 17, "result": -1 }
 
 
 External links
