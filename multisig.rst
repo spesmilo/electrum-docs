@@ -2,8 +2,8 @@ Multisig Wallets
 ================
 
 This tutorial shows how to create a 2 of 2 multisig wallet. A 2 of 2
-multisig consists of 2 separate wallets (usually on seperate machines
-and potentially controlled by seperate people) that have to be used in
+multisig consists of 2 separate wallets (usually on separate machines
+and potentially controlled by separate people) that have to be used in
 conjunction in order to access the funds. Both wallets have the same
 set of Addresses.
 
