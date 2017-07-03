@@ -362,7 +362,7 @@ If the node doesn’t have enough information to make an estimate, the value -1 
 
 .. code-block:: json
 
-   { "id": 17, "method":"blockchain.estimatefee", "params": 6 }
+   { "id": 17, "method":"blockchain.estimatefee", "params": [ 6 ] }
 
 *response:*
 
