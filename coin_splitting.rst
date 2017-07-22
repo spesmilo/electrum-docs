@@ -2,7 +2,7 @@ Coin Splitting
 ==============
 
 In the event of a chain split, you may wish to spend one chain's coins,
-while keeping the other.  This feature allows you to pick and choose 
+while keeping the other's.  This feature allows you to pick and choose 
 which chain and network you spend on.
 
 Your choice
@@ -53,7 +53,7 @@ Procedure
 
          Notice how the branches have different hashes at different heights.
          You can verify which chain you're on by using block explorers to verify
-         which the hash and height.
+         the hash and height.
 
             .. image:: png/coin_splitting/select_main_chain.png
             .. image:: png/coin_splitting/chain_search_height.png
@@ -86,3 +86,6 @@ Procedure
 
          .. image:: png/coin_splitting/main_chain_txid.png
          .. image:: png/coin_splitting/alternate_chain_txid.png
+
+You will now have coins seperately spendable on each chain.  If it failed,
+no harm done, you sent to yourself!  Just try again.
