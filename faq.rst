@@ -161,7 +161,7 @@ you first run the application and located under the /wallets folder.
 On Windows:
 
  - Show hidden files
- - Go to \Users\YourUserName\AppData\Roaming\Electrum\wallets
+ - Go to \\Users\\YourUserName\\AppData\\Roaming\\Electrum\\wallets (or %APPDATA%\\Electrum\\wallets)
 
 On Mac:
 
