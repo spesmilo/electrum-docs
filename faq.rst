@@ -220,6 +220,13 @@ your deterministic sequence of addresses.  Electrum uses it in order
 to stop looking for addresses. In Electrum 2.0, it is set to 20 by
 default, so the client will get all addresses until 20 unused
 addresses are found.
+
+To change the default (to, for example, 50 addresses), open the Console
+tab and run "wallet.change_gap_limit(50)". It may take a few moments
+to generate the keys. Then restart the application.
+
+To change the default number of change addresses, open the Console and
+use a slightly different command: "wallet.gap_limit_for_change = 50".
           
 
 How can I pre-generate new addresses?
@@ -248,7 +255,7 @@ do this:
 
    for x in range(0, 50):
 	print wallet.create_new_address(False)
-
+	
 
 How to upgrade Electrum?
 ------------------------
