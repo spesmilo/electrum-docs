@@ -114,7 +114,7 @@ The following version numbers are used in Electrum.
 Number   Type      Description
 ======== ========= =====================================
 0x01     Standard  P2PKH and Multisig P2SH wallets
-0x02     Segwit    Reserved for Segwit
+0x100    Segwit    Reserved for Segwit
 0x101    2FA       Two-factor authenticated wallets
 ======== ========= =====================================
 
