@@ -227,23 +227,20 @@ any transaction for the address yet, the status is null.
 blockchain.address.get_history
 ``````````````````````````````
 
+For a given address a list of transactions and their heights (and fees in newer versions) is returned.
+
 *request:*
 
 .. code-block:: json
 
-   {"id": 1, "method":
-   "blockchain.address.get_history", "params":
-   ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
+   {"id": 1, "method": "blockchain.address.get_history", "params": ["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
 
 *response:*
 
 .. code-block:: json
 
-   {"id": 1, "result": [{"tx_hash":
-   "ac9cd2f02ac3423b022e86708b66aa456a7c863b9730f7ce5bc24066031fdced",
-   "height": 340235}, {"tx_hash":
-   "c4a86b1324f0a1217c80829e9209900bc1862beb23e618f1be4404145baa5ef3",
-   "height": 340237}]}
+   {"id": 1, "result": [{"tx_hash": "ac9cd2f02ac3423b022e86708b66aa456a7c863b9730f7ce5bc24066031fdced", "height": 340235}, {"tx_hash": "c4a86b1324f0a1217c80829e9209900bc1862beb23e618f1be4404145baa5ef3", "height": 340237}]}
+   {"jsonrpc": "2.0", "id": 1, "result": [{"tx_hash": "16c2976eccd2b6fc937d24a3a9f3477b88a18b2c0cdbe58c40ee774b5291a0fe", "height": 0, "fee": 225}]}
 
 
 blockchain.address.get_mempool
@@ -353,22 +350,28 @@ returned.
 blockchain.estimatefee
 ``````````````````````
 
-Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks.
-Parameter: How many blocks the transaction may wait before being included
+Estimates the transaction fee per kilobyte that needs to be paid for a transaction to be included within a certain number of blocks. If the node doesn’t have enough information to make an estimate, the value -1 will be returned.
 
-If the node doesn’t have enough information to make an estimate, the value -1 will be returned
+Parameter: How many blocks the transaction may wait before being included.
 
 *request:*
 
 .. code-block:: json
 
-   { "id": 17, "method":"blockchain.estimatefee", "params": [ 6 ] }
+   { "id": 17, "method": "blockchain.estimatefee", "params": [ 6 ] }
 
 *response:*
 
 .. code-block:: json
 
-   { "id": 17, "result": 0.00026809}
+   { "id": 17, "result": 0.00026809 }
+   { "id": 17, "result": 1.169e-05 }
+
+*error:*
+
+.. code-block:: json
+
+   { "id": 17, "result": -1 }
 
 
 External links
