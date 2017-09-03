@@ -30,7 +30,7 @@ Advanced users
    coldstorage_cmdline
    merchant
    hardfork
-   coin_splitting
+   tor
 
 For developers
 --------------

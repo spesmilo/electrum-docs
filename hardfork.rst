@@ -1,187 +1,111 @@
-How to split your coins using Electrum in case of a BU Hard Fork
-================================================================
 
-Notes:
-------
+How to split your coins using Electrum in case of a fork
+========================================================
 
-1. I, Thomas Voegtlin, support Segregated Witness as a scaling
-solution for Bitcoin, and I am opposed to a hard fork initiated by
-miners running Bitcoin Unlimited. However, I also believe that
-Electrum users should be free to choose between Bitcoin Core and BU,
-and that I should not abuse my position in order to favor one party. I
-have tried to keep this documentation as neutral as possible.
+Note:
+-----
 
-2. Despite the various announcements that have been made by both
-parties, I believe that the probability of a BU hard fork is fairly
-low. Nevertheless, Electrum users have expressed concerns about a hard
-fork. This document is intended to address these concerns.
+This document has been updated for Electrum 2.9.
 
-3. This document explains how to split your coins using the existing
-Electrum software. I am currently working on an improved version of
-Electrum, where blockchain forks will be detected and managed using
-checkpoints. However, if a fork occurs now, users will want to be able
-to trade their BTC/BTU coins as soon as possible, without waiting for
-a new software release. This is the purpose of the present document.
+
+What is a fork?
+---------------
+
+A blockchain fork (or blockchain split) occurs when a deviating
+network begins to generate and maintain a conflicting chain of blocks
+branching from the original, essentially creating another "version of
+bitcoin" or cryptocurrency, with its very own blockchain, set of
+rules, and market value.
+
+If there is a fork of the Bitcoin blockchain, two distinct currencies
+will coexist, having different market values.
 
 
 What does it mean to 'split your coins'?
 ----------------------------------------
 
-If there is a fork of the Bitcoin blockchain, two distinct currencies
-will coexist, having different market values. They are referred to as
-BTC and BTU here.
+An address on the original blockchain will now also contain the same
+amount on the new chain.
 
 If you own Bitcoins before the fork, a transaction that spends these
 coins after the fork will, in general, be valid on both chains. This
-means that you will be spending BTC and BTU simultaneously. This is
-called a 'replay attack'. To prevent this, you need to move your coins
-using transactions that differ on both chains.
-
-
-Electrum and SPV
-----------------
-
-Electrum fetches block headers from the Bitcoin network in order to
-verify that your transactions are included in the Bitcoin
-blockchain. When a transaction is displayed as 'verified' by the GUI,
-it means that Electrum received a proof that the transaction is in the
-blockchain.
-
-By default, Electrum trusts the longest blockchain to be the valid
-blockchain. Electrum is not able to know if block headers correspond
-to blocks that follow the Bitcoin Core or BU rules; it only checks
-that blocks have been mined with a valid Proof of Work, and that
-transactions are included in these blocks.
-
-Electrum has two different modes for fetching your wallet history:
-manual server selection and auto-connect. In auto-connect mode,
-Electrum will always request your wallet history from a node that has
-the longest blockchain. If auto-connect is disabled, your wallet
-history will be fetched from a server you choose. If there is a fork,
-you will want to select your history server. This option is available
-in the GUI and from the command line.
-
-In addition, Electrum has two different modes for fetching the block
-headers used to verify your history: it can receive block headers from
-a single node (your history server), or from a group of randomly
-selected nodes. By default, it will listen to a group of random nodes,
-and it will consider that the longest blockchain is the valid
-blockchain. If the 'oneserver' option is activated, it will receive
-block headers from your history server only. Unfortunately, the
-'oneserver' option is only available from command line.
+means that you might be spending both coins simultaneously. This is
+called 'replay'. To prevent this, you need to move your coins using
+transactions that differ on both chains.
 
 
 
-Step 1: Use separate directories for BTC and BTU
-------------------------------------------------
+Fork detection
+--------------
 
-While it would be technically possible to use the same directory and
-wallet files for both BTC and BTU, doing so will force your client to
-discard and re-download transaction histories and headers everytime
-you switch between BTC and BTU. In order to prevent that, duplicate
-your entire Electrum directory; one will be used for BTC, one for BTU.
+Electrum (version 2.9 and higher) is able to detect consensus failures
+between servers (blochchain forks), and lets users select their branch
+of the fork.
 
-With the command line, you can use the -D option to select the
-directory used by Electrum:
-
-.. code-block:: bash
-
-   electrum -D <directory>
-
-If you are running Electrum binaries on Windows, you do not have
-access to the command line. You can use the 'portable' version of
-Electrum instead; it will use the 'electrum_data' directory located in
-the directory where the binary is located.
-
-
-Step 2: Choose your wallet history server
------------------------------------------
-
-You can select your server from the GUI. Disable the 'auto-connect'
-checkbox in the network dialog, and choose a server that you trust to
-run Core or BU. Usually servers advertise this information in the
-Console tab. There is no way to verify that the server actually runs
-what they claim, but this will not be a problem for us; if the server
-is dishonest, you will be able to see that your coins have not been
-split.
-
-Note that you can also select your server from the command line, with:
-
-.. code-block:: bash
-
-   electrum --server <server>
+* Electrum will download and validate block headers sent by servers
+  that may follow different branches of a fork in the Bitcoin
+  blockchain. Instead of a linear sequence, block headers are
+  organized in a tree structure. Branching points are located
+  efficiently using binary search. The purpose of MCV is to detect and
+  handle blockchain forks that are invisible to the classical SPV
+  model.
+    
+* The desired branch of a blockchain fork can be selected using the
+  network dialog. Branches are identified by the hash and height of
+  the diverging block. Coin splitting is possible using RBF
+  transaction (a tutorial will be added).
 
 
-Step 3. Fetch block headers from the same node as your history.
----------------------------------------------------------------
-
-If you are running Electrum from the command line, you can use the
-'oneserver' option as follows:
-
-.. code-block:: bash
-
-   electrum --oneserver
-
-This option starts Electrum in 'one server' mode. When you open the
-Network dialog, you will see 'Getting block headers from 1 node'. Now
-all your transactions will be verified using the headers sent by your
-history server.
-
-This option is only available through the command line; if you are
-running an Electrum binary, you will not be able to use it. In that
-case, Electrum will fail to verify transactions that are on the
-minority chain, and it will display them as 'unverified' once they are
-confirmed (this is different from 'unconfirmed', although the GUI icon
-is the same). To address this, if you are not using the command line
-you should check that your post-fork transactions are confirmed on the
-shortest chain using an independent source, such as a block explorer.
+This feature allows you to pick and choose which chain and network you spend on.
 
 
-Step 4: Split your coins
-------------------------
+Procedure
+---------
 
-Different solutions have been proposed to split your coins. The
-cleanest method is probably to mix your coins with coins that have
-been mined after the fork. However, mixing your coins with newly
-minted outputs could be much slower, because you would need miners to
-send you new coins.
+   1. Preparation
 
-Here we propose to use RBF transactions: it will work with the
-existing software, and without the help of miners.
+      a. Menu ➞ View ➞ Show Coins
+      b. Menu ➞ Tools ➞ Preferences ➞ Propose Replace-By-Fee ➞ "Always"
 
-Launch two instances of Electrum, from your your Core and BU
-directories. Note that you can run them simultaneously. If you use the
-command line, you can combine all the options we explained above:
+   2. Select a chain / network
 
-.. code-block:: bash
+      a. Menu ➞ Network
 
-   electrum --oneserver --server <electrum_btc_server> -D <electrum_btc_dir>
-   electrum --oneserver --server <electrum_bu_server> -D <electrum_bu_dir>
+         Notice how the branches have different hashes at different heights.
+         You can verify which chain you're on by using block explorers to verify
+         the hash and height.
 
-Create a replaceable (RBF) transaction that sends your coins back to
-yourself, and broadcast it on both networks (it should actually be
-broadcasted on both networks, because there is no replay protection at
-the network level. If that does not work, just copy-paste the
-transaction from one instance of Electrum to the other, and
-rebroadcast it manually).
+            .. image:: png/coin_splitting/select_main_chain.png
+            .. image:: png/coin_splitting/chain_search_height.png
+            .. image:: png/coin_splitting/chain_verify_hash.png
 
-Once the transaction is visible in both networks, bump its fee on your
-BTC version of Electrum. BU nodes might still receive the second
-transaction, but they will not propagate it because they do not
-implement RBF.
+   3. Send your coins to yourself
 
-Wait until your transactions are confirmed on both networks, and check
-that they have different transaction IDs. If you cannot use the
-command line with the --oneserver option, check that transactions are
-confirmed using a block explorer website.
+      a. Copy your receiving address to the sending tab.
+      b. Enter how many coins you'd like to split. (enter " ! " for ALL)
+      c. Check "Replaceable"
+      d. Send ➞ Sign ➞ Broadcast
 
-You will need to check that the transaction IDs are different on both
-chains, because this method is not guaranteed to work (although it
-should work most of the time). It will fail if your transaction is
-confirmed on the Core chain before you bump its fee, or if a malicious
-BU miner decide to confirm the second transaction, despite it not
-being normally accepted by BU nodes. If this method fails, you will
-only lose the mining fee, and a bit of time. If the BU chain is faster
-than the Core chain (or has lower fees), you may increase your chances
-by waiting until BU confirms your transaction before you bump its fee
-on Core.
+   4. Wait for the transaction to confirm on one network.
+
+      a. You'll want to switch between chains (via the network panel)
+         to monitor the transaction status.
+
+      b. Wait until you see the transaction confirm on one chain.
+
+         .. image:: png/coin_splitting/unconfirmed.png
+         .. image:: png/coin_splitting/confirmed.png
+
+      c. Immediately use "RBF" on the unconfirmed transaction to "Increase fee"
+
+         .. image:: png/coin_splitting/increase_fee.png
+
+   5. Wait for both chains to confirm the transaction.
+
+   6. Verify the transaction has a different TXID on each chain.
+
+         .. image:: png/coin_splitting/main_chain_txid.png
+         .. image:: png/coin_splitting/alternate_chain_txid.png
+
+You will now have coins seperately spendable on each chain.  If it failed,
+no harm done, you sent to yourself!  Just try again.
