@@ -29,12 +29,11 @@ be correct, a seed phrase must produce a registered version number.
 Motivation
 ----------
 
-Electrum was the first Bitcoin wallet to derive private keys from a
-seed phrase made of English words. Early versions of Electrum (before
-2.0) used a bidirectional encoding between seed phrase and
-entropy. This type of encoding requires a fixed wordlist. This means
-that future versions of Electrum must ship with the exact same
-wordlist, in order to be able to read old seed phrases.
+Early versions of Electrum (before 2.0) used a bidirectional encoding
+between seed phrase and entropy. This type of encoding requires a
+fixed wordlist. This means that future versions of Electrum must ship
+with the exact same wordlist, in order to be able to read old seed
+phrases.
 
 BIP39 was introduced two years after Electrum. BIP39 seeds include a
 checksum, in order to help users figure out typing errors. However,
@@ -108,15 +107,30 @@ between Asian CJK characters.
 List of reserved numbers
 ------------------------
 
-The following version numbers are used in Electrum.
+The following version numbers are used for Electrum seeds.
 
 ======== ========= =====================================
 Number   Type      Description
 ======== ========= =====================================
 0x01     Standard  P2PKH and Multisig P2SH wallets
-0x100    Segwit    Reserved for Segwit
+0x100    Segwit    Segwit: P2WPKH and P2WSH wallets
 0x101    2FA       Two-factor authenticated wallets
 ======== ========= =====================================
+
+In addition, the version bytes of BIP32 master public keys are used to
+signal what type of output script should be used with the public keys
+derived from the master key.
+
+========== =========== ===================================
+Version    Prefix      Description
+========== =========== ===================================
+0x0488ade4 xprv        P2PKH or P2SH
+0x0488b21e xpub        P2PKH or P2SH
+0x049d7878 yprv        (P2WPKH or P2WSH) nested in P2SH
+0x049d7cb2 ypub        (P2WPKH or P2WSH) nested in P2SH
+0x04b2430c zprv        P2WPKH or P2WSH
+0x04b24746 zpub        P2WPKH or P2WSH
+========== =========== ===================================
 
 
 Seed generation
