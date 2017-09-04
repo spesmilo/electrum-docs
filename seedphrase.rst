@@ -117,9 +117,9 @@ Number   Type      Description
 0x101    2FA       Two-factor authenticated wallets
 ======== ========= =====================================
 
-In addition, the version bytes of BIP32 master public keys are used to
-signal what type of output script should be used with the public keys
-derived from the master key.
+In addition, the version bytes of BIP32 master public keys indicate
+what type of output script should be used with the public keys.
+The following prefixes are used:
 
 ========== =========== ===================================
 Version    Prefix      Description
