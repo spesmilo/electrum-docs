@@ -69,7 +69,7 @@ Procedure
 
    2. Select a chain / network
 
-      a. Menu ➞ Network
+      a. Menu ➞ Tools ➞ Network
 
          Notice how the branches have different hashes at different heights.
          You can verify which chain you're on by using block explorers to verify
