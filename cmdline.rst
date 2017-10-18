@@ -208,4 +208,4 @@ command:
 
 .. code-block:: bash
 
-   electrum listaddresses --funded | electrum getprivatekeys - | jq 'map(.[0])' | electrum sweep - 1uCMeviLYzwWh1P2gEh3R4X34ArzVUR1R
+   electrum listaddresses --funded | electrum getprivatekeys - | jq 'map(.[0])' | electrum sweep - [destination address]
