@@ -39,7 +39,7 @@ Fork detection
 --------------
 
 Electrum (version 2.9 and higher) is able to detect consensus failures
-between servers (blochchain forks), and lets users select their branch
+between servers (blockchain forks), and lets users select their branch
 of the fork.
 
 * Electrum will download and validate block headers sent by servers
