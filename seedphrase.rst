@@ -119,21 +119,28 @@ Number   Type      Description
 
 In addition, the version bytes of master public/private keys indicate
 what type of output script should be used. The following prefixes are
-used:
+used for master public keys:
+
+========== =========== ===================================
+Version    Prefix      Description
+========== =========== ===================================
+0x0488b21e xpub        P2PKH or P2SH
+0x049d7cb2 ypub        P2WPKH in P2SH
+0x0295b43e Ypub        P2WSH in P2SH
+0x04b24746 zpub        P2WPKH
+0x02aa7ed3 Zpub        P2WSH
+========== =========== ===================================
+
+And for master private keys:
 
 ========== =========== ===================================
 Version    Prefix      Description
 ========== =========== ===================================
 0x0488ade4 xprv        P2PKH or P2SH
-0x0488b21e xpub        P2PKH or P2SH
 0x049d7878 yprv        P2WPKH in P2SH
-0x049d7cb2 ypub        P2WPKH in P2SH
 0x0295b004 Yprv        P2WSH in P2SH
-0x0295b43e Ypub        P2WSH in P2SH
 0x04b2430c zprv        P2WPKH
-0x04b24746 zpub        P2WPKH
 0x02aa7a99 Zprv        P2WSH
-0x02aa7ed3 Zpub        P2WSH
 ========== =========== ===================================
 
 
