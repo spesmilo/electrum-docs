@@ -50,6 +50,10 @@ If you lose both your password and your seed, there is no way
 to recover your money. This is why we ask you to save your seed
 phrase on paper.
 
+To restore your wallet from seed phrase. Create a new wallet, select 
+the type, choose 'I already have a seed' and proceed to input your seed 
+phrase.
+
 
 My transaction has been unconfirmed for a long time. What can I do?
 -------------------------------------------------------------------
