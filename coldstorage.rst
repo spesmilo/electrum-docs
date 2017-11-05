@@ -34,7 +34,7 @@ New/Restore. Enter a name for the wallet and select "Standard wallet".
 
 Select "Use public or private keys"
 
-.. image:: png/public_private.png
+.. image:: png/public_or_private.png
 
 Paste your master public key in the box.
 
