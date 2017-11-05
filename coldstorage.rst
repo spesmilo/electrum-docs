@@ -16,9 +16,9 @@ Create an offline wallet
 Create a wallet on an offline machine, as per the usual process (file
 -> new) etc.
 
-After creating the wallet, go to Wallet -> Master Public Keys.
+After creating the wallet, go to Wallet -> Information.
 
-.. image:: png/mpk_window.png
+.. image:: png/wallet_info.png
 
 The Master Public Key of your wallet is the string shown in this popup
 window.  Transfer that key to your online machine somehow.
@@ -28,10 +28,13 @@ Create a watching-only version of your wallet
 ---------------------------------------------
 
 On your online machine, open up Electrum and select File ->
-New/Restore. Enter a name for the wallet and select "Restore a wallet
-or import keys".
+New/Restore. Enter a name for the wallet and select "Standard wallet".
 
-.. image:: png/restore.png
+.. image:: png/standard_wallet.png
+
+Select "Use public or private keys"
+
+.. image:: png/public_or_private.png
 
 Paste your master public key in the box.
 
