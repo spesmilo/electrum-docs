@@ -29,6 +29,8 @@ Example:
 
    constant forest adore false green weave stop guy fur freeze giggle clock
 
+Warning: Do not send bitcoin to a wallet generated from the above seed. It will be lost.
+
 Your wallet can be entirely recovered from its seed. For this, select
 the "restore wallet" option in the startup.
 
