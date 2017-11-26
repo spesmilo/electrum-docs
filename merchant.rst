@@ -42,7 +42,7 @@ Create a file that contains only the private key:
 
    -----BEGIN PRIVATE KEY-----
    your private key
-   -----BEGIN END KEY-----
+   -----END PRIVATE KEY-----
 
 
 Set the path to your the private key file with setconfig:
