@@ -12,23 +12,42 @@ Requirements
 - A SSL certificate (signed by a CA)
 - Electrum version >= 2.6
 
-Create a wallet
+Create and use your merchant wallet
 ---------------
 
-Create a wallet on your web server:
+Create a wallet on your protected machine, as you want to keep your
+cryptocurrency safe. If anybody compromise your merchant server, s/he will be able
+to access read-only version of your wallet only and won't be able to spent currency.
+
+Please notice that the potential intruder still will be able to see your
+addresses, transactions and balance, though. It's also recommended to use a
+separate wallet for your merchant purposes (and not your main wallet).
 
 .. code-block:: bash
 
    electrum create
 
-You can also use a watching only wallet (restored from xpub), if you
-want to keep private keys off the server.
+Still being on a protected machine, export your Master Public Key (xpub):
 
-Once your wallet is created, start Electrum as a daemon:
+.. code-block:: bash
+
+   electrum getmpk -w .electrum/wallets/your-wallet
+
+Now you are able to set up your electrum merchant daemon.
+
+On the server machine restore your wallet from previously exported Master
+Public Key (xpub):
+
+.. code-block:: bash
+
+   electrum restore xpub...............................................
+
+Once your read-only wallet is (re-)created, start Electrum as a daemon:
 
 .. code-block:: bash
 
    electrum daemon start
+   electrum daemon load_wallet
 
 Add your SSL certificate to your configuration
 ----------------------------------------------
