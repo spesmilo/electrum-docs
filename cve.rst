@@ -4,7 +4,7 @@ JSONRPC vulnerability in Electrum 2.6 to 3.0.4
 On January 6th, a vulnerability was disclosed in the Electrum wallet
 software, that allows malicious websites to execute wallet commands
 through JSONRPC executed in a web browser. The bug affects versions
-2.6 to 3.0.3 of Electrum, on all platforms. It also affects clones of
+2.6 to 3.0.4 of Electrum, on all platforms. It also affects clones of
 Electrum such as Electron Cash.
 
 
@@ -12,7 +12,7 @@ Can funds be stolen?
 --------------------
 
 Wallets that are not password protected are at risk of theft, if they
-are opened with an version of Electrum older that 3.0.5 while a web
+are opened with a version of Electrum older than 3.0.5 while a web
 browser is active.
 
 In addition, the vulnerability allows an attacker to modify user
