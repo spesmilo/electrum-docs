@@ -1,4 +1,4 @@
-Jsonrpc vulnerability in Electrum 2.6 to 3.0.4
+JSONRPC vulnerability in Electrum 2.6 to 3.0.4
 ==============================================
 
 On January 6th, a vulnerability was disclosed in the Electrum wallet
@@ -11,7 +11,7 @@ Electrum such as Electron Cash.
 Can funds be stolen?
 --------------------
 
-Wallets that are not password-protected are at risk of theft, if they
+Wallets that are not password protected are at risk of theft, if they
 are opened with an version of Electrum older that 3.0.5 while a web
 browser is active.
 
@@ -64,22 +64,22 @@ How to upgrade Electrum
 -----------------------
 
 Stop running any version of Electrum older than 3.0.5, and install
-Electrum 3.0.5. On desktop, make sure you download Electrum from
-https://electrum.org and no other website. On Android, version 3.0.5
-is available in Google Play.
+Electrum the most recent version. On desktop, make sure you download
+Electrum from https://electrum.org and no other website. On Android,
+the most recent version is available in Google Play.
 
-If Electrum 3.0.5 cannot be installed or does not work on your
-computer, stop using Electrum on that computer, and access your funds
-from a device that can run Electrum 3.0.5. If you really need to use
-an older version of Electrum, for example in order to access wallet
-seed, make sure that your computer is offline, and that no web browser
-is running on the computer at the same time.
+If Electrum 3.0.5 (or any later version) cannot be installed or does
+not work on your computer, stop using Electrum on that computer, and
+access your funds from a device that can run Electrum 3.0.5. If you
+really need to use an older version of Electrum, for example in order
+to access wallet seed, make sure that your computer is offline, and
+that no web browser is running on the computer at the same time.
 
 
-Should users move their funds to a new address?
------------------------------------------------
+Should you always move your funds to a new address?
+---------------------------------------------------
 
-We do not recommend to move your funds if your wallet was password
+We do not recommend moving your funds if your wallet was password
 protected. Even for wallets that have no password, moving funds is an
 extreme precaution, that might not be necessary; indeed, if your
 wallet had been compromised, it is very likely that the attacker would
@@ -89,8 +89,8 @@ have stolen the funds immediately.
 How long was the issue known before it was fixed?
 -------------------------------------------------
 
-The absence of password protection in the jsonrpc interface was first
-reported on November 25, 2017:
+The absence of password protection in the JSONRPC interface was first
+reported on November 25th, 2017:
 https://github.com/spesmilo/electrum/issues/3374
 
 The initial bug report was about the Electrum daemon, a piece of
@@ -99,16 +99,16 @@ receive Bitcoin payments. In that context, connections to the daemon
 from the outside world must be explicitly authorized, by setting
 'rpchost' and 'rpcport' in your Electrum configuration.
 
-On January 6th, 2018, Tavis Omandy demonstrated that the jsonrpc
+On January 6th, 2018, Tavis Ormandy demonstrated that the JSONRPC
 interface could be exploited against the Electrum GUI, and that the
 attack could be carried out by a web browser running locally, visiting
-a webpage with specially crafted javascript.
+a webpage with specially crafted JavaScript.
 
 We released a new version (3.0.4) in the hours following Tavis' post,
 with a patch written by mithrandi (Debian packager), that addressed
-the attack demonstrated by Tavis. In addition, the github remained
-open, because mithrandi's patch was not adding password protection to
-the jsonrpc interface.
+the attack demonstrated by Tavis. In addition, the Github issue
+remained open, because mithrandi's patch was not adding password
+protection to the JSONRPC interface.
 
 Shortly after the 3.0.4 release we started to work on adding proper
 password protection to the JSONRPC interface of the daemon, and that
