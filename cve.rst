@@ -76,28 +76,28 @@ to access wallet seed, make sure that your computer is offline, and
 that no web browser is running on the computer at the same time.
 
 
-Should you always move your funds to a new address?
+Should all users move their funds to a new address?
 ---------------------------------------------------
 
-We do not recommend moving your funds if your wallet was password
-protected. Even for wallets that have no password, moving funds is an
-extreme precaution, that might not be necessary; indeed, if your
-wallet had been compromised, it is very likely that the attacker would
-have stolen the funds immediately.
+We do not recommend moving funds from password protected wallets. For
+wallets that were not password protected, moving funds is an extreme
+precaution, that might not be necessary; indeed, if a wallet was
+compromised, it is very likely that the attacker would have stolen the
+funds immediately.
 
 
-How long was the issue known before it was fixed?
--------------------------------------------------
+When was the issue reported and fixed?
+--------------------------------------
 
-The absence of password protection in the JSONRPC interface was first
-reported on November 25th, 2017:
+The absence of password protection in the JSONRPC interface was
+reported on November 25th, 2017 by user jsmad:
 https://github.com/spesmilo/electrum/issues/3374
 
-The initial bug report was about the Electrum daemon, a piece of
-software that runs on web servers and is used by merchants in order to
-receive Bitcoin payments. In that context, connections to the daemon
-from the outside world must be explicitly authorized, by setting
-'rpchost' and 'rpcport' in your Electrum configuration.
+jsmad's report was about the Electrum daemon, a piece of software that
+runs on web servers and is used by merchants in order to receive
+Bitcoin payments. In that context, connections to the daemon from the
+outside world must be explicitly authorized, by setting 'rpchost' and
+'rpcport' in the Electrum configuration.
 
 On January 6th, 2018, Tavis Ormandy demonstrated that the JSONRPC
 interface could be exploited against the Electrum GUI, and that the
