@@ -73,15 +73,27 @@ If you have made a transaction that is unconfirmed, you can:
    confirmed or cancelled. This might take several days.
 
  - Increase the transaction fee. This is only possible for
-   "replaceable" transactions. To create this type of transaction, you
-   must have enabled "Replace by Fee" in your preferences before
-   sending the transaction.
+   "replaceable" transactions. To create this type of transaction, 
+   you must have checked "Replaceable" on the send tab before sending
+   the transaction. If you're not seeing the "Replaceable" option on 
+   the send tab go to Tools menu > Preferences > Fees tab and set 
+   "Propose Replace-By-Fee" to "Always". Transactions that are
+   replaceable have the word "Replaceable" in the date column on the
+   history tab. To increase the fee of a replaceable transaction right 
+   click on its entry on the history tab and choose "Increase Fee". 
+   Set an appropriate fee and click on "OK". A window will popup with 
+   the unsigned transaction. Click on "Sign" and then "Broadcast".
+
 
  - Create a "Child Pays for Parent" transaction. A CPFP is a new
    transaction that pays a high fee in order to compensate for the
    small fee of its parent transaction. It can be done by the
    recipient of the funds, or by the sender, if the transaction has a
-   change output.
+   change output. To create a CPFP transaction right click on the 
+   unconfirmed transaction on the history tab and choose 
+   "Child pays for parent". Set an appropriate fee and click on "OK". 
+   A window will popup with the unsigned transaction. Click on "Sign"
+   and then "Broadcast".
 
 
 What does it mean to "freeze" an address in Electrum?
@@ -154,7 +166,9 @@ your wallet seed.
 To sweep private keys, go to the Wallet menu -> Private Keys ->
 Sweep. Enter the private keys in the appropriate field. Leave the
 "Address" field unchanged. That is the destination address and it will
-be from your existing electrum wallet.
+be from your existing electrum wallet. Click on "Sweep". It'll now take 
+you to the send tab where you can set an appropriate fee and then click
+on "Send" to send the coins to your wallet.
 
 Where is my wallet file located?
 --------------------------------
