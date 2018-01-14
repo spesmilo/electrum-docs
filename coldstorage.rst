@@ -51,14 +51,12 @@ Create an unsigned transaction
 ------------------------------
 
 Go to the "send" tab on your online watching-only wallet,
-input the transaction data and press "Send...". A window opens up, informing you that a
-transaction fee will be added. Continue.
+input the transaction data and press "Preview". A window pops up:
 
 .. image:: png/unsigned.png
 
 
-In the window that opens up, press "save" and save the
-transaction file somewhere on your computer. Close the
+Press "save" and save the transaction file somewhere on your computer. Close the
 window and transfer the transaction file to your offline
 machine (e.g. with a usb stick).
 
