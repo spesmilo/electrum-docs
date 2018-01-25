@@ -79,11 +79,7 @@ that no web browser is running on the computer at the same time.
 Should all users move their funds to a new address?
 ---------------------------------------------------
 
-We do not recommend moving funds from password protected wallets. For
-wallets that were not password protected, moving funds is an extreme
-precaution, that might not be necessary; indeed, if a wallet was
-compromised, it is very likely that the attacker would have stolen the
-funds immediately.
+No, we do not recommend moving funds from password-protected wallets. 
 
 
 When was the issue reported and fixed?
