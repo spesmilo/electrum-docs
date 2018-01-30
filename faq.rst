@@ -27,7 +27,7 @@ Example:
 
 .. code-block:: none
 
-   constant forest adore false green weave stop guy fur freeze giggle clock
+   slim sugar lizard predict state cute awkward asset inform blood civil sugar
 
 Your wallet can be entirely recovered from its seed. For this, select
 the "restore wallet" option in the startup.
