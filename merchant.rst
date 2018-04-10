@@ -4,7 +4,6 @@ How to accept Bitcoin on a website using Electrum
 This tutorial will show you how to accept Bitcoin on a website with
 SSL signed payment requests. It is updated for Electrum 2.6.
 
-
 Requirements
 ------------
 
@@ -13,7 +12,7 @@ Requirements
 - Electrum version >= 2.6
 
 Create and use your merchant wallet
----------------
+-----------------------------------
 
 Create a wallet on your protected machine, as you want to keep your
 cryptocurrency safe. If anybody compromise your merchant server, s/he will be able
@@ -57,12 +56,11 @@ your domain.
 
 Create a file that contains only the private key:
 
-.. code-block:: none
+.. code-block:: openssl
 
    -----BEGIN PRIVATE KEY-----
    your private key
    -----END PRIVATE KEY-----
-
 
 Set the path to your the private key file with setconfig:
 
@@ -75,7 +73,7 @@ and the list of certificates it depends on, up to the root
 CA. Your certificate must be at the top of the list, and
 the root CA at the end.
 
-.. code-block:: none
+.. code-block:: openssl
 
    -----BEGIN CERTIFICATE-----
    your cert
@@ -87,13 +85,11 @@ the root CA at the end.
    root cert
    -----END CERTIFICATE-----
 
-
 Set the ssl_chain path with setconfig:
 
 .. code-block:: bash
 
    electrum setconfig ssl_chain /path/to/ssl.chain
-
 
 Configure a requests directory
 ------------------------------
@@ -143,14 +139,12 @@ url_rewrite.
 You can view the current list of requests using the 'listrequests'
 command.
 
-
 Open the payment request page in your browser
 ---------------------------------------------
 
 Let us open index_url in a web browser.
 
 .. image:: png/payrequest.png
-
 
 The page shows the payment request. You can open the
 bitcoin: URI with a wallet, or scan the QR code. The bottom
@@ -172,7 +166,6 @@ Get SimpleWebSocketServer from here:
 
    git clone https://github.com/ecdsa/simple-websocket-server.git
 
-
 Set ``websocket_server`` and ``websocket_port`` in your config:
 
 .. code-block:: bash
@@ -180,7 +173,6 @@ Set ``websocket_server`` and ``websocket_port`` in your config:
     electrum setconfig websocket_server <FQDN of your server>
 
     electrum setconfig websocket_port 9999
-
 
 And restart the daemon:
 
@@ -252,4 +244,3 @@ Create a payment request:
 .. code-block:: bash
 
    curl --data-binary '{"id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
-
