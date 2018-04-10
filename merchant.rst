@@ -1,15 +1,24 @@
 How to accept Bitcoin on a website using Electrum
 =================================================
 
-This tutorial will show you how to accept Bitcoin on a website with
-SSL signed payment requests. It is updated for Electrum 2.6.
+This tutorial will show you how to accept Bitcoin on a website with SSL signed
+payment requests, according to BIP-70_. The docs are updated for Electrum 3.1.2.
+
+.. _BIP-70:
+    https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki
 
 Requirements
 ------------
 
-- A webserver serving static HTML
-- A SSL certificate (signed by a CA)
-- Electrum version >= 2.6
+* A webserver serving static HTML
+* A valid SSL certificate (signed by a CA, for example free Letsencrypt_)
+* Electrum version >= 3.1
+* Electrum-Merchant_
+
+.. _Letsencrypt:
+    https://letsencrypt.org/
+.. _Electrum-Merchant:
+    https://pypi.org/project/electrum-merchant/
 
 Create and use your merchant wallet
 -----------------------------------
@@ -94,11 +103,11 @@ Set the ssl_chain path with setconfig:
 Configure a requests directory
 ------------------------------
 
-This directory must be served by your webserver (eg Apache)
+This directory must be served by your webserver (eg Apache or Nginx)
 
 .. code-block:: bash
 
-   electrum setconfig requests_dir /var/www/r/
+   electrum setconfig requests_dir /srv/www/payment/
 
 By default, electrum will display local URLs, starting with 'file://'
 In order to display public URLs, we need to set another configuration
@@ -106,7 +115,32 @@ variable, url_rewrite. For example:
 
 .. code-block:: bash
 
-   electrum setconfig url_rewrite "['file:///var/www/','https://electrum.org/']"
+   electrum setconfig url_rewrite "[ 'file:///srv/www/', 'https://example.com/' ]"
+
+Web server must be prepared for serving payment requests, a relevant
+configuration for Nginx:
+
+.. code-block:: nginx
+
+    location /payment/ {
+        default_type "application/bitcoin-paymentrequest";
+        alias /srv/www/payment/;
+    }
+
+Install Electrum-Merchant
+-------------------------
+
+Install and run Electrum-Merchant_ configuration program. By default it
+installs a simple interface, other interfaces are in preparation and will be
+available in future.
+
+.. code-block:: bash
+
+    pip3 install electrum-merchant
+    python3 -m electrum-merchant
+
+Please note that it is required to follow steps in previous paragraph before you
+will be able to successfuly run Electrum-Merchant_.
 
 Create a signed payment request
 -------------------------------
@@ -115,16 +149,16 @@ Create a signed payment request
 
    electrum addrequest 3.14 -m "this is a test"
    {
-      "URI": "bitcoin:1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4?amount=3.14&r=https://electrum.org/r/7c2888541a", 
-      "address": "1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4", 
-      "amount": 314000000, 
-      "amount (BTC)": "3.14", 
-      "exp": 3600, 
-      "id": "7c2888541a", 
-      "index_url": "https://electrum.org/r/index.html?id=7c2888541a", 
-      "memo": "this is a test", 
-      "request_url": "https://electrum.org/r/7c2888541a", 
-      "status": "Pending", 
+      "URI": "bitcoin:1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4?amount=3.14&r=https://example.com/payment/7c2888541a",
+      "address": "1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4",
+      "amount": 314000000,
+      "amount (BTC)": "3.14",
+      "exp": 3600,
+      "id": "7c2888541a",
+      "index_url": "https://example.com/payment/index.html?id=7c2888541a",
+      "memo": "this is a test",
+      "request_url": "https://example.com/payment/7c2888541a",
+      "status": "Pending",
       "time": 1450175741
    }
 
@@ -151,11 +185,10 @@ bitcoin: URI with a wallet, or scan the QR code. The bottom
 line displays the time remaining until the request expires.
 
 .. image:: png/payreq_window.png
-          
 
 This page can already used to receive payments. However,
 it will not detect that a request has been paid; for that
-we need to configure websockets
+we need to configure websockets.
 
 Add web sockets support
 -----------------------
@@ -164,13 +197,13 @@ Get SimpleWebSocketServer from here:
 
 .. code-block:: bash
 
-   git clone https://github.com/ecdsa/simple-websocket-server.git
+    git clone https://github.com/dpallot/simple-websocket-server
 
 Set ``websocket_server`` and ``websocket_port`` in your config:
 
 .. code-block:: bash
 
-    electrum setconfig websocket_server <FQDN of your server>
+    electrum setconfig websocket_server example.com
 
     electrum setconfig websocket_port 9999
 
@@ -178,15 +211,22 @@ And restart the daemon:
 
 .. code-block:: bash
 
-   electrum daemon stop
+    electrum daemon stop
 
-   electrum daemon start
-   
+    electrum daemon start
+
 Now, the page is fully interactive: it will update itself
-when the payment is received. Please notice that higher ports might 
-be blocked on some client's firewalls, so it is more safe for 
-example to reverse proxy websockets transmission using standard 
-``443`` port on an additional subdomain.
+when the payment is received. 
+
+Please notice that higher ports might be blocked on some client's
+firewalls, so it is safer for example to reverse proxy websockets
+transmission using standard ``443`` port on an additional external
+IP address. If your local installation websocket server or server's
+port Electrum serves varies from the port you want to announce to
+your customers, you are able to set two additional config parameters:
+
+* websocket_server_announce
+* websocket_port_announce
 
 JSONRPC interface
 -----------------
