@@ -60,10 +60,10 @@ Once your read-only wallet is (re-)created, start Electrum as a daemon:
 Add your SSL certificate to your configuration
 ----------------------------------------------
 
-You should have a *SSL private* key (**NOT YOUR WALLET PRIVATE KEY**!) and a SSLpublic certificate for
+You should have a *SSL private* key (**NOT YOUR WALLET PRIVATE KEY**!) and a SSL public certificate for
 your domain.
 
-Create a file that contains only the*SSL private* key (**NOT YOUR WALLET PRIVATE KEY**!) SSL private key:
+Create a file that contains only the *SSL private* key (**NOT YOUR WALLET PRIVATE KEY**!) SSL private key:
 
 .. code-block:: openssl
 
