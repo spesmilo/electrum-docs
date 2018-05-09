@@ -2,8 +2,8 @@
 
 This document describes how to decompile the "Electrum Pro" Windows
 binaries, and how to verify that they indeed contain bitcoin-stealing
-malware.  We previously warned users against this software, but at
-that time we did not have formal evidence.
+malware.  We previously warned users against "Electrum Pro", but we
+did not have formal evidence at that time.
 
 
 ## 0. Background
