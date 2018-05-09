@@ -81,8 +81,9 @@ the malware version from their website, in order to evade legal
 takedown mesures. However, a backup of electrum dot com is hosted on
 archive.org, and can be used to retrieve the malware file:
 
+```
 $ wget https://web.archive.org/web/20180508092547/https://www.electrum.com/4.0.2/ElectrumPro-4.0.2-Standalone.zip
-
+```
 
 
 ## 3. Uncompress the zip
