@@ -93,6 +93,9 @@ For example
 ```
 (which requires p7zip)
 
+Warning: obviously, do not execute the extracted file.
+
+
 ## 4. Unpack the pyinstaller binary
 ```
 python3.5 ./pyinstxtractor.py electrumpro-4.0.2.exe
