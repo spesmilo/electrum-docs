@@ -78,7 +78,7 @@ f497d2681dc00a7470fef7bcef8228964a2412889cd70b098cb8985aa1573e99  ElectrumPro-4.
 
 If you get a different hash, it means that the attackers have removed
 the malware version from their website, in order to evade legal
-takedown mesures. However, a backup of electrum dot com is hosted on
+takedown measures. However, a backup of electrum dot com is hosted on
 archive.org, and can be used to retrieve the malware file:
 
 ```
@@ -90,7 +90,7 @@ $ wget https://web.archive.org/web/20180508092547/https://www.electrum.com/4.0.2
 
 For example
 ```
-7za e ElectrumPro-4.0.2-Standalone.zip
+$ 7za e ElectrumPro-4.0.2-Standalone.zip
 ```
 (which requires p7zip)
 
@@ -99,13 +99,13 @@ Warning: obviously, do not execute the extracted file.
 
 ## 4. Unpack the pyinstaller binary
 ```
-python3.5 ./pyinstxtractor.py electrumpro-4.0.2.exe
+$ python3.5 ./pyinstxtractor.py electrumpro-4.0.2.exe
 ```
 
 ## 5. Decompile the python bytecode
 ```
-cd electrumpro-4.0.2.exe_extracted/out00-PYZ.pyz_extracted/
-uncompyle6 electrum.keystore.pyc
+$ cd electrumpro-4.0.2.exe_extracted/out00-PYZ.pyz_extracted/
+$ uncompyle6 electrum.keystore.pyc
 ```
 
 The output of this command can be found
