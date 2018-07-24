@@ -108,7 +108,7 @@ available:
 The transaction is encrypted with the cosigner's master
 public key; the password is needed to decrypt it.
 
-With all of the above methods, you can now add the seconds
-signature the the transaction (using the "sign" button). It
-will then be broadcast to the network.
+With all of the above methods, you can now add the second
+signature to the transaction (using the "sign" button). It
+can then be broadcast to the network.
 
