@@ -15,7 +15,7 @@ that, you need:
    sudo apt-get install libusb-1.0-0-dev libudev-dev
 
 At least, these are the names of the packages on Ubuntu/Debian. For
-other distros, you might need to find the corresponding packages.
+other distributions, you might need to find the corresponding packages.
 
 2. Python libraries
 ~~~~~~~~~~~~~~~~~~~
@@ -29,9 +29,9 @@ Trezor
 
 ::
 
-   python3 -m pip install trezor
+   python3 -m pip install trezor[hidapi]
 
-For more details, refer to `python-trezor`_.
+For more details, refer to `python-trezor <https://github.com/trezor/python-trezor>`_.
 
 
 Ledger
@@ -41,7 +41,7 @@ Ledger
 
    python3 -m pip install btchip-python
 
-For more details, refer to `btchip-python`_.
+For more details, refer to `btchip-python <https://github.com/LedgerHQ/btchip-python>`_.
 
 
 KeepKey
@@ -51,18 +51,38 @@ KeepKey
 
    python3 -m pip install keepkey
 
-For more details, refer to `python-keepkey`_.
+For more details, refer to `python-keepkey <https://github.com/keepkey/python-keepkey>`_.
 
 
 Digital Bitbox
 ^^^^^^^^^^^^^^
 
-The Digital Bitbox does not have (nor need) its own library but it still
-needs ``hidapi``.
+The Digital Bitbox only needs ``hidapi``.
 
 ::
 
    python3 -m pip install hidapi
+
+
+Archos Safe-T
+^^^^^^^^^^^^^
+
+::
+
+   python3 -m pip install safet
+
+For more details, refer to `python-safet <https://github.com/archos-safe-t/python-safet>`_.
+
+
+Coldcard
+^^^^^^^^
+
+::
+
+   python3 -m pip install ckcc-protocol
+
+For more details, refer to `ckcc-protocol <https://github.com/Coldcard/ckcc-protocol>`_.
+
 
 3. udev rules
 ~~~~~~~~~~~~~
@@ -75,10 +95,15 @@ Trezor
 
 See `TREZOR User Manual: Configuration of udev rules <https://doc.satoshilabs.com/trezor-user/settingupchromeonlinux.html#manual-configuration-of-udev-rules>`_
 
+`backup link <https://github.com/trezor/trezor-common/blob/master/udev/51-trezor.rules>`_
+
+
 Ledger
 ^^^^^^
 
 See `Ledger Support Center: What to do if my Ledger Nano S is not recognized on Windows and/ or Linux? <https://support.ledgerwallet.com/hc/en-us/articles/115005165269-What-to-do-if-my-Ledger-Nano-S-is-not-recognized-on-Windows-and-or-Linux>`_
+
+`backup link <https://github.com/LedgerHQ/udev-rules/blob/master/add_udev_rules.sh>`_
 
 
 KeepKey
@@ -86,13 +111,28 @@ KeepKey
 
 See `KeepKey Support Desk: KeepKey wallet is not being recognized by Linux <https://support.keepkey.com/support/solutions/articles/6000037796-keepkey-wallet-is-not-being-recognized-by-linux>`_
 
+`backup link <https://github.com/keepkey/udev-rules/blob/master/51-usb-keepkey.rules>`_
+
 
 Digital Bitbox
 ^^^^^^^^^^^^^^
 
 See `Bitbox | Linux <https://shiftcrypto.ch/start_linux>`_
 
- 
+
+Archos Safe-T
+^^^^^^^^^^^^^
+
+See `this file in their GitHub repository <https://github.com/archos-safe-t/safe-t-common/blob/master/udev/51-safe-t.rules>`_.
+
+
+Coldcard
+^^^^^^^^
+
+See `this file in their GitHub repository <https://github.com/Coldcard/ckcc-protocol/blob/master/51-coinkite.rules>`_.
+
+
+
 4. Apply configuration
 ~~~~~~~~~~~~~~~~~~~~~~
 
