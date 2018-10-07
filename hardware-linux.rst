@@ -20,8 +20,7 @@ that, you need:
 
    sudo dnf install libusb-devel systemd-devel
 
-At least, these are the names of the packages on Ubuntu/Debian. For
-other distributions, you might need to find the corresponding packages.
+(Package names may be different for other distributions.)
 
 2. Python libraries
 ~~~~~~~~~~~~~~~~~~~
