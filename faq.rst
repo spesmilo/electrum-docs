@@ -264,8 +264,7 @@ do this:
 
 .. code-block:: python
 
-   for x in range(0, 50):
-	print wallet.create_new_address(False)
+   [wallet.create_new_address(False) for i in range(50)]
 
 
 How do I upgrade Electrum?
