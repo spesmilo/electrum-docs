@@ -10,12 +10,17 @@ hardware wallet working with Electrum.
 Currently all hardware wallets depend on ``hidapi``, to be able to build
 that, you need:
 
+*ubuntu:*
 ::
 
    sudo apt-get install libusb-1.0-0-dev libudev-dev
+   
+*fedora:*
+::
 
-At least, these are the names of the packages on Ubuntu/Debian. For
-other distributions, you might need to find the corresponding packages.
+   sudo dnf install libusb-devel systemd-devel
+
+(Package names may be different for other distributions.)
 
 2. Python libraries
 ~~~~~~~~~~~~~~~~~~~
