@@ -131,6 +131,8 @@ Coldcard
 
 See `this file in their GitHub repository <https://github.com/Coldcard/ckcc-protocol/blob/master/51-coinkite.rules>`_.
 
+(It should go into ``/etc/udev/rules.d/51-coinkite.rules``
+or ``/usr/lib/udev/rules.d/51-coinkite.rules``)
 
 
 4. Apply configuration
