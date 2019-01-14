@@ -119,7 +119,7 @@ Number   Type      Description
 
 In addition, the version bytes of master public/private keys indicate
 what type of output script should be used, and on which network. The
-prefixes are detailed `here <xpub_version_bytes.rst>`__.
+prefixes are detailed `here <xpub_version_bytes.html>`__.
 
 
 Seed generation
