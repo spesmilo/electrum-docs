@@ -4,6 +4,9 @@ Hardware wallets on Linux
 The following aims to be a concise guide of what you need to get your
 hardware wallet working with Electrum.
 
+If you use the AppImage, that already has all the dependencies and Python
+libraries bundled with it, so skip the first two steps.
+
 1. Dependencies
 ~~~~~~~~~~~~~~~
 
