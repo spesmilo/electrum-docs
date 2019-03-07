@@ -314,3 +314,52 @@ Electrum 1.x wallets to Electrum 2.x:
   Console: wallet.synchronize(). When it's complete,
   restart Electrum and your addresses will once again
   be available.
+
+
+My anti-virus has flagged Electrum as malware! What now?
+--------------------------------------------------------
+
+Electrum binaries are often flagged by various anti-virus software.
+There is nothing we can do about it, so please stop reporting that to us.
+Anti-virus software uses heuristics in order to determine if a program
+is malware, and that often results in false positives.
+
+If you trust the developers of the project, you can verify
+the GPG signature of Electrum binaries, and safely ignore any anti-virus
+warnings.
+
+If you do not trust the developers of the project, you should build the
+binaries yourself, or run the software from source.
+
+Finally, if you are really concerned about malware, you should not use an
+operating system that relies on anti-virus software.
+
+
+Electrum requires recent Python. My Linux distribution does not yet have it. What now?
+--------------------------------------------------------------------------------------
+
+There are several ways to resolve this.
+
+1. Use the AppImage distributed by us. This is a single self-contained
+   binary that includes all the dependencies.
+   Currently we only distribute this binary for x86_64 (amd64) architecture.
+   Just download it, (verify GPG sig), make it executable, and run it. E.g.:
+
+   .. code-block:: none
+
+      wget https://download.electrum.org/3.3.4/electrum-3.3.4-x86_64.AppImage
+      chmod +x electrum-3.3.4-x86_64.AppImage
+      ./electrum-3.3.4-x86_64.AppImage
+
+
+2. Use backports (e.g. in case of Debian, check the packages in stable-backports)
+
+3. Upgrade your distribution (e.g. use Debian testing instead of stable)
+
+4. Compile Python yourself (note that you will also need to compile PyQt5, as
+   the package manager for the distribution will only have PyQt5 for the version
+   of Python that is packaged by them)
+
+5. Use a virtual machine where you run another Linux distribution that has
+   more recent packages.
+
