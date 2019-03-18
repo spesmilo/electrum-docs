@@ -3,11 +3,11 @@ Using the most current Electrum on Tails
 
 Tails currently ships with an outdated version of Electrum that can no longer be used on the public Electrum server network as of March 2019. Unfortunately installed software on Tails cannot be permanently upgraded since it is a fixed (read-only) image - you have to wait for Tails to upgrade.
 
-However, you can use a recent version of Electrum with Tails by using the AppImage binary we distribute (a self-contained executable that works on x86_64 Linux (including Tails)). 
+However, you can use a recent version of Electrum with Tails by using the AppImage binary we distribute (a self-contained executable that works on x86_64 Linux including Tails). 
 
 These steps have been tested on Tails 3.12.1.
 
-Steps to use appimage
+Steps to use AppImage
 ---------------------
 
 1. Write down your wallet seed words and store them securely off the computer.
