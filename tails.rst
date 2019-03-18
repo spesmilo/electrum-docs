@@ -1,5 +1,5 @@
 Using the most current Electrum on Tails
-----------------------------------------
+========================================
 
 Tails currently ships with an outdated and insecure version of Electrum that can no longer be used on the public Electrum server network as of March 2019. Unfortunately installed software on Tails cannot be permanently upgraded since it is a fixed (read-only) image - you have to wait for Tails to upgrade.
 
