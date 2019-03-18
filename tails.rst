@@ -5,7 +5,7 @@ Tails currently ships with an outdated version of Electrum that can no longer be
 
 However, you can use a recent version of Electrum with Tails by using the AppImage binary we distribute (a self-contained executable that works on x86_64 Linux (including Tails)). 
 
-These steps work on the current Tails (3.12.1) but may work on older versions too.
+These steps have been tested on Tails 3.12.1.
 
 Steps to use appimage
 ---------------------
