@@ -20,6 +20,7 @@ GUI and beginners
    multisig
    coldstorage
    hardware-linux
+   tails
 
 Advanced users
 --------------
