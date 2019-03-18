@@ -5,7 +5,7 @@ Tails currently ships with an outdated and insecure version of Electrum that can
 
 However, you can use the most current Electrum with Tails that eliminates the phishing message and includes other improvements by using the appimage (a self-contained file that works on Tails linux). 
 
-These steps work on the current Tails (3.12.1) but may work on older versions too:
+These steps work on the current Tails (3.12.1) but may work on older versions too.
 
 Steps to use appimage
 ---------------------
