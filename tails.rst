@@ -10,7 +10,7 @@ Steps to use appimage
 
 1. Write down your wallet seed words and store them securely off the computer.
 2. Enable and configure persistent storage. From Tails enter Applications/Tails menu and select "Configure persistent volume". Ensure "Personal data" and "Bitcoin client" sliders are enabled. Reboot if necessary and make sure the persistent volume is unlocked.
-3. Download the Linux Appimage file under "Sources and Binaries" near the top of the page from electrum.org using Tor browser and save it to the default "Tor browser" folder.
+3. Download the Linux Appimage file under "Sources and Binaries" near the top of the page from https://electrum.org/#download using Tor browser and save it to the default "Tor browser" folder.
 4. Open Home/Tor browser folder and drag appimage to Persistent folder (lower left side of the window). Tails is very sensitive to user writeable file locations and Electrum may not work in others.
 5. Open Home/Persistent folder (where the appimage will now live), right click on the appimage, select permissions tab and click "Allow executing file as program" then close the dialog. More detailed instructions with screenshots are available here: https://docs.appimage.org/user-guide/run-appimages.html
 
