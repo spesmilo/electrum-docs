@@ -20,7 +20,7 @@ GUI and beginners
    multisig
    coldstorage
    hardware-linux
-   electrum-tails
+   tails
 
 Advanced users
 --------------
