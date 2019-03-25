@@ -356,9 +356,16 @@ There are several ways to resolve this.
 
 3. Upgrade your distribution (e.g. use Debian testing instead of stable)
 
-4. Compile Python yourself (note that you will also need to compile PyQt5, as
-   the package manager for the distribution will only have PyQt5 for the version
-   of Python that is packaged by them)
+4. Compile Python yourself, and then install pyqt5 using pip (as the package
+   manager for the distribution will only have PyQt5 for the version of
+   Python that is packaged by them).
+
+   .. code-block:: none
+
+      python3 -m pip install --user pyqt5
+
+   (Unfortunately it seems pyqt5 via pip is only available for x86/x86_64.
+   On other archs, you might have to build Qt/PyQt yourself.)
 
 5. Use a virtual machine where you run another Linux distribution that has
    more recent packages.
