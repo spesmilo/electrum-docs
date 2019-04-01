@@ -127,6 +127,16 @@ configuration for Nginx:
         default_type "application/bitcoin-paymentrequest";
         alias /srv/www/payment/;
     }
+    
+Or for Apache 2:
+
+.. code-block:: apache
+
+    <Directory /srv/www/payment/requests/>
+        ForceType application/bitcoin-paymentrequest
+    </Directory>
+
+For other web servers, please check the manual on how to change the default MIME-type based on directory.
 
 Install Electrum-Merchant
 -------------------------
