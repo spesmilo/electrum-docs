@@ -3,7 +3,7 @@ Verifying GPG signature of Electrum using Linux command line
 
 This can be used to verify either the the Linux Python or AppImage version of Electrum
 
-Download only from electrum.org
+Download only from electrum.org and remember to check the gpg signature again every time you download a new version
 
 Obtain fingerprint for ThomasV
 --------------------------------
@@ -52,5 +52,3 @@ You can ignore this:
   gpg:          There is no indication that the signature belongs to the owner.
 
 As it simply means you have not established a web of trust with other GPG users
-
-Remember to check again the pgp signature every time you make a new download
