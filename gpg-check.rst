@@ -26,7 +26,7 @@ Right click on the signature file and save it as well
 Verify GPG signatures
 ---------------------
 
-Run the following command from the same directory you saved the files replacing <version> with the one actually downloaded:
+Run the following command from the same directory you saved the files replacing <electrum file> with the one actually downloaded:
 
 .. code-block:: bash
 
