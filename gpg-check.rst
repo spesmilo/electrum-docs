@@ -5,8 +5,8 @@ This can be used to verify either the the Linux Python or AppImage version of El
 
 Download only from electrum.org and remember to check the gpg signature again every time you download a new version
 
-Obtain fingerprint for ThomasV
---------------------------------
+Obtain public GPG key for ThomasV
+---------------------------------
 
 In a terminal type:
 
@@ -23,8 +23,8 @@ Download the Python Electrum-<version>.tar.gz or AppImage file
 
 Right click on the signature file and save it as well
 
-Verify GPG signatures
----------------------
+Verify GPG signature
+--------------------
 
 Run the following command from the same directory you saved the files replacing <electrum file> with the one actually downloaded:
 
@@ -51,4 +51,4 @@ You can ignore this:
   WARNING: This key is not certified with a trusted signature!
   gpg:          There is no indication that the signature belongs to the owner.
 
-As it simply means you have not established a web of trust with other GPG users
+as it simply means you have not established a web of trust with other GPG users
