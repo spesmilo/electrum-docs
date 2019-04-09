@@ -16,8 +16,8 @@ In a terminal enter (or copy):
    
 You should be able to substitute any public GPG keyserver if keys.gnupg.net is (temporarily) not working
 
-Download Electrum
------------------
+Download Electrum and signature file (asc)
+------------------------------------------
 
 Download the Python Electrum-<version>.tar.gz or AppImage file 
 
