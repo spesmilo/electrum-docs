@@ -8,7 +8,7 @@ Download only from electrum.org and remember to check the gpg signature again ev
 Obtain public GPG key for ThomasV
 ---------------------------------
 
-In a terminal type:
+In a terminal enter (or copy):
 
 .. code-block:: bash
 
