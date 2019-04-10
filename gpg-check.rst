@@ -1,7 +1,7 @@
 Verifying GPG signature of Electrum using Linux command line
 ============================================================
 
-This can be used to verify either the the Linux Python or AppImage version of Electrum
+This can be used to verify the authenticity of Electrum binaries/sources.
 
 Download only from electrum.org and remember to check the gpg signature again every time you download a new version
 
