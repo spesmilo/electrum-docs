@@ -33,6 +33,7 @@ Advanced users
    merchant
    hardfork
    tor
+   gpg-check
 
 For developers
 --------------
