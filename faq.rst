@@ -170,16 +170,19 @@ be from your existing electrum wallet. Click on "Sweep". It'll now take
 you to the send tab where you can set an appropriate fee and then click
 on "Send" to send the coins to your wallet.
 
-Where is my wallet file located?
---------------------------------
 
-The default wallet file is called default_wallet, which is created when
-you first run the application and is located in the /wallets folder.
+.. _datadir:
+
+Where is the Electrum datadir located?
+--------------------------------------
+
+The data directory of Electrum is where wallet files, config settings,
+logs, blockchain headers, etc are stored.
 
 On Windows:
 
  - Show hidden files
- - Go to \\Users\\YourUserName\\AppData\\Roaming\\Electrum\\wallets (or %APPDATA%\\Electrum\\wallets)
+ - Go to \\Users\\YourUserName\\AppData\\Roaming\\Electrum (or %APPDATA%\\Electrum)
 
 On Mac:
 
@@ -190,6 +193,30 @@ On Linux:
 
 - Home Folder
 - Go -> Location and type ~/.electrum
+
+
+Where is my wallet file located?
+--------------------------------
+
+The default wallet file is called default_wallet, which is created when
+you first run the application and is located in the /wallets folder,
+inside the :ref:`datadir <datadir>`.
+
+
+How to enable debug logging?
+----------------------------
+
+On Linux/Mac, if you start Electrum from terminal, you can specify
+the -v flag, to enable debug logs in the terminal (to stderr).
+This option does not work on Windows.
+
+Logging to disk is also available since version 3.3.5, and this
+works on Windows too.
+
+Using the Qt GUI, go to Tools menu > Preferences > General tab,
+and tick "Write logs to file". After restarting Electrum,
+debug logs will written to the /logs folder inside the
+:ref:`datadir <datadir>`.
 
 
 Can I do bulk payments with Electrum?
