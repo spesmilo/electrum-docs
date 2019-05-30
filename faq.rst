@@ -30,7 +30,7 @@ Example:
    slim sugar lizard predict state cute awkward asset inform blood civil sugar
 
 Your wallet can be entirely recovered from its seed. For this, select
-the "restore wallet" option in the startup.
+the "I already have a seed" option in the wizard.
 
 How secure is the seed?
 -----------------------
@@ -215,7 +215,7 @@ works on Windows too.
 
 Using the Qt GUI, go to Tools menu > Preferences > General tab,
 and tick "Write logs to file". After restarting Electrum,
-debug logs will written to the /logs folder inside the
+debug logs will be written to the /logs folder inside the
 :ref:`datadir <datadir>`.
 
 
