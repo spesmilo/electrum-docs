@@ -181,8 +181,8 @@ logs, blockchain headers, etc are stored.
 
 On Windows:
 
- - Show hidden files
- - Go to \\Users\\YourUserName\\AppData\\Roaming\\Electrum (or %APPDATA%\\Electrum)
+- Show hidden files
+- Go to \\Users\\YourUserName\\AppData\\Roaming\\Electrum (or %APPDATA%\\Electrum)
 
 On Mac:
 
