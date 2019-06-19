@@ -409,7 +409,7 @@ The two main stacks the client supports are
 
 2. JSON-RPC over TCP
 
-Note that neither options uses HTTP.
+Note that neither option uses HTTP.
 
 The client only connects to servers over SSL (so plaintext TCP is not used).
 Prior to Electrum 3.1, there used to be a checkbox in the GUI to toggle this
@@ -419,7 +419,7 @@ As for authentication, the client accepts both CA-signed certificates and self-s
 SSL certificates. When it first connects to a server, it pins the fact whether that
 server is using a CA-signed or a self-signed cert.
 
-- If it is self-signed it will only accept that cert until it expires for that server (TOFU).
+- If it is self-signed, it will only accept that cert until it expires for that server (TOFU).
 
 - If it is CA signed, it will forever only accept CA-signed certs for that server.
 
