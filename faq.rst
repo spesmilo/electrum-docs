@@ -397,3 +397,35 @@ There are several ways to resolve this.
 5. Use a virtual machine where you run another Linux distribution that has
    more recent packages.
 
+
+I might run my own server. Are client-server connections authenticated?
+-----------------------------------------------------------------------
+
+Electrum uses a client-server architecture, where the endpoints speak the
+Electrum protocol. The Electrum protocol is JSON-RPC based.
+The two main stacks the client supports are
+
+1. JSON-RPC over SSL/TLS over TCP
+
+2. JSON-RPC over TCP
+
+Note that neither options uses HTTP.
+
+The client only connects to servers over SSL (so plaintext TCP is not used).
+Prior to Electrum 3.1, there used to be a checkbox in the GUI to toggle this
+but it was removed.
+
+As for authentication, the client accepts both CA-signed certificates and self-signed
+SSL certificates. When it first connects to a server, it pins the fact whether that
+server is using a CA-signed or a self-signed cert.
+
+- If it is self-signed it will only accept that cert until it expires for that server (TOFU).
+
+- If it is CA signed, it will forever only accept CA-signed certs for that server.
+
+For your own server, both CA-signed and self-signed certs have their advantages.
+
+- With self-signed certs, as the client uses TOFU, there is a possibility of
+  man-in-the-middle during the first connection.
+
+- With CA-signed certs, you need to trust the Certificate Authorities.
