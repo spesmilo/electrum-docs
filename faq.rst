@@ -13,9 +13,51 @@ handle the most complicated parts of the Bitcoin system.
 Does Electrum trust servers?
 ----------------------------
 
-Not really; the Electrum client never sends private keys
+In short, not really. The Electrum client never sends private keys
 to the servers. In addition, it verifies the information
 reported by servers, using a technique called :ref:`Simple Payment Verification <spv>`
+
+By default, Electrum tries to maintain connections to ~10 servers.
+The client subscribes to block header notifications to all of these,
+and for all connected servers except one, that is all they are used for.
+Getting block headers from multiple sources is useful to detect lagging
+servers, chain splits and forks.
+
+One of the servers, arbitrarily, is selected as the "main" server.
+
+- The client subscribes to its own addresses (nit: sha256 hashes
+  of scriptPubKeys) so that it would be notified of new transactions touching them.
+  It also synchronizes the existing history of its addresses.
+  This means the client sacrificies some privacy to the server, as the server
+  can now reasonably guess that all these addresses belong to the same entity.
+
+- As above, confirmed transactions are verified via SPV.
+
+- The server is trusted about unconfirmed transactions.
+
+- The server can lie by omission. That is, it can "forget" to mention
+  (both confirmed and unconfirmed) transactions that are relevant to the client.
+
+- The main server is also used for fee estimates, and is trusted with those
+  (low-high sanity limits are applied in the client)
+
+- The main server is also used to broadcast the transactions the client makes.
+
+- A list of server peers is also requested by the client, to learn about
+  other servers it can use. (There is a list of hardcoded servers in the
+  client to bootstrap)
+
+Further, all of the connected servers will see the client's IP address
+(which might be that of a proxy/VPN/Tor, if used).
+
+The fast startup times and low resource usage is achieved at the cost of
+the above detailed privacy loss. The protocol and the client is designed
+in a way that minimises trust in the server.
+
+Anyone can run a server. If you feel strongly about privacy,
+or if SPV-security guarantees are not enough for you, you should
+consider running your own Electrum server.
+
 
 What is the seed?
 -----------------
