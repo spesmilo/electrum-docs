@@ -28,7 +28,7 @@ One of the servers, arbitrarily, is selected as the "main" server.
 - The client subscribes to its own addresses (nit: sha256 hashes
   of scriptPubKeys) so that it would be notified of new transactions touching them.
   It also synchronizes the existing history of its addresses.
-  This means the client sacrificies some privacy to the server, as the server
+  This means the client sacrifices some privacy to the server, as the server
   can now reasonably guess that all these addresses belong to the same entity.
 
 - As above, confirmed transactions are verified via SPV.
