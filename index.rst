@@ -42,6 +42,7 @@ For developers
    :maxdepth: 2
 
    console
+   python
    spv
    seedphrase
    protocol
