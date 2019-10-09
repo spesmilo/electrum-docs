@@ -15,7 +15,7 @@ Steps to use AppImage
 3. Ensure your Tails is connected to a WiFi network and the onion icon at the top confirms Tor network is ready. 
 4. Using Tor browser download the Linux Appimage file under "Sources and Binaries" near the top of the download page on electrum.org_  and save it to the default "Tor browser" folder. Tails/Tor are not as fast as your regular computer OS/WiFi and the download may take much longer than normally expected, especially if you have a slow computer or USB drive. Tor download speed depends entirely on the Tor network connections. 
 5. Open Home/Tor browser folder and drag appimage to the Persistent folder (lower left side of the window). Tails is very sensitive to user writeable file locations and Electrum may not work in another location.
-6. Open Home/Persistent folder (where the appimage will now live), right click on the appimage, select permissions tab and click "Allow executing file as program" then close the dialog. More detailed instructions with screenshots are available here_.
+6. Open Home/Persistent folder (where the appimage will now live), right click on the appimage and select Properties. Select the Permissions tab and click "Allow executing file as program" then close the dialog. More detailed instructions with screenshots are available here_.
 7. Optional: Check the PGP signature of the AppImage by following these_ instructions before using the AppImage.
 
 .. _electrum.org: https://electrum.org/#download
