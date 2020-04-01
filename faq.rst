@@ -260,6 +260,12 @@ and tick "Write logs to file". After restarting Electrum,
 debug logs will be written to the /logs folder inside the
 :ref:`datadir <datadir>`.
 
+Using CLI/RPC, you can enable file logging via e.g.:
+
+.. code-block:: none
+
+    electrum setconfig log_to_file true
+
 
 Can I do bulk payments with Electrum?
 -------------------------------------
