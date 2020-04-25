@@ -13,7 +13,7 @@ libraries bundled with it, so skip the first two steps.
 Currently all hardware wallets depend on ``hidapi``, to be able to build
 that, you need:
 
-*ubuntu:*
+*ubuntu/debian:*
 ::
 
    sudo apt-get install libusb-1.0-0-dev libudev-dev
@@ -37,7 +37,8 @@ Trezor
 
 ::
 
-   python3 -m pip install trezor[hidapi]
+   python3 -m pip install --user trezor[hidapi]==0.11.6
+   sudo wget -O /etc/udev/rules.d/51-trezor.rules https://raw.githubusercontent.com/trezor/trezor-common/master/udev/51-trezor.rules
 
 For more details, refer to `python-trezor <https://github.com/trezor/python-trezor>`_.
 
