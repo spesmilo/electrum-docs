@@ -72,6 +72,16 @@ The Digital Bitbox only needs ``hidapi``.
    python3 -m pip install hidapi
 
 
+BitBox02
+^^^^^^^^
+
+::
+
+   python3 -m pip install bitbox02
+
+For more details, refer to `python-bitbox02 <https://github.com/digitalbitbox/bitbox02-firmware/tree/master/py>`_.
+
+
 Archos Safe-T
 ^^^^^^^^^^^^^
 
