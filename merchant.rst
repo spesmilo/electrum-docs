@@ -2,7 +2,7 @@ How to accept Bitcoin on a website using Electrum
 =================================================
 
 This tutorial will show you how to accept Bitcoin on a website with SSL signed
-payment requests, according to BIP-70_. The docs are updated for Electrum 3.1.2.
+payment requests, according to BIP-70_. The docs are updated for Electrum 4.0.
 
 .. _BIP-70:
     https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki
@@ -221,16 +221,16 @@ we can perform queries using curl or PHP. Example:
 
 .. code-block:: bash
 
-   curl --data-binary '{"id":"curltext","method":"getbalance","params":[]}' http://username:password@127.0.0.1:7777
+   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"getbalance","params":[]}' http://username:password@127.0.0.1:7777
 
 Query with named parameters:
 
 .. code-block:: bash
 
-   curl --data-binary '{"id":"curltext","method":"listaddresses","params":{"funded":true}}' http://username:password@127.0.0.1:7777
+   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"listaddresses","params":{"funded":true}}' http://username:password@127.0.0.1:7777
 
 Create a payment request:
 
 .. code-block:: bash
 
-   curl --data-binary '{"id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
+   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
