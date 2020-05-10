@@ -10,15 +10,18 @@ payment requests, according to BIP-70_. The docs are updated for Electrum 3.1.2.
 Requirements
 ------------
 
-* A webserver serving static HTML
+* Electrum version >= 4.0 (currently in development_)
 * A valid SSL certificate (signed by a CA, for example free Letsencrypt_)
-* Electrum version >= 3.1
-* Electrum-Merchant_
+
+Please follow the instructions to install the development version.
+Do not forget the submodule update command.
+
+.. _development:
+    https://github.com/spesmilo/electrum#development-version-git-clone
 
 .. _Letsencrypt:
     https://letsencrypt.org/
-.. _Electrum-Merchant:
-    https://pypi.org/project/electrum-merchant/
+
 
 Create and use your merchant wallet
 -----------------------------------
@@ -50,12 +53,6 @@ Public Key (xpub):
 
    electrum restore xpub...............................................
 
-Once your read-only wallet is (re-)created, start Electrum as a daemon:
-
-.. code-block:: bash
-
-   electrum daemon start
-   electrum daemon load_wallet
 
 Add your SSL certificate to your configuration
 ----------------------------------------------
@@ -76,7 +73,7 @@ Set the path to your the SSL private key file with setconfig:
 
 .. code-block:: bash
 
-   electrum setconfig ssl_privkey /path/to/ssl.key
+   electrum -o setconfig ssl_keyfile /path/to/ssl/privkey.pem
 
 Create another file, file that contains your certificate,
 and the list of certificates it depends on, up to the root
@@ -99,90 +96,70 @@ Set the ssl_chain path with setconfig:
 
 .. code-block:: bash
 
-   electrum setconfig ssl_chain /path/to/ssl.chain
+   electrum -o setconfig ssl_certfile /path/to/ssl/fullchain.pem
 
-Configure a requests directory
-------------------------------
 
-This directory must be served by your webserver (eg Apache or Nginx)
+Check that your SSL certificate correctly configured:
 
 .. code-block:: bash
 
-   electrum setconfig requests_dir /srv/www/payment/
+   electrum -o get_ssl_domain
 
-By default, electrum will display local URLs, starting with 'file://'
-In order to display public URLs, we need to set another configuration
-variable, url_rewrite. For example:
+
+Configure your full hostname and port:
 
 .. code-block:: bash
 
-   electrum setconfig url_rewrite "[ 'file:///srv/www/', 'https://example.com/' ]"
+   electrum -o setconfig payserver_address ecdsa.org:80
 
-Web server must be prepared for serving payment requests, a relevant
-configuration for Nginx:
 
-.. code-block:: nginx
-
-    location /payment/ {
-        default_type "application/bitcoin-paymentrequest";
-        alias /srv/www/payment/;
-    }
-    
-Or for Apache 2:
-
-.. code-block:: apache
-
-    <Directory /srv/www/payment/requests/>
-        ForceType application/bitcoin-paymentrequest
-    </Directory>
-
-For other web servers, please check the manual on how to change the default MIME-type based on directory.
-
-Install Electrum-Merchant
+Start the Electrum daemon
 -------------------------
 
-Install and run Electrum-Merchant_ configuration program. By default it
-installs a simple interface, other interfaces are in preparation and will be
-available in future.
+Once your read-only wallet is (re-)created, start Electrum as a daemon:
 
 .. code-block:: bash
 
-    pip3 install electrum-merchant
-    python3 -m electrum-merchant
+   electrum daemon -d
+   electrum daemon load_wallet
 
-Please note that it is required to follow steps in previous paragraph before you
-will be able to successfuly run Electrum-Merchant_.
+
+Note: to stop the daemon
+
+.. code-block:: bash
+
+   electrum stop
+
 
 Create a signed payment request
 -------------------------------
 
 .. code-block:: bash
 
-   electrum addrequest 3.14 -m "this is a test"
+   electrum add_request 0.5 -m "test"
    {
-      "URI": "bitcoin:1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4?amount=3.14&r=https://example.com/payment/7c2888541a",
-      "address": "1MP49h5fbfLXiFpomsXeqJHGHUfNf3mCo4",
-      "amount": 314000000,
-      "amount (BTC)": "3.14",
-      "exp": 3600,
-      "id": "7c2888541a",
-      "index_url": "https://example.com/payment/index.html?id=7c2888541a",
-      "memo": "this is a test",
-      "request_url": "https://example.com/payment/7c2888541a",
-      "status": "Pending",
-      "time": 1450175741
+    "URI": "bitcoin:bc1qyr5xx5jkue3k72sldm5xa0taqs3n2achupymz8?amount=0.5&message=test&time=1589115653&exp=3600",
+    "address": "bc1qyr5xx5jkue3k72sldm5xa0taqs3n2achupymz8",
+    "amount": 50000000,
+    "amount_BTC": "0.5",
+    "bip70_url": "https://ecdsa.org:80/bip70/bc1qyr5xx5jkue3k72sldm5xa0taqs3n2achupymz8.bip70",
+    "exp": 3600,
+    "id": "6988b80931",
+    "memo": "test",
+    "status": 0,
+    "status_str": "Expires in about 1 hour",
+    "time": 1589115653,
+    "type": 0,
+    "view_url": "https://ecdsa.org:80/r/pay?id=bc1qyr5xx5jkue3k72sldm5xa0taqs3n2achupymz8"
    }
 
 This command returns a json object with two URLs:
 
- - request_url is the URL of the signed BIP70 request.
- - index_url is the URL of a webpage displaying the request.
+ - bip70_url is the URL of the signed BIP70 request.
+ - view_url is the URL of a webpage displaying the request.
 
-Note that request_url and index_url use the domain name we defined in
-url_rewrite.
-
-You can view the current list of requests using the 'listrequests'
-command.
+You can view the current list of requests using the 'list_requests'
+command. You can clear the list using 'clear_requests'.
 
 Open the payment request page in your browser
 ---------------------------------------------
@@ -197,47 +174,9 @@ line displays the time remaining until the request expires.
 
 .. image:: png/payreq_window.png
 
-This page can already used to receive payments. However,
-it will not detect that a request has been paid; for that
-we need to configure websockets.
 
-Add web sockets support
------------------------
+The page will update itself when the payment is received, using websockets.
 
-Get SimpleWebSocketServer from here:
-
-.. code-block:: bash
-
-    git clone https://github.com/dpallot/simple-websocket-server
-
-Set ``websocket_server`` and ``websocket_port`` in your config:
-
-.. code-block:: bash
-
-    electrum setconfig websocket_server example.com
-
-    electrum setconfig websocket_port 9999
-
-And restart the daemon:
-
-.. code-block:: bash
-
-    electrum daemon stop
-
-    electrum daemon start
-
-Now, the page is fully interactive: it will update itself
-when the payment is received. 
-
-Please notice that higher ports might be blocked on some client's
-firewalls, so it is safer for example to reverse proxy websockets
-transmission using standard ``443`` port on an additional external
-IP address. If your local installation websocket server or server's
-port Electrum serves varies from the port you want to announce to
-your customers, you are able to set two additional config parameters:
-
-* websocket_server_announce
-* websocket_port_announce
 
 JSONRPC interface
 -----------------
