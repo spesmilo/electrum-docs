@@ -28,12 +28,22 @@ Advanced users
 .. toctree::
    :maxdepth: 2
 
-   cmdline
    coldstorage_cmdline
-   merchant
    hardfork
    tor
    gpg-check
+
+Using the Daemon
+----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   cmdline
+   ssl
+   merchant
+   watchtower
+   jsonrpc
 
 For developers
 --------------

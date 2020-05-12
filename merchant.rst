@@ -1,26 +1,34 @@
 How to accept Bitcoin on a website using Electrum
 =================================================
 
-This tutorial will show you how to accept Bitcoin on a website with SSL signed
-payment requests, according to BIP-70_. The docs are updated for Electrum 4.0.
+This tutorial will show you how to accept Bitcoin on a website with
+SSL signed payment requests, according to BIP-70_. The docs are
+updated for Electrum 4.0 (currently in development_).
 
 .. _BIP-70:
     https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki
 
-Requirements
-------------
+You will need a valid SSL certificate (signed by a CA, for example
+free Letsencrypt_).  Please follow the instructions to install the
+development version.  Do not forget the submodule update command.
 
-* Electrum version >= 4.0 (currently in development_)
-* A valid SSL certificate (signed by a CA, for example free Letsencrypt_)
-
-Please follow the instructions to install the development version.
-Do not forget the submodule update command.
 
 .. _development:
     https://github.com/spesmilo/electrum#development-version-git-clone
 
 .. _Letsencrypt:
     https://letsencrypt.org/
+
+
+Add your SSL certificate to Electrum
+------------------------------------
+
+.. code-block:: bash
+
+   electrum -o setconfig ssl_keyfile /path/to/ssl/privkey.pem
+   electrum -o setconfig ssl_certfile /path/to/ssl/fullchain.pem
+
+For details see `How to add SSL <ssl.html>`_
 
 
 Create and use your merchant wallet
@@ -53,57 +61,6 @@ Public Key (xpub):
 
    electrum restore xpub...............................................
 
-
-Add your SSL certificate to your configuration
-----------------------------------------------
-
-You should have a TLS/SSL private key and a public certificate for
-your domain set up already. Please note that this is not your wallet
-key but a private key for the matching TLS/SSL certificate.
-
-Create a file that contains only the private key:
-
-.. code-block:: openssl
-
-   -----BEGIN PRIVATE KEY-----
-   your private key
-   -----END PRIVATE KEY-----
-
-Set the path to your the SSL private key file with setconfig:
-
-.. code-block:: bash
-
-   electrum -o setconfig ssl_keyfile /path/to/ssl/privkey.pem
-
-Create another file, file that contains your certificate,
-and the list of certificates it depends on, up to the root
-CA. Your certificate must be at the top of the list, and
-the root CA at the end.
-
-.. code-block:: openssl
-
-   -----BEGIN CERTIFICATE-----
-   your cert
-   -----END CERTIFICATE-----
-   -----BEGIN CERTIFICATE-----
-   intermediate cert
-   -----END CERTIFICATE-----
-   -----BEGIN CERTIFICATE-----
-   root cert
-   -----END CERTIFICATE-----
-
-Set the ssl_chain path with setconfig:
-
-.. code-block:: bash
-
-   electrum -o setconfig ssl_certfile /path/to/ssl/fullchain.pem
-
-
-Check that your SSL certificate correctly configured:
-
-.. code-block:: bash
-
-   electrum -o get_ssl_domain
 
 
 Configure your full hostname and port:
@@ -178,59 +135,39 @@ line displays the time remaining until the request expires.
 The page will update itself when the payment is received, using websockets.
 
 
-JSONRPC interface
------------------
+Lightning payments
+------------------
 
-Commands to the Electrum daemon can be sent using JSONRPC. This is
-useful if you want to use electrum in a PHP script.
-
-Note that the daemon uses a random port number by default. In order to
-use a stable port number, you need to set the 'rpcport' configuration
-variable (and to restart the daemon):
+To use lightning, you need to initialize lightning keys in your wallet.
+You will need to restart the daemon after that, or to stop it before:
 
 .. code-block:: bash
 
-   electrum setconfig rpcport 7777
+   electrum stop
+   electrum -o init_lightning
+   electrum daemon -d
 
-Further, starting with Electrum 3.0.5, the JSON-RPC interface is
-authenticated using `HTTP basic auth`_.
+Note that it is possible to add lightning keys to a watching-only
+wallet.  That wallet will not be able to spend coins onchain, but it
+will be able to perform lightning trasactions.
 
-.. _`HTTP basic auth`: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme
-
-The username and the password are config variables.
-When first started, Electrum will initialise both;
-the password will be set to a random string. You can of course
-change them afterwards (the same way as the port, and then restart
-the daemon). To simply look up their value:
+The next thing you will need to do is open a channel:
 
 .. code-block:: bash
 
-   electrum getconfig rpcuser
-   electrum getconfig rpcpassword
+   electrum open_channel <node_id> <amount>
 
-Note that HTTP basic auth sends the username and the password unencrypted as
-part of the request. While using it on localhost is fine in our opinion,
-using it across an untrusted LAN or the Internet is not secure.
-Hence, you should take further measures in such cases, such as wrapping the
-connection in a secure tunnel. For further details, `read this`_.
-
-.. _`read this`: https://bitcoin.org/en/release/v0.12.0#rpc-ssl-support-dropped
-
-After setting a static port, and configuring authentication,
-we can perform queries using curl or PHP. Example:
+Wait until it is ready to be used:
 
 .. code-block:: bash
 
-   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"getbalance","params":[]}' http://username:password@127.0.0.1:7777
+   electrum list_channels
 
-Query with named parameters:
+You will not immediately be able to receive with that channel, because
+it does not have inbound capacity.
 
-.. code-block:: bash
-
-   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"listaddresses","params":{"funded":true}}' http://username:password@127.0.0.1:7777
-
-Create a payment request:
+To create a lightning payment request:
 
 .. code-block:: bash
 
-   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
+   electrum add_lightning_request 0.0001 -m "test"
