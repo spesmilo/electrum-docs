@@ -33,8 +33,8 @@ Advanced users
    tor
    gpg-check
 
-Using the Daemon
-----------------
+Daemon and Command Line
+-----------------------
 
 .. toctree::
    :maxdepth: 2

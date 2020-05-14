@@ -1,10 +1,10 @@
-
-
 Command Line
 ============
 
 
 Electrum has a powerful command line. This page will show you a few basic principles.
+
+Note that this page has been updated for Electrum 4.0.
 
 
 Using the inline help
@@ -23,6 +23,47 @@ To see the documentation for a command, type:
 .. code-block:: bash
 
    electrum help <command>
+
+
+How to use the daemon
+---------------------
+
+By default, commands are sent to an Electrum daemon.
+Here is how to start and stop the daemon:
+
+.. code-block:: bash
+
+   electrum daemon -d
+   electrum getinfo
+   electrum stop
+
+
+Some commands require a wallet. Here is how to load a wallet in the daemon:
+
+.. code-block:: bash
+
+   electrum load_wallet  # this will load the default wallet
+   electrum load_wallet -w /path/to/wallet/file
+   electrum list_wallets
+
+
+Once the wallet is loaded, wallet operations are possible, such as:
+
+.. code-block:: bash
+
+   electrum listaddresses
+   electrum payto <address> <amount>
+
+
+Some commands do not require network access, and can be executed without a running daemon.
+This is done with the --offline flag:
+
+.. code-block:: bash
+
+   electrum -o listaddresses
+   electrum -o payto <address> <amount>
+   electrum -o -w /path/to/wallet/file listaddresses
+
 
 
 Magic words
