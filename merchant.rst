@@ -164,7 +164,8 @@ Wait until it is ready to be used:
    electrum list_channels
 
 You will not immediately be able to receive with that channel, because
-it does not have inbound capacity.
+it does not have inbound capacity. If you need to be able to receive
+immediately, you may do a submarine swap of your channel funds.
 
 To create a lightning payment request:
 
