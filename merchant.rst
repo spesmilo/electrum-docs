@@ -149,7 +149,7 @@ You will need to restart the daemon after that, or to stop it before:
 
 Note that it is possible to add lightning keys to a watching-only
 wallet.  That wallet will not be able to spend coins onchain, but it
-will be able to perform lightning trasactions.
+will be able to perform lightning transactions.
 
 The next thing you will need to do is open a channel:
 
