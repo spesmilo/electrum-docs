@@ -59,7 +59,7 @@ Commands object accepts config(required), network and daemon.
 Network object is from ``network.py``, daemon object is from ``daemon.py``
 config object is from ``simple_config.py``.
 
-So, to create Commands object, you would have to do something like that:
+So, to create Commands object, you would have to do something like that (differs from release to release):
 
 .. code-block:: python
 
@@ -85,8 +85,10 @@ The result would be like so:
     <Task pending coro=<main() running at <stdin>:1>>
     >>> ['add_lightning_request', 'add_peer', 'add_request', 'addtransaction', 'broadcast', 'clear_invoices', 'clear_ln_blacklist', 'clear_requests', 'close_channel', 'close_wallet', 'commands', 'convert_xkey', 'create', 'createmultisig', 'createnewaddress', 'decrypt', 'deserialize', 'dumpgraph', 'dumpprivkeys', 'encrypt', 'freeze', 'get', 'get_channel_ctx', 'get_tx_status', 'getaddressbalance', 'getaddresshistory', 'getaddressunspent', 'getalias', 'getbalance', 'getconfig', 'getfeerate', 'getinfo', 'getmasterprivate', 'getmerkle', 'getmpk', 'getprivatekeys', 'getpubkeys', 'getrequest', 'getseed', 'getservers', 'gettransaction', 'getunusedaddress', 'help', 'importprivkey', 'inject_fees', 'is_synchronized', 'ismine', 'lightning_history', 'list_channels', 'list_invoices', 'list_requests', 'list_wallets', 'listaddresses', 'listcontacts', 'listunspent', 'lnpay', 'load_wallet', 'make_seed', 'nodeid', 'notify', 'onchain_history', 'open_channel', 'password', 'payto', 'paytomany', 'removelocaltx', 'restore', 'rmrequest', 'searchcontacts', 'serialize', 'setconfig', 'setlabel', 'signmessage', 'signrequest', 'signtransaction', 'stop', 'sweep', 'unfreeze', 'validateaddress', 'verifymessage', 'version']
 
-``loop, stop_loop, loop_thread = create_and_start_event_loop()``
- line starts event loop to run electrum commands, they are asynchronous.
+To view the most recent version of how to create Commands object, view `this file <https://github.com/spesmilo/electrum/blob/master/electrum/scripts/quick_start.py>`_
+
+
+``loop, stop_loop, loop_thread = create_and_start_event_loop()`` line starts event loop to run electrum commands, they are asynchronous.
 
 So, to run those commands you should run them from an async function.
 They are defined with ``async def``.
@@ -151,27 +153,4 @@ Where are the default servers read from?
 
 For mainnet, it reads ``electrum/servers.json`` file, for testnet
 ``electrum/servers_testnet.json``.
-For regtest is uses local electrumx install.
-
-Is there a ready solution available?
-------------------------------------
-
-Instead of writing all that code yourself, which may
-not work with future electrum versions, you can use a ready solution for that.
-
-Bitcart(CC) is a project which is a wrapper around electrum wallet,
-it supports multiple coins and is extensible.
-Even if there are some incompatible changes in electrum code,
-Bitcart will remain compatible with your code.
-
-The Python SDK(other languages SDK's may be added soon)
-exists and has an extensive documentation and some examples.
-Also there are ready solutions for starting merchants provided.
-
-Links:
-
-- https://github.com/MrNaif2018/bitcart - main repo
-- https://docs.bitcartcc.com - Bitcart docs
-- https://sdk.bitcartcc.com - Bitcart SDK docs
-- https://demo.bitcartcc.com - Bitcart Admin panel demo(ready to use solution)
-- https://store.bitcartcc.com - Bitcart store template demo(ready to use solution)
+For regtest it uses local electrumx install.
