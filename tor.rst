@@ -4,7 +4,7 @@ Using Electrum Through Tor
 Please note that when using electrum through tor there are two main ways.
 The first way has the most Privacy but also requires the most trust in the server you are connecting to. This is because normally
 Electrum connects to a few different servers and downloads block headers and checks that they match. This prevents / makes it more difficult for 
-Rogue servers to send you bad information. However this can also present a privacy issue because you could be connecting to none .onion servers for these headers.
+Rogue servers to send you bad information. However this can also present a privacy issue because you could be connecting to only one .onion server for these headers.
 
 Thus the two different options are, Connect to 1 server ONLY and get block headers and transaction info from that server.
 Or
