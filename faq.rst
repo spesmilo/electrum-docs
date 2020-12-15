@@ -19,7 +19,8 @@ reported by servers, using a technique called :ref:`Simple Payment Verification 
 
 By default, Electrum tries to maintain connections to ~10 servers.
 The client subscribes to block header notifications to all of these,
-and for all connected servers except one, that is all they are used for.
+and also periodically polls each for dynamic fee estimates.
+For all connected servers except one, that is all they are used for.
 Getting block headers from multiple sources is useful to detect lagging
 servers, chain splits and forks.
 
@@ -38,8 +39,11 @@ One of the servers, arbitrarily, is selected as the "main" server.
 - The server can lie by omission. That is, it can "forget" to mention
   (both confirmed and unconfirmed) transactions that are relevant to the client.
 
-- The main server is also used for fee estimates, and is trusted with those
-  (low-high sanity limits are applied in the client)
+- All connected servers are polled for fee estimates, but whether those values
+  are used depends on the "auto-connect" setting of the client.
+  With "auto-connect" disabled, only the fee estimates sent by the main server are used.
+  With "auto-connect" enabled, the client uses the median of all received fee estimates.
+  In either case, low-high sanity limits are applied in the client.
 
 - The main server is also used to broadcast the transactions the client makes.
 
