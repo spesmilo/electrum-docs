@@ -90,7 +90,7 @@ is computed as follows:
     h = hmac_sha_512("Seed version", normalized)
     # use hex encoding, because prefix length is a multiple of 4 bits
     s = h.encode('hex')
-    # the length of the prefix is written on the fist 4 bits
+    # the length of the prefix is written on the first 4 bits
     # for example, the prefix '101' is of length 4*3 bits = 4*(1+2)
     length = int(s[0]) + 2
     # read the prefix
