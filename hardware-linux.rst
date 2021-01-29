@@ -47,7 +47,7 @@ Ledger
 
 ::
 
-   python3 -m pip install btchip-python
+   python3 -m pip install btchip-python ecdsa
 
 For more details, refer to `btchip-python <https://github.com/LedgerHQ/btchip-python>`_.
 
