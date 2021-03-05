@@ -101,6 +101,13 @@ the type, choose "I already have a seed" and proceed to input your seed
 phrase.
 
 
+How does Electrum get the Bitcoin price it uses?
+------------------------------------------------
+Electrum gets the Bitcoin price from a third party, but provides
+various options.  Please see menubar > `Tools` > `Preferences` > `Fiat`
+to view the current setting or choose a new one.
+
+
 My transaction has been unconfirmed for a long time. What can I do?
 -------------------------------------------------------------------
 
