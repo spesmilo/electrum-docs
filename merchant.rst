@@ -121,7 +121,7 @@ command. You can clear the list using 'clear_requests'.
 Open the payment request page in your browser
 ---------------------------------------------
 
-Let us open index_url in a web browser.
+Let us open view_url in a web browser.
 
 .. image:: png/payrequest.png
 
