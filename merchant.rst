@@ -78,7 +78,7 @@ Once your read-only wallet is (re-)created, start Electrum as a daemon:
 .. code-block:: bash
 
    electrum daemon -d
-   electrum daemon load_wallet
+   electrum load_wallet
 
 
 Note: to stop the daemon
