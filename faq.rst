@@ -488,3 +488,16 @@ For your own server, both CA-signed and self-signed certs have their advantages.
   man-in-the-middle during the first connection.
 
 - With CA-signed certs, you need to trust the Certificate Authorities.
+
+
+Does Electrum support altcoins ("cryptocurrencies")?
+----------------------------------------------------
+
+No. Electrum only supports Bitcoin.
+
+The project has never supported any altcoins, only Bitcoin. However Electrum
+is free (as in freedom) software with a permissive license, and there are many
+forks of the software that support specific altcoins. These are separate projects,
+with their own maintainers, independent of Electrum. We do not review their code
+or endorse them in any way. If you are a user of these, please direct any and all
+support requests to their maintainers, instead of us.
