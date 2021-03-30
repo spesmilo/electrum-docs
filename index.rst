@@ -8,11 +8,9 @@ Welcome to the Electrum Documentation!
 
 Electrum is a lightweight Bitcoin wallet.
 
-GUI and beginners
------------------
-
 .. toctree::
    :maxdepth: 2
+   :caption: GUI and beginners
 
    faq
    invoices
@@ -22,22 +20,19 @@ GUI and beginners
    hardware-linux
    tails
 
-Advanced users
---------------
-
 .. toctree::
    :maxdepth: 2
+   :caption: Advanced users
 
    coldstorage_cmdline
    hardfork
    tor
    gpg-check
 
-Daemon and Command Line
------------------------
 
 .. toctree::
    :maxdepth: 2
+   :caption: Daemon and Command Line
 
    cmdline
    ssl
@@ -45,11 +40,10 @@ Daemon and Command Line
    watchtower
    jsonrpc
 
-For developers
---------------
 
 .. toctree::
    :maxdepth: 2
+   :caption: For developers
 
    console
    spv
