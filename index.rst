@@ -19,6 +19,8 @@ Electrum is a lightweight Bitcoin wallet.
    coldstorage
    hardware-linux
    tails
+   plugins
+
 
 .. toctree::
    :maxdepth: 2
@@ -50,3 +52,4 @@ Electrum is a lightweight Bitcoin wallet.
    seedphrase
    protocol
    transactions
+   plugin_rules
