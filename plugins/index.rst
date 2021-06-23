@@ -3,7 +3,7 @@ Plugins
 
 The plugin system of Electrum is designed to allow the development of new features without increasing the core code of Electrum. To enable or disable Plugins, see menubar > `Tools` > `Plugins`. 
 
-Below you can find a short description of each available tool. 
+Below you can find a short description of each available tool.
 
 
 Audio Modem
@@ -37,6 +37,14 @@ Revealer
 
 This plug-in allows you to create a visually encrypted backup of your wallet seeds, or of custom alphanumeric secrets.
 
+.. toctree::
+  :maxdepth: 1
+  :glob:
+
+  revealer/how_to_use
+  revealer/how_it_works
+  revealer/faq
+
 
 Two Factor Authentication
 -------------------------
@@ -51,5 +59,3 @@ Virtual Keyboard
 
 Add an optional virtual keyboard to the password dialog.
 Warning: do not use this if it makes you pick a weaker password.
-
-
