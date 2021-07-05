@@ -259,27 +259,39 @@ inside the :ref:`datadir <datadir>`.
 How to enable debug logging?
 ----------------------------
 
-On Linux/Mac, if you start Electrum from terminal, you can specify
-the -v flag, to enable debug logs in the terminal (to stderr).
-This option does not work on Windows.
+1. Logging to file
 
-Logging to disk is also available since version 3.3.5, and this
-works on Windows too.
+   On Linux/Windows/macOS, you can enable logging to disk.
+   Using the (Qt) GUI, go to menubar>Tools>Preferences>General,
+   and tick "Write logs to file". After restarting Electrum,
+   debug logs will be written to the :code:`logs/` folder inside the
+   :ref:`datadir <datadir>`.
 
-Using the Qt GUI, go to Tools menu > Preferences > General tab,
-and tick "Write logs to file". After restarting Electrum,
-debug logs will be written to the /logs folder inside the
-:ref:`datadir <datadir>`.
+   If you encounter an error while opening a wallet and hence cannot
+   get to "Preferences" to enable logging, as a workaround you can
+   create a temporary throwaway wallet and access the settings there.
 
-Using CLI/RPC, you can enable file logging via e.g.:
+   Using CLI/RPC, you can enable file logging via e.g.:
 
-.. code-block:: none
+   .. code-block:: none
 
-    electrum setconfig log_to_file true
+       $ electrum setconfig log_to_file true
+
+2. Logging to terminal (standard error)
+
+   On Linux/macOS, if you start Electrum from terminal, you can specify
+   the :code:`-v` flag, to enable debug logs in the terminal (to stderr).
+   This option does not work on Windows (when using the binaries).
+
+   On macOS, when using the official binary, try e.g.:
+
+   .. code-block:: none
+
+       $ /Applications/Electrum.app/Contents/MacOS/run_electrum -v
 
 
-Can I do bulk payments with Electrum?
--------------------------------------
+Can I do bulk payments with Electrum? (batching)
+------------------------------------------------
 
 You can create a transaction with several outputs. In the GUI, type
 each address and amount on a line, separated by a comma.
@@ -433,9 +445,9 @@ There are several ways to resolve this.
 
    .. code-block:: none
 
-      wget https://download.electrum.org/3.3.4/electrum-3.3.4-x86_64.AppImage
-      chmod +x electrum-3.3.4-x86_64.AppImage
-      ./electrum-3.3.4-x86_64.AppImage
+      $ wget https://download.electrum.org/3.3.4/electrum-3.3.4-x86_64.AppImage
+      $ chmod +x electrum-3.3.4-x86_64.AppImage
+      $ ./electrum-3.3.4-x86_64.AppImage
 
 
 2. Use backports (e.g. in case of Debian, check the packages in stable-backports)
@@ -448,7 +460,7 @@ There are several ways to resolve this.
 
    .. code-block:: none
 
-      python3 -m pip install --user pyqt5
+      $ python3 -m pip install --user pyqt5
 
    (Unfortunately it seems pyqt5 via pip is only available for x86/x86_64.
    On other archs, you might have to build Qt/PyQt yourself.)
