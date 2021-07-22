@@ -1,7 +1,7 @@
 Electrum protocol specification
 ===============================
 
-(NOTE: this document is outdated. For newer versions of the protocol than 0.10, see https://electrumx.readthedocs.io/en/latest/protocol.html )
+(NOTE: this document is outdated. For newer versions of the protocol than 0.10, see https://electrumx-spesmilo.readthedocs.io/en/latest/protocol.html )
 
 Stratum is a universal bitcoin communication protocol used
 mainly by bitcoin client Electrum and miners.
