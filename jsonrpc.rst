@@ -54,4 +54,4 @@ Create a payment request:
 
 .. code-block:: bash
 
-   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"addrequest","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
+   curl --data-binary '{"jsonrpc":"2.0","id":"curltext","method":"add_request","params":{"amount":"3.14","memo":"test"}}' http://username:password@127.0.0.1:7777
