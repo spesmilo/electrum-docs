@@ -1,10 +1,10 @@
 Using Electrum Through Tor
 ==========================================================
 
-Please note that when using electrum through tor there are two main ways.
+Please note that when using Electrum through Tor there are two main ways.
 The first way has the most Privacy but also requires the most trust in the server you are connecting to. This is because normally
-Electrum connects to a few different servers and downloads block headers and checks that they match. This prevents / makes it more difficult for 
-Rogue servers to send you bad information. However this can also present a privacy issue because you could be connecting to none .onion servers for these headers.
+Electrum connects to a few different servers and downloads block headers and checks that they match. This prevents/makes it more difficult for 
+Rogue servers to send you bad information. However, this can also present a privacy issue because you could be connecting to none .onion servers for these headers.
 
 Thus the two different options are, Connect to 1 server ONLY and get block headers and transaction info from that server.
 Or
@@ -66,11 +66,11 @@ General Tor (Installed): 9050
 
 Option 2: Multiple servers but Tor Main
 ---------------------------------------
-Same as above until the command to launch electrum, Remove the -1 making it
+Same as above until the command to launch Electrum, Remove the -1 making it
 
 ./electrum -s electrums3lojbuj.onion:50001:t -p socks5:localhost:9050
 
-For this one you can also just launch electrum and click on the Green or Red icon on the bottom right to bring up server information
+For this one, you can also just launch Electrum and click on the Green or Red icon on the bottom right to bring up server information
 
 Untick the box for Auto and enter;
 
@@ -93,12 +93,12 @@ WINDOWS
 
 Option 1: Connecting to a single Server
 ---------------------------------------
-Install electrum from the main download page;
+Install Electrum from the main download page;
 https://electrum.org/#download
 
 Note: Please understand you are sacrificing some security here for extra privacy.
 
-In windows, On your desktop you will have a electrum icon. Copy and paste this to make a copy. If not you can find the electrum folder in C:\Program Files (x86)\Electrum\
+In windows, On your desktop you will have a Electrum icon. Copy and paste this to make a copy. If not you can find the electrum folder in C:\Program Files (x86)\Electrum\
 
 Right click on electrum.exe and create shortcut. It will say cannot make a shortcut here make one on the desktop instead? Ok this.
 
