@@ -40,7 +40,7 @@ Deriving all possible scripts (1)
 -  Introduces key-reuse. Public keys are reused for each script type.
 -  Becomes an ever-growing barrier for developers of new wallet software
    to implement detecting and spending from every type of UTXO.
-   Otherwise if they choose not to implement legacy script types that
+   Otherwise, if they choose not to implement legacy script types that
    can lead to not discovering funds.
 
 Prompting the user to enter the script type (2) as additional
@@ -68,7 +68,7 @@ all.
 The version byte values defined in
 `BIP32 <https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki>`__
 do not distinguish P2PKH and P2SH-multisig outputs, and to remain
-backwards compatible, this will not be changed. However this has already
+backwards compatible, this will not be changed. However, this has already
 resulted in loss of funds in some cases, where e.g. a user restored and
 received transactions on a watch-only P2PKH wallet from a master public
 key participating in P2SH-multisig that he had no control over (it was a
