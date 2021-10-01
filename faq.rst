@@ -22,7 +22,7 @@ The client subscribes to block header notifications to all of these,
 and also periodically polls each for dynamic fee estimates.
 For all connected servers except one, that is all they are used for.
 Getting block headers from multiple sources is useful to detect lagging
-servers, chain splits and forks.
+servers, chain splits, and forks.
 
 One of the servers, arbitrarily, is selected as the "main" server.
 
