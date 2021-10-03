@@ -134,7 +134,7 @@ General Tor (Installed): 9050
 
 Option 2
 ----------
-In windows, On your desktop you will have a electrum icon. Copy and paste this to make a copy. If not you can find the electrum folder in C:\Program Files (x86)\Electrum\
+In Windows, on your desktop you will have a Electrum icon. Copy and paste this to make a copy. If not you can find the electrum folder in C:\Program Files (x86)\Electrum\
 
 Right click on electrum.exe and create shortcut. It will say cannot make a shortcut here make one on the desktop instead? Ok this.
 
