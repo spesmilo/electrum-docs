@@ -161,7 +161,7 @@ of bits of difficulty added by key stretching: m =
 log2(stretching_iterations). Let k denote the length of the prefix, in
 bits.
 
-On each iteration of the attack, the probability to obtain a valid seed is p = 2^-k
+On each iteration of the attack, the probability of obtaining a valid seed is p = 2^-k
 
 The number of hashes required to test a candidate seed is: p * (1+2^m) + (1-p)*1 = 1 + 2^(m-k)
 
