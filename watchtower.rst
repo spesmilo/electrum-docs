@@ -6,7 +6,7 @@ watchtower for your lightning wallet.  It is written for Electrum 4.0.
 
 A watchtower is a separate Electrum process, that runs on
 another computer. To setup a watchtower, you need to configure
-an Electrum daemon, and to enter its URL in your preferences.
+an Electrum daemon, and enter its URL in your preferences.
 
 
 
