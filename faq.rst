@@ -218,7 +218,7 @@ your wallet seed.
 
 To sweep private keys, go to the Wallet menu -> Private Keys ->
 Sweep. Enter the private keys in the appropriate field. Leave the
-"Address" field unchanged. That is the destination address and it will
+"Address" field unchanged. That is the destination address, and it will
 be from your existing electrum wallet. Click on "Sweep". It'll now take 
 you to the send tab where you can set an appropriate fee and then click
 on "Send" to send the coins to your wallet.
