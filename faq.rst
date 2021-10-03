@@ -440,7 +440,7 @@ There are several ways to resolve this.
 
 1. Use the AppImage distributed by us. This is a single self-contained
    binary that includes all the dependencies.
-   Currently we only distribute this binary for x86_64 (amd64) architecture.
+   Currently, we only distribute this binary for x86_64 (amd64) architecture.
    Just download it, (verify GPG sig), make it executable, and run it. E.g.:
 
    .. code-block:: none
@@ -462,7 +462,7 @@ There are several ways to resolve this.
 
       $ python3 -m pip install --user pyqt5
 
-   (Unfortunately it seems pyqt5 via pip is only available for x86/x86_64.
+   (Unfortunately, it seems pyqt5 via pip is only available for x86/x86_64.
    On other archs, you might have to build Qt/PyQt yourself.)
 
 5. Use a virtual machine where you run another Linux distribution that has
