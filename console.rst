@@ -63,10 +63,10 @@ to dump the private keys of all adresses that have unspent outputs:
 
 Note that dumpprivkey will ask for your password if your
 wallet is encrypted.
-The GUI methods can be accessed through the gui variable.
+The GUI methods can be accessed through the 'window' variable.
 For example, you can display a QR code from a string
-using gui.show_qrcode. Example:
+using window.show_qrcode. Example:
 
 .. code-block:: python
 
-   gui.show_qrcode(dumpprivkey(listunspent()[0]['address']))
+   window.show_qrcode(dumpprivkey(listunspent()[0]['address']))
