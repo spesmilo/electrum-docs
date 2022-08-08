@@ -262,7 +262,7 @@ How to enable debug logging?
 1. Logging to file
 
    On Linux/Windows/macOS, you can enable logging to disk.
-   Using the (Qt) GUI, go to menubar>Tools>Preferences>General,
+   Using the (Qt) GUI, go to menubar>Tools>Preferences>Misc,
    and tick "Write logs to file". After restarting Electrum,
    debug logs will be written to the :code:`logs/` folder inside the
    :ref:`datadir <datadir>`.
