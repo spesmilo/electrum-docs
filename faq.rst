@@ -513,3 +513,10 @@ forks of the software that support specific altcoins. These are separate project
 with their own maintainers, independent of Electrum. We do not review their code
 or endorse them in any way. If you are a user of these, please direct any and all
 support requests to their maintainers, instead of us.
+
+
+Why Electrum has that small characters size, I barely can see anything on the screen?
+-------------------------------------------------------------------------------------
+
+Set environment QT_AUTO_SCREEN_SCALE_FACTOR=1 and if it does not fully help, 
+try to set environment of QT_FONT_DPI to adjust DPI to your preferences.
