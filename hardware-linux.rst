@@ -101,6 +101,15 @@ Coldcard
 
 For more details, refer to `ckcc-protocol <https://github.com/Coldcard/ckcc-protocol>`_.
 
+Jade
+^^^^^^^^
+
+::
+
+   python3 -m pip install pyserial && python3 -m pip install cbor
+
+For more details, refer to `jadepy <https://github.com/spesmilo/electrum/tree/master/electrum/plugins/jade/jadepy>`_.
+
 
 3. udev rules
 ~~~~~~~~~~~~~
