@@ -28,8 +28,11 @@ that, you need:
 2. Python libraries
 ~~~~~~~~~~~~~~~~~~~
 
-Then depending on the device you have, you need a python package
-(typically a library by the manufacturer):
+Then, depending on the device you have, you need a python package
+(typically a library by the manufacturer).
+For a usually more up-to-date list (including potential version requirements), refer to
+`requirements-hw.txt <https://github.com/spesmilo/electrum/blob/master/contrib/requirements/requirements-hw.txt>`_
+in the client source.
 
 
 Trezor
@@ -39,7 +42,7 @@ Trezor
 
    python3 -m pip install trezor[hidapi]
 
-For more details, refer to `python-trezor <https://github.com/trezor/python-trezor>`_.
+For more details, refer to `python-trezor <https://github.com/trezor/trezor-firmware/tree/master/python>`_.
 
 
 Ledger
@@ -47,9 +50,12 @@ Ledger
 
 ::
 
-   python3 -m pip install btchip-python ecdsa
+   python3 -m pip install hidapi btchip-python ecdsa ledger-bitcoin
 
-For more details, refer to `btchip-python <https://github.com/LedgerHQ/btchip-python>`_.
+For more details, refer to
+`LedgerHQ/app-bitcoin-new <https://github.com/LedgerHQ/app-bitcoin-new/tree/develop/bitcoin_client>`_
+and
+`LedgerHQ/btchip-python <https://github.com/LedgerHQ/btchip-python>`_.
 
 
 KeepKey
