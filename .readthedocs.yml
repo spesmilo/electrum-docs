@@ -1,5 +1,8 @@
 version: 2
 
+# see https://readthedocs.org/projects/electrum/
+# and the webhook set up in https://github.com/spesmilo/electrum-docs/settings/hooks
+
 build:
   os: ubuntu-20.04
   tools:
