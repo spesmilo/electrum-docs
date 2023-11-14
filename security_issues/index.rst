@@ -6,4 +6,6 @@ Historical security issues in Electrum
 
    sec_201801
    sec_202206
+   sec_202306
+   sec_202308
 
