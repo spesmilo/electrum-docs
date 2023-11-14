@@ -56,7 +56,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Electrum'
-copyright = '2017, Thomas Voegtlin'
+copyright = '2011-2023+, Thomas Voegtlin'
 author = 'Thomas Voegtlin'
 
 # The version info for the project you're documenting, acts as replacement for
