@@ -414,6 +414,8 @@ Electrum 1.x wallets to Electrum 2.x:
   be available.
 
 
+.. _antivirus:
+
 My anti-virus has flagged Electrum as malware! What now?
 --------------------------------------------------------
 
