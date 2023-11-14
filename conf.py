@@ -13,6 +13,13 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+# ---------------
+# ---------------
+
+# To build locally for testing, run:
+# $ sphinx-build -M html . _build
+
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -20,7 +27,6 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinx_rtd_theme
 
 # -- General configuration ------------------------------------------------
 
@@ -31,7 +37,10 @@ import sphinx_rtd_theme
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx_rtd_theme", "myst_parser"]
+extensions = [
+    "sphinx_rtd_theme",
+    "myst_parser",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -40,7 +49,7 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
 
 # The master toctree document.
 master_doc = 'index'
@@ -102,12 +111,9 @@ html_logo = 'png/electrum.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+def setup(app):
+    app.add_css_file('electrum.css')
 
-html_context = {
-    'css_files': [
-        '_static/electrum.css'
-    ]
-}
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
