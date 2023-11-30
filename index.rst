@@ -20,6 +20,7 @@ Electrum is a lightweight Bitcoin wallet.
    hardware-linux
    tails
    plugins
+   malware
 
 
 .. toctree::
