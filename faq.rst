@@ -126,17 +126,13 @@ If you have made a transaction that is unconfirmed, you can:
    confirmed or cancelled. This might take several days.
 
  - Increase the transaction fee. This is only possible for
-   "replaceable" transactions. To create this type of transaction, 
-   you must have checked "Replaceable" on the send tab before sending
-   the transaction. If you're not seeing the "Replaceable" option on 
-   the send tab go to Tools menu > Preferences > Fees tab and set 
-   "Propose Replace-By-Fee" to "Always". Transactions that are
-   replaceable have the word "Replaceable" in the date column on the
-   history tab. To increase the fee of a replaceable transaction right 
-   click on its entry on the history tab and choose "Increase Fee". 
-   Set an appropriate fee and click on "OK". A window will popup with 
-   the unsigned transaction. Click on "Sign" and then "Broadcast".
-
+   "replaceable" transactions. Electrum creates replaceable transactions
+   by default, except for lightning channel open/close transactions.
+   Transactions that are replaceable have the word "Replaceable" in the
+   date column on the history tab. To increase the fee of a replaceable
+   transaction right click on its entry on the history tab and choose
+   "Increase Fee". Set an appropriate fee and click on "OK". A window will
+   popup with the unsigned transaction. Click on "Sign" and then "Broadcast".
 
  - Create a "Child Pays for Parent" transaction. A CPFP is a new
    transaction that pays a high fee in order to compensate for the
@@ -147,6 +143,16 @@ If you have made a transaction that is unconfirmed, you can:
    "Child pays for parent". Set an appropriate fee and click on "OK". 
    A window will popup with the unsigned transaction. Click on "Sign"
    and then "Broadcast".
+
+ - Cancel the transaction. This is only possible for "replaceable"
+   transactions. Electrum creates replaceable transactions
+   by default, except for lightning channel open/close transactions.
+   Transactions that are replaceable have the word "Replaceable" in the
+   date column on the history tab. To cancel a replaceable transaction
+   right click on its entry on the history tab and choose
+   "Cancel (double-spend)". Set an appropriate fee and click on "OK". A window
+   will popup with the unsigned transaction. Click on "Sign" and then
+   "Broadcast".
 
 
 What does it mean to "freeze" an address in Electrum?
