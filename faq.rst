@@ -128,8 +128,8 @@ If you have made a transaction that is unconfirmed, you can:
  - Increase the transaction fee. This is only possible for
    "replaceable" transactions. Electrum creates replaceable transactions
    by default, except for lightning channel open/close transactions.
-   Transactions that are replaceable have the word "Replaceable" in the
-   date column on the history tab. To increase the fee of a replaceable
+   Transactions that are replaceable have "Replace by fee: True" in the
+   transaction details screen. To increase the fee of a replaceable
    transaction right click on its entry on the history tab and choose
    "Increase Fee". Set an appropriate fee and click on "OK". A window will
    popup with the unsigned transaction. Click on "Sign" and then "Broadcast".
@@ -147,8 +147,8 @@ If you have made a transaction that is unconfirmed, you can:
  - Cancel the transaction. This is only possible for "replaceable"
    transactions. Electrum creates replaceable transactions
    by default, except for lightning channel open/close transactions.
-   Transactions that are replaceable have the word "Replaceable" in the
-   date column on the history tab. To cancel a replaceable transaction
+   Transactions that are replaceable have "Replace by fee: True" in the
+   transaction details screen. To cancel a replaceable transaction
    right click on its entry on the history tab and choose
    "Cancel (double-spend)". Set an appropriate fee and click on "OK". A window
    will popup with the unsigned transaction. Click on "Sign" and then
