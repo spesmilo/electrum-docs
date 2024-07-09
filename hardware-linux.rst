@@ -112,7 +112,7 @@ Jade
 
 ::
 
-   python3 -m pip install pyserial cbor
+   python3 -m pip install pyserial cbor2
 
 For more details, refer to `jadepy <https://github.com/spesmilo/electrum/tree/master/electrum/plugins/jade/jadepy>`_.
 
