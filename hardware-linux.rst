@@ -50,12 +50,10 @@ Ledger
 
 ::
 
-   python3 -m pip install hidapi btchip-python ecdsa ledger-bitcoin
+   python3 -m pip install hidapi ecdsa ledger-bitcoin
 
 For more details, refer to
 `LedgerHQ/app-bitcoin-new <https://github.com/LedgerHQ/app-bitcoin-new/tree/develop/bitcoin_client>`_
-and
-`LedgerHQ/btchip-python <https://github.com/LedgerHQ/btchip-python>`_.
 
 
 KeepKey
