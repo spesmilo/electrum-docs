@@ -41,6 +41,7 @@ Electrum is a lightweight Bitcoin wallet.
    ssl
    merchant
    watchtower
+   swapserver
    jsonrpc
 
 
