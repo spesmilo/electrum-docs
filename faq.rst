@@ -159,7 +159,7 @@ What does it mean to "freeze" an address in Electrum?
 -----------------------------------------------------
 
 When you freeze an address, the funds in that address will not be used
-for sending bitcoins. You cannot send bitcoins if you don't have
+for sending bitcoin. You cannot send bitcoin if you don't have
 enough funds in the non-frozen addresses.
 
 
@@ -184,7 +184,7 @@ Electrum uses two separate levels of encryption:
 
 Wallet file encryption is activated by default since version 2.8. It
 is intended to protect your privacy, but also to prevent you from
-requesting bitcoins on a wallet that you do not control.
+requesting bitcoin on a wallet that you do not control.
 
 
 Does Electrum support cold wallets?
@@ -216,9 +216,9 @@ Can I sweep private keys from other Bitcoin clients?
 ----------------------------------------------------
 
 
-Sweeping private keys means to send all the bitcoins they control to
+Sweeping private keys means to send all the bitcoin they control to
 an existing address in your wallet. The private keys you sweep do not
-become a part of your wallet.  Instead, all the bitcoins they control
+become a part of your wallet.  Instead, all the bitcoin they control
 are sent to an address that has been deterministically generated from
 your wallet seed.
 
@@ -317,18 +317,18 @@ Can Electrum create and sign raw transactions?
 Electrum lets you create and sign raw transactions right from the user
 interface using a form.
 
-Electrum freezes when I try to send bitcoins.
+Electrum freezes when I try to send bitcoin.
 --------------------------------------------
 
 This might happen if you are trying to spend a large number of
 transaction outputs (for example, if you have collected hundreds of
-donations from a Bitcoin faucet). When you send Bitcoins, Electrum
+donations from a Bitcoin faucet). When you send Bitcoin, Electrum
 looks for unspent coins that are in your wallet in order to create a
 new transaction. Unspent coins can have different values, much like
 physical coins and bills.
 
 If this happens, you should consolidate your transaction inputs by
-sending smaller amounts of bitcoins to one of your wallet addresses;
+sending smaller amounts of bitcoin to one of your wallet addresses;
 this would be the equivalent of exchanging a stack of nickels for a
 dollar bill.
 
