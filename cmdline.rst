@@ -230,7 +230,7 @@ Export private keys and sweep coins
 ```````````````````````````````````
 
 The following command will export the private keys of all wallet
-addresses that hold some bitcoins:
+addresses that hold some bitcoin:
 
 .. code-block:: bash
 
