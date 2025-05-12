@@ -27,7 +27,7 @@ What does it mean to 'split your coins'?
 An address on the original blockchain will now also contain the same
 amount on the new chain.
 
-If you own Bitcoins before the fork, a transaction that spends these
+If you own bitcoin before the fork, a transaction that spends these
 coins after the fork will, in general, be valid on both chains. This
 means that you might be spending both coins simultaneously. This is
 called 'replay'. To prevent this, you need to move your coins using
