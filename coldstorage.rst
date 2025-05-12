@@ -4,7 +4,7 @@ Cold Storage
 ============
 
 This document shows how to create an offline wallet that
-holds your Bitcoins and a watching-only online wallet that
+holds your Bitcoin and a watching-only online wallet that
 is used to view its history and to create transactions that
 have to be signed with the offline wallet before being
 broadcast on the online one.
