@@ -1,5 +1,5 @@
-Plugin rules:
-=============
+Plugin rules
+============
 
  * The plugin system of Electrum is designed to allow the development
    of new features without increasing the core code of Electrum.

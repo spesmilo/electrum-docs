@@ -5,6 +5,9 @@ The plugin system of Electrum is designed to allow the development of new featur
 
 To enable or disable Plugins, see **Menu Bar** > **Tools** > **Plugins**.
 
+    .. image:: png/plugins.png
+        :align: center
+
 
 Internal Plugins
 ----------------
@@ -13,61 +16,39 @@ Internal Plugins are shipped with Electrum and maintained in the Electrum reposi
 
 Below you can find a short description of each integrated Tool.
 
+* Audio Modem: Provides support for air-gapped transaction signing. Requires 'amodem' python package http://github.com/romanz/amodem/
 
-Audio Modem
-^^^^^^^^^^^
+* LabelSync : Save your wallet labels on a remote server, and synchronize them across multiple devices where you use Electrum. Labels, transactions IDs and addresses are encrypted before they are sent to the remote server.
 
-Provides support for air-gapped transaction signing.
-requires 'amodem' python package http://github.com/romanz/amodem/
+* Nostr Wallet Connect: This plugin allows remote control of Electrum lightning wallets via Nostr NIP-47 (Nostr Wallet Connect). A connection string with daily budget and expiry date can be created from the Desktop GUI as well as the command line and then used in Nostr apps like browser extensions or social media clients.
 
+* Nostr Cosigner: This plugin facilitates the use of multi-signatures wallets. It sends and receives partially signed transactions from/to your cosigner wallet. PSBTs are sent and retrieved encrypted using Nostr relays.
 
-LabelSync
-^^^^^^^^^
+* Revealer: Create a visually encrypted backup of your wallet seeds, or of custom alphanumeric secrets.
 
-Save your wallet labels on a remote server, and synchronize them across multiple devices where you use Electrum. Labels, transactions IDs and addresses are encrypted before they are sent to the remote server.
+* Two Factor Authentication: This plugin adds two-factor authentication to your wallet. For more information, visit https://api.trustedcoin.com/#/electrum-help
 
+* Timelock Recovery: This plug-in allows you to create Timelock Recovery Plans for your wallet. See: https://timelockrecovery.com
 
-Nostr Wallet Connect
-^^^^^^^^^^^^^^^^^^^^
-
-This plugin allows remote control of Electrum lightning wallets via Nostr NIP-47 (Nostr Wallet Connect). A connection string with daily budget and expiry date can be created from the Desktop GUI as well as the command line and then used in Nostr apps like browser extensions or social media clients.
-
-
-PSBT over Nostr
-^^^^^^^^^^^^^^^
-
-This plugin facilitates the use of multi-signatures wallets. It sends and receives partially signed transactions from/to your cosigner wallet. PSBTs are sent and retrieved encrypted using Nostr relays.
-
-
-Revealer
-^^^^^^^^
-
-This plug-in allows you to create a visually encrypted backup of your wallet seeds, or of custom alphanumeric secrets.
-
-
-Two Factor Authentication
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This plugin adds two-factor authentication to your wallet.
-For more information, visit https://api.trustedcoin.com/#/electrum-help
-
-
-Virtual Keyboard
-^^^^^^^^^^^^^^^^
-
-Add an optional virtual keyboard to the password dialog.
-Warning: do not use this if it makes you pick a weaker password.
+* Virtual Keyboard: Add an optional virtual keyboard to the password dialog.
 
 
 External Plugins
 ----------------
 Electrum supports importing third party plugins from *.zip* files. Once you obtained a plugin you can load it with the **Add** button in the plugins dialog.
 
-To prevent loading malicious plugins (e.g. by malware) Electrum will require you to define a **plugin password** when loading an external Plugin the first time. The plugin password is independent of the currently open wallet and can be reset if forgotten.
+To prevent loading malicious plugins (e.g. by malware) Electrum will
+require you to define a **plugin password** when loading an external
+Plugin the first time. The plugin password is independent of the
+currently open wallet and can be reset if forgotten.
 
 Setting up the plugin password
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To check the authenticity of plugins without requiring to enter the password on each startup Electrum requires you to store a **public key text string** with root permissions. The root permissions prevent some malware from modifying the string.
+
+To check the authenticity of plugins without requiring to enter the
+password on each startup Electrum requires you to store a **public key
+text string** with root permissions. The root permissions prevent
+malware from modifying the string.
 
 On Linux
 """"""""
@@ -96,6 +77,8 @@ On Windows
     .. image:: png/external_plugin_windows_regedit.png
         :align: center
 
-Plugin development
+
+Plugin Development
 ------------------
-If you are interested in developing your own plugin, have a look at the https://github.com/spesmilo/electrum-plugins repository and internal plugins in the electrum repository for examples.
+
+If you are interested in developing your own plugin, please read :ref:`Electrum Plugin development <plugin_dev>`

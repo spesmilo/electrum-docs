@@ -54,4 +54,5 @@ Electrum is a lightweight Bitcoin wallet.
    seedphrase
    protocol
    transactions
+   plugin_dev
    plugin_rules
