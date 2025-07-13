@@ -50,7 +50,7 @@ Ledger
 
 ::
 
-   python3 -m pip install hidapi ecdsa ledger-bitcoin
+   python3 -m pip install hidapi ledger-bitcoin
 
 For more details, refer to
 `LedgerHQ/app-bitcoin-new <https://github.com/LedgerHQ/app-bitcoin-new/tree/develop/bitcoin_client>`_
@@ -59,11 +59,15 @@ For more details, refer to
 KeepKey
 ^^^^^^^
 
+Starting with Electrum 4.6.0, we bundle `our fork <github.com/spesmilo/electrum-keepkeylib>`_
+of `python-keepkey <https://github.com/keepkey/python-keepkey>`_ as the upstream is unmaintained.
+
+We need the `dependencies <https://github.com/spesmilo/electrum/blob/master/contrib/requirements/requirements-hw.txt>`_
+of `python-keepkey`:
+
 ::
 
-   python3 -m pip install keepkey
-
-For more details, refer to `python-keepkey <https://github.com/keepkey/python-keepkey>`_.
+   python3 -m pip install ecdsa protobuf mnemonic hidapi libusb1
 
 
 Digital Bitbox
