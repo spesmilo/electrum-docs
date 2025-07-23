@@ -171,4 +171,4 @@ To create a lightning payment request:
 
 .. code-block:: bash
 
-   electrum add_lightning_request 0.0001 -m "test"
+   electrum add_request 0.0001 --lightning --memo "test"
