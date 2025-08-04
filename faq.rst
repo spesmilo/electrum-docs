@@ -521,3 +521,24 @@ forks of the software that support specific altcoins. These are separate project
 with their own maintainers, independent of Electrum. We do not review their code
 or endorse them in any way. If you are a user of these, please direct any and all
 support requests to their maintainers, instead of us.
+
+
+My Electrum window is black. Why can't I see anything?
+------------------------------------------------------
+Electrum windows can appear black in screenshots and virtual desktops on Windows due to a built-in
+screenshot protection feature that intends to prevent screen capture tools and Microsoft Recall from
+recording your wallet activity and secrets.
+If you want to disable this feature, for example to capture screenshots, you can do so in the
+following two ways:
+
+1. If you are able to access the GUI, open the `Settings` dialog and uncheck the `[x] Prevent screenshots`
+checkbox in the `Misc` tab of the dialog.
+
+2. If you cannot even see the GUI it is possible to disable the feature by adding
+
+    .. code-block:: none
+
+        "screenshot_protection": false,
+
+to your Electrum config file.
+The config file location is described in the :ref:`datadir <datadir>` section.
