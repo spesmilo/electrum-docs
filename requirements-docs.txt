@@ -1,3 +1,4 @@
 sphinx<9
 sphinx-rtd-theme<4
 myst-parser<5
+sphinx-rtd-dark-mode<2
