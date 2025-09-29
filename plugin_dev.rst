@@ -1,3 +1,5 @@
+.. _plugin_dev:
+
 Electrum Plugin development
 ===========================
 
