@@ -40,6 +40,7 @@
 extensions = [
     "sphinx_rtd_theme",
     "myst_parser",
+    "sphinx_rtd_dark_mode",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -124,6 +125,8 @@ def setup(app):
 # to template names.
 #
 
+# user starts in light mode
+default_dark_mode = False
 
 # -- Options for HTMLHelp output ------------------------------------------
 
