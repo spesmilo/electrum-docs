@@ -32,6 +32,9 @@ Below you can find a short description of each integrated Tool.
 
 * Virtual Keyboard: Add an optional virtual keyboard to the password dialog.
 
+* Swapserver [CLI only]: Offer submarine swaps to other Electrum users. See: :ref:`Running a swapserver <swapserver>`
+
+* Payserver [CLI only]: Run a HTTP server for receiving payments. See :ref:`How to accept Bitcoin on a website <merchant>`.
 
 External Plugins
 ----------------
@@ -77,6 +80,22 @@ On Windows
     .. image:: png/external_plugin_windows_regedit.png
         :align: center
 
+List of external plugins
+^^^^^^^^^^^^^^^^^^^^^^^^
+Below is a non-exhaustive list of known external plugins.
+
+These plugins are **not reviewed or endorsed by Electrum** and should be used **at your own risk**.
+
+
+.. csv-table:: :rst:dir:`List of external Electrum plugins`
+   :header: "Name", "Description", "Repository", "Added"
+
+    "Guardian", "`Physical coercion resistance <https://delvingbitcoin.org/t/proposal-guardian-address-gaspv1/2006>`_", "`Github Repository <https://github.com/bitcoinguardian/electrum/tree/master/electrum/plugins/guardian>`_", "10/2025"
+    "LNURL Server", "`Receive LN payments through a static URL <https://github.com/lnurl/luds/blob/luds/06.md>`_", "`Github Repository <https://github.com/f321x/electrum-lnurl-server>`_", "10/2025"
+    "Joinstr", "`Collaborative Transactions via Nostr <https://joinstr.xyz/>`_", "`Gitlab Repository <https://gitlab.com/invincible-privacy/joinstr/-/tree/main/plugin>`_", "10/2025"
+
+
+If you want to submit a plugin to be added to the list open a Pull Request on the `Electrum docs repository <https://github.com/spesmilo/electrum-docs/>`_.
 
 Plugin Development
 ------------------

@@ -1,3 +1,5 @@
+.. _swapserver:
+
 How to offer Submarine Swaps
 ============================
 

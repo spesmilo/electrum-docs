@@ -1,9 +1,11 @@
+.. _merchant:
+
 How to accept Bitcoin on a website using Electrum
 =================================================
 
 This tutorial will show you how to accept Bitcoin on a website with
 SSL signed payment requests, according to BIP-70_. The docs are
-updated for Electrum 4.0 (currently in development_).
+updated for Electrum 4.0.
 
 .. _BIP-70:
     https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki
