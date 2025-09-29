@@ -32,6 +32,9 @@ Below you can find a short description of each integrated Tool.
 
 * Virtual Keyboard: Add an optional virtual keyboard to the password dialog.
 
+* Swapserver [CLI only]: Offer submarine swaps to other Electrum users. See: :ref:`Running a swapserver <swapserver>`
+
+* Payserver [CLI only]: Run a HTTP server for receiving payments. See :ref:`How to accept Bitcoin on a website <merchant>`.
 
 External Plugins
 ----------------

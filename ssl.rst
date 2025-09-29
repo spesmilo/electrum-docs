@@ -1,7 +1,7 @@
 How to configure SSL with Electrum
 ==================================
 
-This page was written for Electrum 4.0 (currently in development_)
+This page was written for Electrum 4.0.
 
 You should have a TLS/SSL private key and a public certificate for
 your domain set up already (signed by a CA, for example free Letsencrypt_)
