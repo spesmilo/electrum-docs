@@ -88,12 +88,13 @@ These plugins are **not reviewed or endorsed by Electrum** and should be used **
 
 
 .. csv-table:: :rst:dir:`List of external Electrum plugins`
-   :header: "Name", "Description", "Repository", "Added"
+   :header: "Name", "Description", "Repository", "GUI", "Added"
 
-    "Guardian", "`Physical coercion resistance <https://delvingbitcoin.org/t/proposal-guardian-address-gaspv1/2006>`_", "`Github Repository <https://github.com/bitcoinguardian/electrum/tree/master/electrum/plugins/guardian>`_", "10/2025"
-    "LNURL Server", "`Receive LN payments through a static URL <https://github.com/lnurl/luds/blob/luds/06.md>`_", "`Github Repository <https://github.com/f321x/electrum-lnurl-server>`_", "10/2025"
-    "Joinstr", "`Collaborative Transactions via Nostr <https://joinstr.xyz/>`_", "`Gitlab Repository <https://gitlab.com/invincible-privacy/joinstr/-/tree/main/plugin>`_", "10/2025"
-    "Notary", "`Proof-of-burn for Nostr events <https://notary.electrum.org/>`_", "`Github Repository <https://github.com/spesmilo/notary>`_", "11/2025"
+    "Guardian", "`Physical coercion resistance <https://delvingbitcoin.org/t/proposal-guardian-address-gaspv1/2006>`_", "`Github <https://github.com/bitcoinguardian/electrum/tree/master/electrum/plugins/guardian>`_", "Qt", "10/2025"
+    "LNURL Server", "`Receive LN payments through a static URL <https://github.com/lnurl/luds/blob/luds/06.md>`_", "`Github <https://github.com/f321x/electrum-lnurl-server>`_", "daemon", "10/2025"
+    "Joinstr", "`Collaborative Transactions via Nostr <https://joinstr.xyz/>`_", "`Gitlab <https://gitlab.com/invincible-privacy/joinstr/-/tree/main/plugin>`_", "Qt", "10/2025"
+    "Notary", "`Proof-of-burn for Nostr events <https://notary.electrum.org/>`_", "`Github <https://github.com/spesmilo/notary>`_", "daemon", "11/2025"
+    "PayServer", "HTTP server receiving payments", "`Github <https://github.com/spesmilo/electrum-payserver>`_", "daemon", "11/2025"
 
 
 If you want to submit a plugin to be added to the list open a Pull Request on the `Electrum docs repository <https://github.com/spesmilo/electrum-docs/>`_.
