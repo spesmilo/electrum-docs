@@ -34,19 +34,21 @@ Below you can find a short description of each integrated Tool.
 
 * Swapserver [CLI only]: Offer submarine swaps to other Electrum users. See: :ref:`Running a swapserver <swapserver>`
 
-* Payserver [CLI only]: Run a HTTP server for receiving payments. See :ref:`How to accept Bitcoin on a website <merchant>`.
-
 External Plugins
 ----------------
 Electrum supports importing third party plugins from *.zip* files. Once you obtained a plugin you can load it with the **Add** button in the plugins dialog.
+
+Alternatively, if you are running Electrum from sources, you may clone
+a third-party plugin repository, and add a symbolic link in your
+electrum/electrum/plugins directory.
+
+Setting up the plugin password
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To prevent loading malicious plugins (e.g. by malware) Electrum will
 require you to define a **plugin password** when loading an external
 Plugin the first time. The plugin password is independent of the
 currently open wallet and can be reset if forgotten.
-
-Setting up the plugin password
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To check the authenticity of plugins without requiring to enter the
 password on each startup Electrum requires you to store a **public key
