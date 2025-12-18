@@ -453,9 +453,9 @@ There are several ways to resolve this.
 
    .. code-block:: none
 
-      $ wget https://download.electrum.org/3.3.4/electrum-3.3.4-x86_64.AppImage
-      $ chmod +x electrum-3.3.4-x86_64.AppImage
-      $ ./electrum-3.3.4-x86_64.AppImage
+      $ wget https://download.electrum.org/VERSION/electrum-VERSION-x86_64.AppImage
+      $ chmod +x electrum-VERSION-x86_64.AppImage
+      $ ./electrum-VERSION-x86_64.AppImage
 
 
 2. Use backports (e.g. in case of Debian, check the packages in stable-backports)
