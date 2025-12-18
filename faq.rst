@@ -453,24 +453,24 @@ There are several ways to resolve this.
 
    .. code-block:: none
 
-      $ wget https://download.electrum.org/3.3.4/electrum-3.3.4-x86_64.AppImage
-      $ chmod +x electrum-3.3.4-x86_64.AppImage
-      $ ./electrum-3.3.4-x86_64.AppImage
+      $ wget https://download.electrum.org/VERSION/electrum-VERSION-x86_64.AppImage
+      $ chmod +x electrum-VERSION-x86_64.AppImage
+      $ ./electrum-VERSION-x86_64.AppImage
 
 
 2. Use backports (e.g. in case of Debian, check the packages in stable-backports)
 
 3. Upgrade your distribution (e.g. use Debian testing instead of stable)
 
-4. Compile Python yourself, and then install pyqt5 using pip (as the package
-   manager for the distribution will only have PyQt5 for the version of
+4. Compile Python yourself, and then install pyqt6 using pip (as the package
+   manager for the distribution will only have PyQt6 for the version of
    Python that is packaged by them).
 
    .. code-block:: none
 
-      $ python3 -m pip install --user pyqt5
+      $ python3 -m pip install --user pyqt6
 
-   (Unfortunately, it seems pyqt5 via pip is only available for x86/x86_64.
+   (Unfortunately, it seems pyqt6 via pip is only available for x86/x86_64.
    On other archs, you might have to build Qt/PyQt yourself.)
 
 5. Use a virtual machine where you run another Linux distribution that has
