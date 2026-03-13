@@ -41,6 +41,7 @@ extensions = [
     "sphinx_rtd_theme",
     "myst_parser",
     "sphinx_rtd_dark_mode",
+    "sphinxext.opengraph",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -94,6 +95,9 @@ todo_include_todos = False
 
 
 # -- Options for HTML output ----------------------------------------------
+
+# Base URL for canonical links and sitemap generation.
+html_baseurl = "https://docs.electrum.org/en/latest/"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -180,9 +184,18 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'Electrum', 'Electrum Documentation',
-     author, 'Electrum', 'One line description of project.',
+     author, 'Electrum', 'Lightweight Bitcoin wallet.',
      'Miscellaneous'),
 ]
+
+
+# -- Options for OpenGraph meta tags ----------------------------------------
+
+ogp_site_url = "https://docs.electrum.org/en/latest/"
+ogp_site_name = "Electrum Documentation"
+ogp_description_length = 200
+ogp_type = "website"
+ogp_image = "https://docs.electrum.org/en/latest/_static/og-image.png"
 
 
 
