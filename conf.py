@@ -42,6 +42,7 @@ extensions = [
     "myst_parser",
     "sphinx_rtd_dark_mode",
     "sphinxext.opengraph",
+    "sphinx_sitemap",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -198,4 +199,6 @@ ogp_type = "website"
 ogp_image = "https://docs.electrum.org/en/latest/_static/og-image.png"
 
 
+# -- Options for sitemap ----------------------------------------------------
 
+sitemap_url_scheme = "{link}"
