@@ -14,26 +14,6 @@ Internal Plugins
 
 Internal Plugins are shipped with Electrum and maintained in the Electrum repository.
 
-Below you can find a short description of each integrated Tool.
-
-* Audio Modem: Provides support for air-gapped transaction signing. Requires 'amodem' python package http://github.com/romanz/amodem/
-
-* LabelSync : Save your wallet labels on a remote server, and synchronize them across multiple devices where you use Electrum. Labels, transactions IDs and addresses are encrypted before they are sent to the remote server.
-
-* Nostr Wallet Connect: This plugin allows remote control of Electrum lightning wallets via Nostr NIP-47 (Nostr Wallet Connect). A connection string with daily budget and expiry date can be created from the Desktop GUI as well as the command line and then used in Nostr apps like browser extensions or social media clients.
-
-* Nostr Cosigner: This plugin facilitates the use of multi-signatures wallets. It sends and receives partially signed transactions from/to your cosigner wallet. PSBTs are sent and retrieved encrypted using Nostr relays.
-
-* Revealer: Create a visually encrypted backup of your wallet seeds, or of custom alphanumeric secrets.
-
-* Two Factor Authentication: This plugin adds two-factor authentication to your wallet. For more information, visit https://api.trustedcoin.com/#/electrum-help
-
-* Timelock Recovery: This plug-in allows you to create Timelock Recovery Plans for your wallet. See: https://timelockrecovery.com
-
-* Virtual Keyboard: Add an optional virtual keyboard to the password dialog.
-
-* Swapserver [CLI only]: Offer submarine swaps to other Electrum users. See: :ref:`Running a swapserver <swapserver>`
-
 External Plugins
 ----------------
 Electrum supports importing third party plugins from *.zip* files. Once you obtained a plugin you can load it with the **Add** button in the plugins dialog.
@@ -41,6 +21,9 @@ Electrum supports importing third party plugins from *.zip* files. Once you obta
 Alternatively, if you are running Electrum from sources, you may clone
 a third-party plugin repository, and add a symbolic link in your
 electrum/electrum/plugins directory.
+
+.. note::
+    A list of internal and external plugins can be found at `plugins.electrum.org <https://plugins.electrum.org>`_.
 
 Setting up the plugin password
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,25 +64,6 @@ On Windows
 
     .. image:: png/external_plugin_windows_regedit.png
         :align: center
-
-List of external plugins
-^^^^^^^^^^^^^^^^^^^^^^^^
-Below is a non-exhaustive list of known external plugins.
-
-These plugins are **not reviewed or endorsed by Electrum** and should be used **at your own risk**.
-
-
-.. csv-table:: :rst:dir:`List of external Electrum plugins`
-   :header: "Name", "Description", "Repository", "GUI", "Added"
-
-    "Guardian", "`Physical coercion resistance <https://delvingbitcoin.org/t/proposal-guardian-address-gaspv1/2006>`_", "`Github <https://github.com/bitcoinguardian/electrum/tree/master/electrum/plugins/guardian>`_", "Qt", "10/2025"
-    "LNURL Server", "`Receive LN payments through a static URL <https://github.com/lnurl/luds/blob/luds/06.md>`_", "`Github <https://github.com/f321x/electrum-lnurl-server>`_", "daemon", "10/2025"
-    "Joinstr", "`Collaborative Transactions via Nostr <https://joinstr.xyz/>`_", "`Gitlab <https://gitlab.com/invincible-privacy/joinstr/-/tree/main/plugin>`_", "Qt", "10/2025"
-    "Notary", "`Proof-of-burn for Nostr events <https://notary.electrum.org/>`_", "`Github <https://github.com/spesmilo/notary>`_", "daemon", "11/2025"
-    "PayServer", "HTTP server receiving payments", "`Github <https://github.com/spesmilo/electrum-payserver>`_", "daemon", "11/2025"
-
-
-If you want to submit a plugin to be added to the list open a Pull Request on the `Electrum docs repository <https://github.com/spesmilo/electrum-docs/>`_.
 
 Plugin Development
 ------------------
