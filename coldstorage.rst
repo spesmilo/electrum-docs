@@ -50,15 +50,21 @@ Then you should see the transaction history of your cold wallet.
 Create an unsigned transaction
 ------------------------------
 
-Go to the "send" tab on your online watching-only wallet,
+Go to the "Send" tab on your online watching-only wallet,
 input the transaction data and press "Preview". A window pops up:
 
 .. image:: png/unsigned.png
 
 
-Press "save" and save the transaction file somewhere on your computer. Close the
-window and transfer the transaction file to your offline
-machine (e.g. with a usb stick).
+Press "Export" to save the transaction to a file on your computer.
+
+.. note::
+   In newer versions of Electrum, the "Save" button stores the
+   transaction locally in the wallet file. To export the transaction
+   to a file for transfer, use the "Export" button instead.
+
+Close the window and transfer the transaction file to your offline
+machine (e.g. with a USB stick).
 
 Get your transaction signed
 ---------------------------
@@ -69,12 +75,12 @@ step.
 
 .. image:: png/sign.png
 
-Press "sign". Once the transaction is signed, the Transaction ID
+Press "Sign". Once the transaction is signed, the Transaction ID
 appears in its designated field.
 
 .. image:: png/signed.png
 
-Press save, store the file somewhere on your
+Press "Export" to save the signed transaction to a file on your
 computer, and transfer it back to your online machine.
 
 Broadcast your transaction
@@ -83,6 +89,6 @@ Broadcast your transaction
 
 On your online machine, select Tools -> Load transaction -> From File
 from the menu. Select the signed transaction file. In the window that
-opens up, press "broadcast". The transaction will be broadcasted over
+opens up, press "Broadcast". The transaction will be broadcast over
 the Bitcoin network.
 
