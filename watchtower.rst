@@ -1,12 +1,11 @@
-How to setup a watchtower
-=========================
+How to set up a watchtower
+==========================
 
-This tutorial will show you how to configure your Electrum daemon as a
-watchtower for your lightning wallet.  It is written for Electrum 4.0.
+This tutorial shows how to configure an Electrum 4.8.4 daemon as a
+watchtower for your Lightning wallet.
 
-A watchtower is a separate Electrum process, that runs on
-another computer. To setup a watchtower, you need to configure
-an Electrum daemon, and enter its URL in your preferences.
+A watchtower is a separate Electrum process, typically running on another
+computer. Configure the daemon, then enter its URL in your wallet preferences.
 
 
 
@@ -16,25 +15,15 @@ How to configure a watchtower
 You want to run your watchtower on a machine that is regularly
 connected to the internet.
 
-First install Electrum, and add a SSL certificate to your Electrum
-configuration:
+Install Electrum. With the daemon stopped, enable the watchtower plugin and
+set its port and credentials:
 
 .. code-block:: bash
 
-   electrum -o setconfig ssl_keyfile /path/to/ssl/privkey.pem
-   electrum -o setconfig ssl_certfile /path/to/ssl/fullchain.pem
-
-For details see `How to add SSL <ssl.html>`_
-
-
-Second, configure your watchtower with an address, username and password:
-
-.. code-block:: bash
-
-    electrum setconfig -o run_watchtower true
-    electrum setconfig -o watchtower_user myusername
-    electrum setconfig -o watchtower_password mypassword
-    electrum setconfig -o watchtower_address example.com:12345
+    electrum -o setconfig plugins.watchtower.enabled true
+    electrum -o setconfig plugins.watchtower.server_user myusername
+    electrum -o setconfig plugins.watchtower.server_password mypassword
+    electrum -o setconfig plugins.watchtower.server_port 12345
 
 Then start the daemon:
 
@@ -43,8 +32,13 @@ Then start the daemon:
     electrum daemon -d
 
 
-The watchtower database contains presigned transactions, and is in
-~/.electrum/watchtower_db
+The plugin listens on localhost only. To connect from a separate device, run an
+HTTPS reverse proxy on the watchtower machine and forward requests to
+``http://127.0.0.1:12345``, preserving the HTTP authorization header. Use the
+proxy's public hostname and port in the wallet URL.
+
+The watchtower database is named ``watchtower_db`` in the Electrum data
+directory. It contains presigned transactions.
 
 
 Note that the daemon does not need to contain a wallet, nor to have
@@ -52,18 +46,15 @@ Lightning enabled; the watchtower is only about watching onchain
 addresses and broadcasting onchain transactions.
 
 
-If you run Electrum's Qt GUI on the machine that is configured as a
-watchtower, you can view the database size and number of transactions
-per channel if you open the watchtower window:
-
-.. image:: png/watchtower_window.png
-
-
 Configure the watchtower in your client
 ---------------------------------------
 
-In your client preferences, tick 'use a remote watchtower' and enter the url:
+With the wallet's Electrum daemon stopped, set ``watchtower_url`` on the
+client. For the HTTPS proxy in this example, use:
 
 .. code-block:: bash
 
-    https://myusername:mypassword@example.com:12345
+    electrum -o setconfig watchtower_url 'https://myusername:mypassword@example.com/'
+
+Restart the client after setting the URL. To test a watchtower from a wallet
+on the same machine, use ``http://myusername:mypassword@127.0.0.1:12345``.
